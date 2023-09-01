@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pagamento.css">
+    <link rel="shortcut icon" href="../cafe-quente.png" type="image/x-icon">
+    <title>Café&Biscoito - Pd</title>
+</head>
+<body>
+
+    <form action="pedido.php" method="post">
+
+        <nav class="nav">
+
+            <div class="div">
+
+                <a href="../Pg-inicial-dps-do-Login~/pg.html"><img class="img1" src="../cafe-quente.png" alt=""></a>
+                <img class="img2" src="../grao-de-cafe (1).png" alt="">
+                <img class="img3" src="../grao-de-cafe (1).png" alt="">
+                <div class="div1">
+
+                    <div class="wrapper">
+
+                    <a class="a1">REALIZAÇÃO do PEDIDO: | </a>
+
+                    <label class="cpf" for="cpf">CPF:</label>
+                    <input class="cpfin" placeholder="Digite seu CPF" type="number" name="cpf" id="cpf" required>
+
+                    <label class="senha" for="pedido">Pedido:</label>
+                    <select class="senhain" name="pedido" id="pedido">
+                        
+                        <option value="0">Café Latte</option>
+                        <option value="1">Brownie</option>
+                        <option value="2">Café com Donut</option>
+                        <option value="3">Croissant</option>
+                        <option value="4">Waffle Coração</option>
+                        <option value="5">Muffin g. de Chocolate</option>
+                        <option value="6">Panqueca</option>
+                        <option value="7">Muffin José</option>
+                        <option value="8">Café Americano</option>
+                        <option value="9">Café com Leite</option>
+                        <option value="10">Café de Erva-Cidreira</option>
+
+                    </select>
+
+                    <label class="senha" for="quant">Quantidade:</label>
+                    <select class="senhain" name="quant" id="quant">
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                        <option value=6>6</option>
+                        <option value=7>7</option>
+                        <option value=8>8</option>
+                        <option value=9>9</option>
+                        <option value=10>10</option>
+                    </select>
+
+                    <br> <br>
+
+                    <label class="senha" for="livro">Livro:</label>
+                    <select class="senhain" name="livro" id="livro">
+                    <optgroup label="Nenhum">
+                        <option value="0">N/A</option>
+                    </optgroup>
+                    <optgroup label="Romance">
+                        <option value="1">Novembro, 9</option>
+                        <option value="2">Eu e esse meu coração</option>
+                        <option value="3">P.S. Eu Te Amo</option>
+                        <option value="4">O Lado Feio do Amor</option>
+                        <option value="5">É assim que começa</option>
+                        <option value="6">É assim que acaba</option>
+                        <option value="7">Orgulho e Preconceito</option>
+                        <option value="8">A culpa é das estrelas</option>
+                    </optgroup>
+
+                    <optgroup label="Terror">
+                        <option value="9">O Iluminado</option>
+                        <option value="10">Coraline</option>
+                        <option value="11">O Chamado de Cthulhu</option>
+                        <option value="12">O Exorcista</option>
+                        <option value="13">Goosebumps</option>
+                        <option value="14">Frankenstein</option>
+                        <option value="15">It, A Coisa</option>
+                    </optgroup>
+
+                    <optgroup label="Aventura">
+                        <option value="16">Moby Dick</option>
+                        <option value="17">Duna</option>
+                        <option value="18">Harry Potter e a Pedra Filosofal</option>
+                        <option value="19">Sherlock Holmes</option>
+                        <option value="20">O Hobbit</option>
+                        <option value="21">Senhor dos Aneís</option>
+                        <option value="22">Alice no País das Maravilhas</option>
+                        <option value="23">A Fantástica Fábrica de Chocolate</option>
+                    </optgroup>
+
+                    <optgroup label="Drama">
+                        <option value="24">Todas as suas (im)perfeições</option>
+                        <option value="25">A Paciente Silenciosa</option>
+                        <option value="26">Hamlet</option>
+                        <option value="27">Romeu e Julieta</option>
+                        <option value="28">Antes que as luzes se apaguem</option>
+                        <option value="29">A Biblioteca da Meia-Noite</option>
+                        <option value="30">Sob a Capa Vermelha</option>
+                    </optgroup>
+                    </select>
+
+                    <br>
+
+                    <label class="senha" for="metodo">Metodo Pagamento:</label>
+                    <input type="radio" name="metodo" id="Dinheiro" value="Dinheiro"/><label for="Dinheiro">Dinheiro</label>
+                    <input type="radio" name="metodo" id="Cartão de Crédito" value="Cartão de Crédito"/><label for="Cartão de Crédito">Cartão de Crédito</label>
+
+                    <br>
+
+                    <input class="sub" type="submit" value="Próximo Passo">
+                    <input class="res" type="reset" name="reset" value="Limpar"><br/>
+    </form>
+</body>
+</html>

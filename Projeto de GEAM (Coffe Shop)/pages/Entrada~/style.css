@@ -1,0 +1,100 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+img{
+    width: 140px;
+    margin-top: 18px;
+    filter: drop-shadow(0px 0px 5px bisque);
+}
+
+form{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+.a1{
+    color: beige;
+    text-shadow:
+    2px 2px 4px rgb(170, 105, 51)
+    ;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;
+    padding: 0px 25px;
+    border-bottom: 3px dotted rgb(88, 66, 44);
+    border-right: 3px dotted rgb(88, 66, 44);
+    border-left: 3px dotted rgb(88, 66, 44);
+    position:relative;
+}
+
+.a1::after{
+    content: "";
+    position: absolute;
+    width: 695px;
+    height: 2px;
+    background-color: rgb(88, 66, 44);
+    left: -70px;
+}
+
+.a2{
+    color: rgb(250, 192, 142);
+    font-family: 'Segoe Script';
+    font-size: 20px;
+}
+
+.a3{
+    color: beige;
+    text-shadow: 
+    2px 2px 4px rgb(250, 177, 118)
+    ;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    padding: 7px 10px;
+    position: relative;
+}
+
+.a3::after{
+    content: "";
+    position: absolute;
+    width: 695px;
+    height: 2px;
+    background-color: rgb(88, 66, 44);
+    bottom: -110px;
+    left: -85px;
+
+}
+
+.botao{
+    font-family: 'Segoe Script';
+    font-size: 20px;
+    color: rgb(255, 179, 112);
+    border-color: rgb(241, 187, 143);
+    border-radius: 5px;
+    background-color:rgb(114, 67, 29);
+    padding: 10px 20px;
+    letter-spacing: 5px;
+    cursor: pointer;
+    outline: 2px solid rgb(241, 187, 143);
+    transition:0.2s;
+}
+
+.botao:hover{
+    font-size: 22px;
+    scale: 0.1rem;
+    letter-spacing: 6px;
+    color: bisque;
+    border-color: rgb(236, 149, 73);
+}
+
+body{
+    background:url("COFFE TIME!.jpeg") no-repeat center center;
+    background-size: cover;
+    background-attachment:fixed;
+    height: 80vh;
+}
