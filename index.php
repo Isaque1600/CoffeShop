@@ -1,9 +1,11 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", "on");
 
-include("ajax/Person.php");
+require "./ajax/User.php";
 
-$test = new Person("isaque", "user");
+$test = new User("chocolate","isaque");
 
-print_r($test);
+var_dump($test);
 
 ?>

@@ -2,21 +2,19 @@
 
 require_once("Conn.php");
 
-class Person extends Conn
-{
+abstract class Person extends Conn {
+    protected string|null $name;
+    protected string|null $surname;
+    protected string|null $type;
+    protected string|null $email;
+    protected string|null $passwd;
     
-    protected string $name;
-    protected string $surname;
-    protected string $type;
-    protected string $email;
-    protected string $passwd;
-
-    public function __construct(
-        string $name,
-        string $type,  
-        string $surname = null,        
-        string $email = null, 
-        string $passwd = null,
+    protected function __construct(
+        string|null $name = null,
+        string|null $type = null,  
+        string|null $surname = null,        
+        string|null $email = null, 
+        string|null $passwd = null,
         ) 
     {
         $this->name = $name;
@@ -26,10 +24,11 @@ class Person extends Conn
         $this->passwd = $passwd;
     }
 
-    protected function verifyConnect(): object|string
+    protected function verifyConnect(): object|null
     {
         return $this->connect;
     }
 
 }
 
+?>

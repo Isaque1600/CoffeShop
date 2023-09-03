@@ -1,17 +1,19 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", "on");
 
 require("Person.php");
+
 class User extends Person
 {
-    private string $name;
-    private string $type;
-    protected array $preferencies;
-    public object|string $result;
+    protected ?string $type;
+    protected ?array $preferencies;
+    public object|string|null $result;
     
-    public function __construct(string $preferencies = null) 
+    public function __construct(?string $preferencies = "", ?string $name = null) 
     {
-        parent::__construct($this->name, $this->type);
         $this->preferencies = explode(";", $preferencies);
+        parent::__construct(name:$name);
     }
 
     public function listUserPreferencies() : array
