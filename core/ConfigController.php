@@ -2,22 +2,22 @@
 
 namespace Core;
 
+use Error;
+
 class ConfigController
 {
-    private ?string $url;
-    private ?array $urlArray;
-    private ?string $urlController;
-    private ?string $urlMetodo;
+    private string $url;
+    private array $urlArray;
+    private string $urlController;
+    private string $urlMetodo;
 
     public function __construct()
     {
         if (!empty(filter_input(INPUT_GET, 'url', FILTER_DEFAULT))) {
             $this->url = filter_input(INPUT_GET, 'url', FILTER_DEFAULT);
-            var_dump($this->url);
             $this->urlArray = explode("/", $this->url);
-            var_dump($this->urlArray);
 
-            if ((isset($this->urlArray))) {
+            if ((isset($this->urlArray[0])) and (isset($this->urlArray[1]))) {
                 $this->urlController = $this->urlArray[0];
                 $this->urlMetodo = (!empty($this->urlArray[1])) ? $this->urlArray[1] : "index";
             } else {
@@ -29,6 +29,19 @@ class ConfigController
             $this->urlMetodo = "index";
         }
 
-        echo "Controller: {$this->urlController} - Método: {$this->urlMetodo} <br>";
     }
+
+    public function loadPage(){
+        
+        $classLoad = "\\Sts\Controllers\\" . ucwords($this->urlController);
+        try {
+            $classPage = new $classLoad();
+            $classPage->index();
+        } catch (Error $err) {
+            $classLoad = "\\Sts\Controllers\\" . "NotFound";
+            $classPage = new $classLoad();
+            $classPage->index();
+        }
+    }
+
 }

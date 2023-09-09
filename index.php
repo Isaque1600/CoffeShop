@@ -8,10 +8,10 @@
 <body>
     <?php
 
-        require_once("./vendor/autoload.php");
+        require("./vendor/autoload.php");
 
         $url = new Core\ConfigController();
-
+        $url->loadPage();
     ?>
 </body>
 </html>

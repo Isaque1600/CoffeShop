@@ -19,9 +19,9 @@
     ],
     "autoload": {
         "psr-4": {
-            "Sts\\" : "app/sts/",
-            "Adm\\" : "app/adm/",
-            "Core\\" : "core/"
+            "Sts\\" : "app/sts",
+            "Adm\\" : "app/adm",
+            "Core\\" : "core"
         }
     },
     "require": {}
