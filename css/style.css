@@ -1,0 +1,22 @@
+:root{
+    --chr-color: #DDE3E3ff;
+    --ui-layout: #2D271Dff;
+    --ui-details: #6D9891ff;
+    --cmplt-brown: #61371Bff;
+    --cmplt-green: #A8BAB9ff;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.nav__menu {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+
+
