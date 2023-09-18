@@ -3,13 +3,16 @@
 namespace Core;
 
 use Error;
+use ErrorException;
+use Exception;
 
 class ConfigController extends Config
 {
     private string $url;
     private array $urlArray;
     private string $urlController;
-    private string $urlMetodo;
+    private string $urlMethod;
+    private ?string $urlParametters = null;
 
     public function __construct()
     {
@@ -21,26 +24,32 @@ class ConfigController extends Config
 
             if ((isset($this->urlArray[0])) and (isset($this->urlArray[1]))) {
                 $this->urlController = $this->urlArray[0];
-                $this->urlMetodo = (!empty($this->urlArray[1])) ? $this->urlArray[1] : "index";
+                $this->urlMethod = (!empty($this->urlArray[1])) ? $this->urlArray[1] : "index";
+                // $this->urlParametters = filter_input(INPUT_GET, 'url', FILTER_DEFAULT);
+                // unset($this->urlParametters['url']);
             } else {
                 $this->urlController = "erro";
-                $this->urlMetodo = "index";
+                $this->urlMethod = "index";
             }
         } else {
             $this->urlController = "home";
-            $this->urlMetodo = "index";
+            $this->urlMethod = "index";
         }
+
+        // var_dump($this->urlParametters);
+        // var_dump($this->urlController);
+        // var_dump($this->urlMethod);
 
     }
 
     public function loadPage()
     {
-
-        $classLoad = "\\Sts\Controllers\\" . ucwords($this->urlController);
         try {
+            $classLoad = "\\Sts\Controllers\\" . ucwords($this->urlController);
             $classPage = new $classLoad();
-            $classPage->index();
-        } catch (Error $err) {
+            $classPage->{$this->urlMethod}();
+            // var_dump($classPage);
+        } catch (ErrorException $err) {
             $classLoad = "\\Sts\Controllers\\" . "NotFound";
             $classPage = new $classLoad();
             $classPage->index();
