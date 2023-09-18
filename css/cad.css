@@ -23,6 +23,7 @@ main {
     display: grid;
     place-items: center;
     height: 100vh;
+    background: linear-gradient(0, var(--ui-layout) 70%, var(--ui-details) 30%);
 }
 
 .cad-card {
@@ -30,7 +31,6 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     background-color: var(--cmplt-lgt-brown);
-    padding: 2rem;
     border: .2em var(--cmplt-brown) inset; 
     max-width: max(80% - 4vh);
     width: 100%;
@@ -48,10 +48,6 @@ main {
     align-items: center;
     position: relative;
     isolation: isolate;
-}
-
-.cad-card__legenda {
-    text-align: center;
 }
 
 .cad-card__legenda::after {
@@ -75,6 +71,7 @@ main {
 
 .cad-card__img {
     mix-blend-mode: color-dodge;
+    pointer-events: none;
 }
 
 .cad-card__content {
@@ -90,11 +87,12 @@ main {
 }
 
 .cad-card__title:nth-child(1) {
-    font-size: clamp(3ch, 3.5ch, 4ch);
+    font-size: clamp(1.3rem, -0.875rem + 8vw, 1.8rem);
+    min-width: max-content;
 }
 
 .cad-card__title > a {
-    font-size: clamp(.50ch, 1ch, 1.5ch);
+    font-size: clamp(.50ch, 1ch + 0.5vw, 1.3ch);
     color: var(--ui-layout);
 }
 
@@ -114,12 +112,11 @@ main {
     color: var(--cmplt-lgt-brown);
     font-weight: 600;
     cursor: pointer;
-    transition: ease-out .3s;
+    transition: ease-out .2s;
 }
 
-.cad-card__login-button:hover {
-    box-shadow: inset var(--ui-layout) 2px 2px 2px;
-    font-size: 0.8em;
+.cad-card__login-button:hover, .cad-card__login-button:target {
+    box-shadow: inset var(--ui-layout) 1px 1px 1px;
 }
 
 .cad-card__inputs {
@@ -132,11 +129,30 @@ main {
 }
 
 .cad-card__label {
-    font-size: clamp(1ch, 2.5ch, 3ch);
+    font-size: clamp(.100ch, 1.5ch + 0.5vw, 3ch);
     color: var(--cmplt-green);
 }
 
 .cad-card__input {
     min-width: max(15rem);
     min-height: max(1.5rem);
+}
+
+@media (max-width: 850px) {
+    main {
+        height: 110vh;
+    }
+    .cad-card {
+        justify-content: start;
+        max-height: max-content;
+    }
+
+    .cad-card__content {
+        margin-inline: auto;
+    }
+
+    .cad-card__icon {
+        width: 100%;
+        flex-basis: 100%;
+    }
 }
