@@ -4,7 +4,7 @@ namespace Core;
 
 use Error;
 
-class ConfigController
+class ConfigController extends Config
 {
     private string $url;
     private array $urlArray;
@@ -13,6 +13,8 @@ class ConfigController
 
     public function __construct()
     {
+        Config::__construct();
+
         if (!empty(filter_input(INPUT_GET, 'url', FILTER_DEFAULT))) {
             $this->url = filter_input(INPUT_GET, 'url', FILTER_DEFAULT);
             $this->urlArray = explode("/", $this->url);
@@ -31,8 +33,9 @@ class ConfigController
 
     }
 
-    public function loadPage(){
-        
+    public function loadPage()
+    {
+
         $classLoad = "\\Sts\Controllers\\" . ucwords($this->urlController);
         try {
             $classPage = new $classLoad();
