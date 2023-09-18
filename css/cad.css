@@ -142,6 +142,7 @@ main {
     main {
         height: 110vh;
     }
+
     .cad-card {
         justify-content: start;
         max-height: max-content;
@@ -154,5 +155,11 @@ main {
     .cad-card__icon {
         width: 100%;
         flex-basis: 100%;
+    }
+}
+
+@media (max-height: 470px) {
+    main {
+        height: max-content;
     }
 }
