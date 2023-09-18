@@ -2,8 +2,11 @@
     --chr-color: #DDE3E3ff;
     --ui-layout: #2D271Dff;
     --ui-details: #6D9891ff;
+
+    /*Cores Complementares*/
     --cmplt-brown: #61371Bff;
     --cmplt-green: #A8BAB9ff;
+    --cmplt-lgt-brown: #836958; 
 }
 
 * {
