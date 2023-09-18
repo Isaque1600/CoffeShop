@@ -1,0 +1,165 @@
+:root{
+    --chr-color: #DDE3E3ff;
+    --ui-layout: #2D271Dff;
+    --ui-details: #6D9891ff;
+
+    /*Cores Complementares*/
+    --cmplt-brown: #61371Bff;
+    --cmplt-green: #A8BAB9ff;
+    --cmplt-lgt-brown: #836958; 
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family: 'Roboto Serif', serif;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: linear-gradient(0, var(--ui-layout) 70%, var(--ui-details) 30%);
+}
+
+.cad-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--cmplt-lgt-brown);
+    border: .2em var(--cmplt-brown) inset; 
+    max-width: max(80% - 4vh);
+    width: 100%;
+    max-height: max(100% - 2vh);
+    height: 100%;
+}
+
+.cad-card > * {
+    flex-basis: 50%;
+}
+
+.cad-card__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    isolation: isolate;
+}
+
+.cad-card__legenda::after {
+    content: '';
+    background-image: url(../images/img-grande.jpg);
+    background-size: cover;
+    filter: blur(0.10rem);
+    z-index: -2;
+    inset: 0;
+    position: absolute;
+}
+
+.cad-card__legenda::before {
+    content: '';
+    background-color: #4141412c;
+    filter: blur(0.5rem);
+    z-index: -1;
+    inset: 0;
+    position: absolute;
+}
+
+.cad-card__img {
+    mix-blend-mode: color-dodge;
+    pointer-events: none;
+}
+
+.cad-card__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cad-card__form-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em 0;
+}
+
+.cad-card__title:nth-child(1) {
+    font-size: clamp(1.3rem, -0.875rem + 8vw, 1.8rem);
+    min-width: max-content;
+}
+
+.cad-card__title > a {
+    font-size: clamp(.50ch, 1ch + 0.5vw, 1.3ch);
+    color: var(--ui-layout);
+}
+
+.cad-card__title > a:hover {
+    text-decoration: overline;
+    color: var(--cmplt-brown);
+}
+
+.cad-card__login {
+    align-self: flex-end;
+}
+
+.cad-card__login-button {
+    padding: .5em;
+    border: none;
+    background-color: var(--cmplt-green);
+    color: var(--cmplt-lgt-brown);
+    font-weight: 600;
+    cursor: pointer;
+    transition: ease-out .2s;
+}
+
+.cad-card__login-button:hover, .cad-card__login-button:target {
+    box-shadow: inset var(--ui-layout) 1px 1px 1px;
+}
+
+.cad-card__inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.cad-card__inputs > * + * {
+    margin-bottom: .3em;
+}
+
+.cad-card__label {
+    font-size: clamp(.100ch, 1.5ch + 0.5vw, 3ch);
+    color: var(--cmplt-green);
+}
+
+.cad-card__input {
+    min-width: max(15rem);
+    min-height: max(1.5rem);
+}
+
+@media (max-width: 850px) {
+    main {
+        height: 110vh;
+    }
+
+    .cad-card {
+        justify-content: start;
+        max-height: max-content;
+    }
+
+    .cad-card__content {
+        margin-inline: auto;
+    }
+
+    .cad-card__icon {
+        width: 100%;
+        flex-basis: 100%;
+    }
+}
+
+@media (max-height: 470px) {
+    main {
+        height: max-content;
+    }
+}
