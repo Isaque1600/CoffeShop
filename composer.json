@@ -1,0 +1,28 @@
+{
+    "description": "Bonne Café",
+    "authors": [
+        {
+            "name": "Dâmaris",
+            "email": "damarisdonato38@gmail.com",
+            "role": "Frontend Dev"
+        },
+        {
+            "name": "Isaque",
+            "email": "isaquebatista25@gmail.com",
+            "role": "Backend Dev"
+        },
+        {
+            "name": "Thiago",
+            "email": "tg689092@gmail.com",
+            "role": "Frontend Dev"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sts\\" : "app/sts",
+            "Adm\\" : "app/adm",
+            "Core\\" : "core"
+        }
+    },
+    "require": {}
+}
