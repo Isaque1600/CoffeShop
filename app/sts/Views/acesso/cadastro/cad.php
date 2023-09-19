@@ -30,7 +30,7 @@ if (isset($this->data['result'])) {
     <main>
         <section class="cad-card">
             <article class="cad-card__icon">
-                <figure>
+                <figure class="cad-card__icon-container">
                     <img class="cad-card__img" src="<?php echo IMG_PATH ?>logo-grande.png" alt="Café">
                     <figcaption class="cad-card__legenda"></figcaption>
                 </figure>

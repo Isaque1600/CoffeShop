@@ -48,6 +48,7 @@ main {
   align-items: center;
   position: relative;
   isolation: isolate;
+  z-index: 5;
 }
 
 .cad-card__legenda::after {
@@ -55,16 +56,15 @@ main {
   background-image: url(../images/img-grande.jpg);
   background-size: cover;
   filter: blur(0.1rem);
-  z-index: -2;
+  z-index: -1;
   inset: 0;
   position: absolute;
 }
 
 .cad-card__legenda::before {
   content: "";
-  background-color: #4141412c;
-  filter: blur(0.5rem);
-  z-index: -1;
+  background-color: #4141415b;
+  z-index: 1;
   inset: 0;
   position: absolute;
 }
@@ -72,6 +72,7 @@ main {
 .cad-card__img {
   mix-blend-mode: color-dodge;
   pointer-events: none;
+  backdrop-filter: blur(2rem);
 }
 
 .cad-card__content {
@@ -144,15 +145,13 @@ main {
 .popUp {
   display: flex;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.353);
   backdrop-filter: blur(15px);
   justify-content: center;
   align-items: center;
   z-index: 9999999;
+  font-size: clamp(1rem, -0.875rem + 6vw, 1.5rem);
 }
 
 .popUp-content {
@@ -162,13 +161,18 @@ main {
   flex-wrap: wrap;
   align-items: center;
   background-color: gray;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px black;
+  padding: 2em;
+  border-radius: 0.5em;
+  box-shadow: 0 0 15px black;
   min-width: 400px;
   max-width: 500px;
   min-height: 200px;
-  height: auto;
+  overflow: hidden;
+}
+
+.popUp-content h1 {
+  font-size: clamp(1.5rem, -0.875rem + 6vw, 2rem);
+  width: max-content;
 }
 
 .popUp-close {
