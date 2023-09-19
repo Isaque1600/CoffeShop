@@ -36,10 +36,10 @@ $dataUser = (isset($this->data["form"])) ? $this->data["form"] : null;
                     <div class="cad-card__inputs">
 
                         <label for="email" class="cad-card__label">Email: </label>
-                        <input id="email" name="email" type="email" class="cad-card__input" required>
+                        <input id="email" name="email" type="email" placeholder="Digite seu email" class="cad-card__input" required>
 
                         <label for="pass" class="cad-card__label">Senha: </label>
-                        <input id="pass" name="pass" type="password" class="cad-card__input" required>
+                        <input id="pass" name="pass" type="password" placeholder="Digite sua senha" class="cad-card__input" required>
 
                         <br>
 

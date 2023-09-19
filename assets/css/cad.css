@@ -1,5 +1,6 @@
 :root {
   --chr-color: #dde3e3ff;
+  --chr-lgt-color: #dde3e391;
   --ui-layout: #2d271dff;
   --ui-details: #6d9891ff;
 
@@ -36,7 +37,13 @@ main {
   width: 100%;
   max-height: max(100% - 2vh);
   height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
+
+/*
+  border-radius: 0.5rem;
+  */
 
 .cad-card > * {
   flex-basis: 50%;
@@ -56,29 +63,33 @@ main {
   background-image: url(../images/img-grande.jpg);
   background-size: cover;
   filter: blur(0.1rem);
-  z-index: -1;
+  z-index: -2;
   inset: 0;
   position: absolute;
 }
 
 .cad-card__legenda::before {
   content: "";
-  background-color: #4141415b;
-  z-index: 1;
+  background-color: #4141415d;
+  background-repeat: no-repeat;
+  z-index: -1;
   inset: 0;
   position: absolute;
+  backdrop-filter: blur(0.3rem);
 }
 
 .cad-card__img {
   mix-blend-mode: color-dodge;
-  pointer-events: none;
-  backdrop-filter: blur(2rem);
+  filter: drop-shadow(0 0 0.7rem #dde3e3ff);
+  user-select: none;
+  z-index: 888;
 }
 
 .cad-card__content {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-left: 0.1rem solid var(--ui-layout);
 }
 
 .cad-card__form-header {
@@ -90,10 +101,12 @@ main {
 .cad-card__title:nth-child(1) {
   font-size: clamp(1.3rem, -0.875rem + 8vw, 1.8rem);
   min-width: max-content;
+  color: var(--chr-lgt-color);
+  -webkit-text-stroke: #00000094 0.05rem;
 }
 
 .cad-card__title > a {
-  font-size: clamp(0.5ch, 1ch + 0.5vw, 1.3ch);
+  font-size: clamp(0.5ch, 1ch + 0.5vw, 1.2ch);
   color: var(--ui-layout);
 }
 
@@ -138,7 +151,20 @@ main {
 .cad-card__input {
   min-width: max(15rem);
   min-height: max(1.5rem);
+  padding: .3rem;
+  border-radius: 0.2rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.304);
+  border-bottom: 0.01rem solid var(--ui-layout);
+  outline: none;
 }
+
+.cad-card__input:not(:focus) {
+  filter: blur(.15rem);
+
+}
+
+
 
 /* Pop Up */
 
@@ -224,11 +250,11 @@ main {
   }
 
   .cad-card__content {
-    margin-inline: auto;
+    border-top: 0.1rem solid var(--ui-layout);
+    flex-basis: 100%;
   }
 
   .cad-card__icon {
-    width: 100%;
     flex-basis: 100%;
   }
 }
