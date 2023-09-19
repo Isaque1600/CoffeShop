@@ -58,4 +58,39 @@ class User extends Person
         }
     }
 
+    public function verifyUser($email, $senha): string|bool
+    {
+        try {
+            $userSelect = $this->connection->prepare(
+                "SELECT email, senha, nome, sobrenome, cpf_cnpj, tipo 
+                FROM pessoas 
+                WHERE email=:email 
+                and senha=:senha"
+            );
+
+            $userSelect->bindParam(":email", $email);
+            $userSelect->bindParam(":senha", $senha);
+
+            if ($userSelect->execute()) {
+                $userData = $userSelect->fetch(PDO::FETCH_ASSOC);
+
+                if (!empty($userData)) {
+                    if (session_status() != PHP_SESSION_ACTIVE) {
+                        session_start();
+
+                        $_SESSION['user'] = $userData;
+                        $_SESSION['user']['status'] = "active";
+                        // var_dump($_SESSION);
+                        return "succeed";
+                    }
+                }
+
+            }
+
+            return false;
+        } catch (PDOException $err) {
+            throw $err;
+        }
+    }
+
 }

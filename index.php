@@ -10,6 +10,12 @@
 <body>
     <?php
 
+    $url = explode("/", __DIR__);
+    $urlDefault = "";
+    for ($i = 4; $i < count($url) - 1; $i++) {
+        $urlDefault .= $url[$i] . "/";
+    }
+
     require("./vendor/autoload.php");
 
     $url = new Core\ConfigController();
