@@ -78,7 +78,7 @@ create table
         nome VARCHAR(30) null,
         sobrenome VARCHAR(30) null,
         tipo varchar(15) null,
-        email VARCHAR(50) null,
+        email VARCHAR(50) null UNIQUE KEY,
         senha VARCHAR(300) null,
         salario double NULL,
         dataEntrada date null,

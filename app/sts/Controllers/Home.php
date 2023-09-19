@@ -14,13 +14,42 @@ class Home
 
     public function index()
     {
+        if (session_status() != PHP_SESSION_ACTIVE) {
+            session_start();
+
+            if (!empty($_SESSION) && $_SESSION['user']['status'] = "active") {
+                $this->data['user'] = $_SESSION['user'];
+            }
+        }
+
         $loadView = new ConfigView("sts/Views/Home/main", $this->data);
         $loadView->renderView();
     }
 
     public function login()
     {
+        $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
+        if (isset($this->dataForm['request'])) {
+            unset($this->dataForm['request']);
+
+            try {
+
+                $this->user = new User($this->dataForm);
+                $userData = $this->user->verifyUser($this->dataForm['email'], $this->dataForm['pass']);
+                // var_dump($_SESSION);
+
+                if (!empty($_SESSION) && $_SESSION['user']['status'] == "active") {
+                    header("location:" . DEFAULT_URL);
+                }
+
+                $this->data['result'] = "Email ou Senha incorretos!";
+            } catch (PDOException $err) {
+                // $this->data['result'] = $err->getCode();
+                $this->data['result'] = $err->getMessage();
+                $this->data['form'] = $this->dataForm;
+            }
+        }
 
         $loadView = new ConfigView("sts/Views/acesso/login/log", $this->data);
         $loadView->renderView();
@@ -49,6 +78,18 @@ class Home
 
         $loadView = new ConfigView("sts/Views/acesso/cadastro/cad", $this->data);
         $loadView->renderView();
+    }
+
+    public function sair()
+    {
+        if (session_status() != PHP_SESSION_ACTIVE) {
+            session_start();
+            echo "hello";
+
+            unset($_SESSION['user']);
+            session_destroy();
+        }
+        header("location:" . DEFAULT_URL);
     }
 
 }
