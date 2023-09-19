@@ -36,8 +36,11 @@ class Home
                 $this->user = new User($this->dataForm);
                 $this->user->registerUser($this->dataForm);
 
+                $this->data['result'] = "succeed";
+                $this->data['form']['name'] = $this->dataForm['name'];
             } catch (PDOException $err) {
-                die("error:" . $err->getMessage());
+                $this->data['result'] = $err->getCode();
+                $this->data['form'] = $this->dataForm;
             }
 
         }

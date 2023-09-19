@@ -1,3 +1,21 @@
+<?php
+
+$dataForm = (isset($this->data['form'])) ? $this->data['form'] : null;
+
+if (isset($this->data['result'])) {
+    if ($this->data['result'] == "succeed") {
+        $result['title'] = "Cadastro realizado com sucesso!";
+        $result['text'] = "Caso queira logar-se <a href=" . DEFAULT_URL . "/Home/login>clique aqui</a>";
+    } elseif ($this->data['result'] == "23000") {
+        $result['title'] = "Usuário já cadastrado no sistema!";
+        $result['text'] = "O usuário {$dataForm['name']} já está cadastrado no sistema </br>Tente cadastrar outro usuário";
+    } else {
+        $result['title'] = "Error inesperado!";
+        $result['text'] = "Um erro inesperado ocorreu\nCódigo do erro:{$this->data['result']}\nAnote o código do erro e contate o desenvolvedor!";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -49,8 +67,22 @@
                     </div>
                 </form>
             </article>
+            <div class="popUp" style="<?php echo (isset($this->data['result'])) ? "display:flex;" : "display:none;" ?>">
+                <div class="popUp-content">
+                    <span class="popUp-close">&times;</span>
+                    <h1 class="popUp-title">
+                        <?php echo $result['title']; ?>
+                    </h1>
+                    <p class="popUp-text">
+                        <?php echo $result['text']; ?>
+                    </p>
+                </div>
+            </div>
         </section>
     </main>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="<?php echo JS_PATH ?>main.js"></script>
 </body>
 
 </html>
