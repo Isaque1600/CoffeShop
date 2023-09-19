@@ -50,24 +50,24 @@ if (isset($this->data['result'])) {
                     <div class="cad-card__inputs">
 
                         <label for="name" class="cad-card__label">Nome: </label>
-                        <input id="name" name="name" type="text" class="cad-card__input"
+                        <input id="name" name="name" type="text" placeholder="Digite seu nome" class="cad-card__input"
                             value="<?php echo (!empty($dataForm['name'])) ? $dataForm['name'] : "" ?>" required>
 
                         <label for="sobrenome" class="cad-card__label">Sobrenome: </label>
-                        <input id="sobrenome" name="sobrenome" type="text" class="cad-card__input"
+                        <input id="sobrenome" name="sobrenome" type="text" placeholder="Digite seu sobrenome" class="cad-card__input"
                             value="<?php echo (!empty($dataForm['sobrenome'])) ? $dataForm['sobrenome'] : "" ?>"
                             required>
 
                         <label for="cpf" for="" class="cad-card__label">CPF: </label>
-                        <input id="cpf" name="cpf" type="number" class="cad-card__input"
+                        <input id="cpf" name="cpf" type="number" placeholder="Digite seu CPF" class="cad-card__input"
                             value="<?php echo (!empty($dataForm['cpf'])) ? $dataForm['cpf'] : "" ?>" required>
 
                         <label for="email" class="cad-card__label">Email: </label>
-                        <input id="email" name="email" type="email" class="cad-card__input"
+                        <input id="email" name="email" type="email" placeholder="Digite seu email" class="cad-card__input"
                             value="<?php echo (!empty($dataForm['email'])) ? $dataForm['email'] : "" ?>" required>
 
                         <label for="pass" class="cad-card__label">Senha: </label>
-                        <input id="pass" name="pass" type="password" class="cad-card__input"
+                        <input id="pass" name="pass" type="password" placeholder="Digite sua senha" class="cad-card__input"
                             value="<?php echo (!empty($dataForm['pass'])) ? $dataForm['pass'] : "" ?>" required>
 
                     </div>
