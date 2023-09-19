@@ -28,11 +28,11 @@ class ConfigController extends Config
                 // $this->urlParametters = filter_input(INPUT_GET, 'url', FILTER_DEFAULT);
                 // unset($this->urlParametters['url']);
             } else {
-                $this->urlController = "erro";
+                $this->urlController = "Erro";
                 $this->urlMethod = "index";
             }
         } else {
-            $this->urlController = "home";
+            $this->urlController = "Home";
             $this->urlMethod = "index";
         }
 
