@@ -20,6 +20,8 @@ class Home
 
     public function login()
     {
+
+
         $loadView = new ConfigView("sts/Views/acesso/login/log", $this->data);
         $loadView->renderView();
     }
