@@ -39,7 +39,7 @@ if (isset($this->data['result'])) {
                 <form action="" method="post">
                     <header class="cad-card__form-header">
                         <div class="cad-card__title">
-                            <h1 class="cad-card__mtitle">Cadastre-se</h1>
+                            <h1 class="cad-card__subtitle">Cadastre-se</h1>
                             <a href="<?php echo DEFAULT_URL ?>Home/login">Já tem uma conta?</a>
                         </div>
                         <div class="cad-card__login">
