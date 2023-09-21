@@ -25,6 +25,8 @@ class User extends Person
 
     public function registerUser($userData): bool|string|null
     {
+        $encryption = new Encryption();
+
         try {
             $userInsert = $this->connection->prepare("INSERT INTO pessoas(
                 cpf_cnpj, 
@@ -46,7 +48,7 @@ class User extends Person
             $userInsert->bindParam(":sobrenome", $userData['sobrenome']);
             $userInsert->bindParam(":type", $this->type);
             $userInsert->bindParam(":email", $userData['email']);
-            $userInsert->bindParam(":pass", $userData['pass']);
+            $userInsert->bindParam(":pass", $encryption->encrypt($userData['pass']));
 
             if ($userInsert->execute()) {
                 return "success";
@@ -60,23 +62,25 @@ class User extends Person
 
     public function verifyUser($email, $senha): string|bool
     {
+        $encryption = new Encryption();
+
         try {
             $userSelect = $this->connection->prepare(
                 "SELECT email, senha, nome, sobrenome, cpf_cnpj, tipo 
                 FROM pessoas 
-                WHERE email=:email 
-                and senha=:senha"
+                WHERE email=:email"
             );
 
             $userSelect->bindParam(":email", $email);
-            $userSelect->bindParam(":senha", $senha);
 
             if ($userSelect->execute()) {
                 $userData = $userSelect->fetch(PDO::FETCH_ASSOC);
 
-                if (!empty($userData)) {
+                $verifyPass = $encryption->decrypt($userData['senha']);
+                if (!empty($userData) && $verifyPass = $senha) {
                     if (session_status() != PHP_SESSION_ACTIVE) {
                         session_start();
+                        var_dump($userData);
 
                         $_SESSION['user'] = $userData;
                         $_SESSION['user']['status'] = "active";

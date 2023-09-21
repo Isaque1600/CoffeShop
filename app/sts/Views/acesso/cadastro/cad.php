@@ -1,17 +1,16 @@
 <?php
 
-$dataForm = (isset($this->data['form'])) ? $this->data['form'] : null;
+$dataForm = (isset($data['form'])) ? $data['form'] : null;
 
-if (isset($this->data['result'])) {
-    if ($this->data['result'] == "succeed") {
-        $result['title'] = "Cadastro realizado com sucesso!";
-        $result['text'] = "Caso queira logar-se <a href=" . DEFAULT_URL . "/Home/login>clique aqui</a>";
-    } elseif ($this->data['result'] == "23000") {
+if (isset($data['result'])) {
+    if ($data['result'] == "succeed") {
+        header("location:" . DEFAULT_URL . "Home/login?result=success");
+    } elseif ($data['result'] == "23000") {
         $result['title'] = "Usuário já cadastrado no sistema!";
         $result['text'] = "O usuário {$dataForm['name']} já está cadastrado no sistema </br>Tente cadastrar outro usuário";
     } else {
         $result['title'] = "Error inesperado!";
-        $result['text'] = "Um erro inesperado ocorreu\nCódigo do erro:{$this->data['result']}\nAnote o código do erro e contate o desenvolvedor!";
+        $result['text'] = "Um erro inesperado ocorreu\nCódigo do erro:{$data['result']}\nAnote o código do erro e contate o desenvolvedor!";
     }
 }
 
@@ -30,7 +29,7 @@ if (isset($this->data['result'])) {
     <main>
         <section class="cad-card">
             <article class="cad-card__icon">
-                <figure>
+                <figure class="cad-card__icon-container">
                     <img class="cad-card__img" src="<?php echo IMG_PATH ?>logo-grande.png" alt="Café">
                     <figcaption class="cad-card__legenda"></figcaption>
                 </figure>
@@ -39,7 +38,7 @@ if (isset($this->data['result'])) {
                 <form action="" method="post">
                     <header class="cad-card__form-header">
                         <div class="cad-card__title">
-                            <h1 class="cad-card__mtitle">Cadastre-se</h1>
+                            <h1 class="cad-card__subtitle">Cadastre-se</h1>
                             <a href="<?php echo DEFAULT_URL ?>Home/login">Já tem uma conta?</a>
                         </div>
                         <div class="cad-card__login">
@@ -50,30 +49,33 @@ if (isset($this->data['result'])) {
                     <div class="cad-card__inputs">
 
                         <label for="name" class="cad-card__label">Nome: </label>
-                        <input id="name" name="name" type="text" class="cad-card__input"
+                        <input id="name" name="name" type="text" placeholder="Digite seu nome" class="cad-card__input"
                             value="<?php echo (!empty($dataForm['name'])) ? $dataForm['name'] : "" ?>" required>
 
                         <label for="sobrenome" class="cad-card__label">Sobrenome: </label>
-                        <input id="sobrenome" name="sobrenome" type="text" class="cad-card__input"
+                        <input id="sobrenome" name="sobrenome" type="text" placeholder="Digite seu sobrenome"
+                            class="cad-card__input"
                             value="<?php echo (!empty($dataForm['sobrenome'])) ? $dataForm['sobrenome'] : "" ?>"
                             required>
 
                         <label for="cpf" for="" class="cad-card__label">CPF: </label>
-                        <input id="cpf" name="cpf" type="number" class="cad-card__input"
+                        <input id="cpf" name="cpf" type="number" placeholder="Digite seu CPF" class="cad-card__input"
                             value="<?php echo (!empty($dataForm['cpf'])) ? $dataForm['cpf'] : "" ?>" required>
 
                         <label for="email" class="cad-card__label">Email: </label>
-                        <input id="email" name="email" type="email" class="cad-card__input"
+                        <input id="email" name="email" type="email" placeholder="Digite seu email"
+                            class="cad-card__input"
                             value="<?php echo (!empty($dataForm['email'])) ? $dataForm['email'] : "" ?>" required>
 
                         <label for="pass" class="cad-card__label">Senha: </label>
-                        <input id="pass" name="pass" type="password" class="cad-card__input"
+                        <input id="pass" name="pass" type="password" placeholder="Digite sua senha"
+                            class="cad-card__input"
                             value="<?php echo (!empty($dataForm['pass'])) ? $dataForm['pass'] : "" ?>" required>
 
                     </div>
                 </form>
             </article>
-            <div class="popUp" style="<?php echo (isset($this->data['result'])) ? "display:flex;" : "display:none;" ?>">
+            <div class="popUp" style="<?php echo (isset($data['result'])) ? "display:flex;" : "display:none;" ?>">
                 <div class="popUp-content">
                     <span class="popUp-close">&times;</span>
                     <h1 class="popUp-title">

@@ -1,5 +1,6 @@
 :root {
   --chr-color: #dde3e3ff;
+  --chr-lgt-color: #dde3e391;
   --ui-layout: #2d271dff;
   --ui-details: #6d9891ff;
 
@@ -36,7 +37,13 @@ main {
   width: 100%;
   max-height: max(100% - 2vh);
   height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
+
+/*
+  border-radius: 0.5rem;
+  */
 
 .cad-card > * {
   flex-basis: 50%;
@@ -48,6 +55,7 @@ main {
   align-items: center;
   position: relative;
   isolation: isolate;
+  z-index: 5;
 }
 
 .cad-card__legenda::after {
@@ -62,22 +70,26 @@ main {
 
 .cad-card__legenda::before {
   content: "";
-  background-color: #4141412c;
-  filter: blur(0.5rem);
+  background-color: #4141415d;
+  background-repeat: no-repeat;
   z-index: -1;
   inset: 0;
   position: absolute;
+  backdrop-filter: blur(0.3rem);
 }
 
 .cad-card__img {
   mix-blend-mode: color-dodge;
-  pointer-events: none;
+  filter: drop-shadow(0 0 0.7rem #dde3e3ff);
+  user-select: none;
+  z-index: 888;
 }
 
 .cad-card__content {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-left: 0.1rem solid var(--ui-layout);
 }
 
 .cad-card__form-header {
@@ -86,13 +98,19 @@ main {
   margin: 2em 0;
 }
 
-.cad-card__title:nth-child(1) {
-  font-size: clamp(1.3rem, -0.875rem + 8vw, 1.8rem);
+.cad-card__title {
+  padding: 0.5rem;
+}
+
+.cad-card__subtitle {
+  font-size: clamp(1.7rem, -0.875rem + 8vw, 2.5rem);
   min-width: max-content;
+  color: var(--chr-lgt-color);
+  -webkit-text-stroke: #00000094 0.05rem;
 }
 
 .cad-card__title > a {
-  font-size: clamp(0.5ch, 1ch + 0.5vw, 1.3ch);
+  font-size: clamp(1rem, 1ch + 0.5vw, 2rem);
   color: var(--ui-layout);
 }
 
@@ -113,11 +131,14 @@ main {
   font-weight: 600;
   cursor: pointer;
   transition: ease-out 0.2s;
+  border-radius: 0.2em;
 }
 
 .cad-card__login-button:hover,
 .cad-card__login-button:target {
-  box-shadow: inset var(--ui-layout) 1px 1px 1px;
+  box-shadow: inset var(--ui-layout) 2px 1px 1px;
+  font-size: 0.8em;
+  margin: 0.2em 0.1em;
 }
 
 .cad-card__inputs {
@@ -131,28 +152,40 @@ main {
 
 .cad-card__label {
   font-size: clamp(0.1ch, 1.5ch + 0.5vw, 3ch);
-  color: var(--cmplt-green);
+  color: var(--ui-layout);
 }
 
 .cad-card__input {
-  min-width: max(15rem);
-  min-height: max(1.5rem);
+  max-width: 85%;
+  min-height: max(1.7rem);
+  padding: .3rem;
+  border-radius: 0.2rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.304);
+  border-bottom: 0.01rem solid var(--ui-layout);
+  outline: none;
 }
+
+.cad-card__input:not(:focus) {
+  filter: blur(.10em);
+}
+
+
+
+
 
 /* Pop Up */
 
 .popUp {
   display: flex;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.353);
   backdrop-filter: blur(15px);
   justify-content: center;
   align-items: center;
   z-index: 9999999;
+  font-size: clamp(1rem, -0.875rem + 6vw, 1.5rem);
 }
 
 .popUp-content {
@@ -162,13 +195,18 @@ main {
   flex-wrap: wrap;
   align-items: center;
   background-color: gray;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px black;
+  padding: 2em;
+  border-radius: 0.5em;
+  box-shadow: 0 0 15px black;
   min-width: 400px;
   max-width: 500px;
   min-height: 200px;
-  height: auto;
+  overflow: hidden;
+}
+
+.popUp-content h1 {
+  font-size: clamp(1.5rem, -0.875rem + 6vw, 2rem);
+  width: max-content;
 }
 
 .popUp-close {
@@ -220,11 +258,11 @@ main {
   }
 
   .cad-card__content {
-    margin-inline: auto;
+    border-top: 0.1rem solid var(--ui-layout);
+    flex-basis: 100%;
   }
 
   .cad-card__icon {
-    width: 100%;
     flex-basis: 100%;
   }
 }
