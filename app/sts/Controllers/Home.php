@@ -4,6 +4,7 @@ namespace Sts\Controllers;
 
 use Core\ConfigView;
 use PDOException;
+use Sts\Models\Encryption;
 use Sts\Models\User;
 
 class Home
@@ -12,7 +13,7 @@ class Home
     private ?array $dataForm = null;
     private ?object $user;
 
-    public function index()
+    public function index(?array $urlParametters = [])
     {
         if (session_status() != PHP_SESSION_ACTIVE) {
             session_start();
@@ -26,7 +27,7 @@ class Home
         $loadView->renderView();
     }
 
-    public function login()
+    public function login(array $urlParametters = [])
     {
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
@@ -51,11 +52,17 @@ class Home
             }
         }
 
+        if (!empty($urlParametters)) {
+            $this->data['result'] = (!empty($urlParametters['result'])) ? $urlParametters['result'] : null;
+        }
+
+        var_dump($this->data);
+
         $loadView = new ConfigView("sts/Views/acesso/login/log", $this->data);
         $loadView->renderView();
     }
 
-    public function cadastro()
+    public function cadastro(array $urlParametters = [])
     {
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         // var_dump($this->dataForm);
@@ -80,11 +87,11 @@ class Home
         $loadView->renderView();
     }
 
-    public function sair()
+    public function sair(array $urlParametters = [])
     {
         if (session_status() != PHP_SESSION_ACTIVE) {
             session_start();
-            echo "hello";
+            // echo "hello";
 
             unset($_SESSION['user']);
             session_destroy();

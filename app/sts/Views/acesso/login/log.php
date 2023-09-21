@@ -1,6 +1,11 @@
 <?php
 
-$dataUser = (isset($this->data["form"])) ? $this->data["form"] : null;
+$dataUser = (isset($data["form"])) ? $data["form"] : null;
+
+if (isset($data['result']) && $data['result'] == "success") {
+    $result['title'] = ($data['result'] = "success") ? "Usuario cadastrado com sucesso!" : "";
+    $result['text'] = ($data['result'] = "success") ? "O usuario foi cadastrado com sucessor<br>Logue para acessar sua conta" : "";
+}
 
 ?>
 <!DOCTYPE html>
@@ -36,20 +41,33 @@ $dataUser = (isset($this->data["form"])) ? $this->data["form"] : null;
                     <div class="cad-card__inputs">
 
                         <label for="email" class="cad-card__label">Email: </label>
-                        <input id="email" name="email" type="email" placeholder="Digite seu email" class="cad-card__input" required>
+                        <input id="email" name="email" type="email" placeholder="Digite seu email"
+                            class="cad-card__input" required>
 
                         <label for="pass" class="cad-card__label">Senha: </label>
-                        <input id="pass" name="pass" type="password" placeholder="Digite sua senha" class="cad-card__input" required>
+                        <input id="pass" name="pass" type="password" placeholder="Digite sua senha"
+                            class="cad-card__input" required>
 
                         <br>
 
                         <p style="color:red;">
-                            <?php echo (isset($this->data['result'])) ? $this->data['result'] : "" ?>
+                            <?php echo (isset($data['result'])) ? $data['result'] : "" ?>
                         </p>
 
                     </div>
                 </form>
             </article>
+            <div class="popUp" style="<?php echo (isset($result)) ? "display:flex;" : "display:none;" ?>">
+                <div class="popUp-content">
+                    <span class="popUp-close">&times;</span>
+                    <h1 class="popUp-title">
+                        <?php echo $result['title']; ?>
+                    </h1>
+                    <p class="popUp-text">
+                        <?php echo $result['text']; ?>
+                    </p>
+                </div>
+            </div>
         </section>
     </main>
 </body>

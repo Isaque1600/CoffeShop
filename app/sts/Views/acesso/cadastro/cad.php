@@ -1,17 +1,16 @@
 <?php
 
-$dataForm = (isset($this->data['form'])) ? $this->data['form'] : null;
+$dataForm = (isset($data['form'])) ? $data['form'] : null;
 
-if (isset($this->data['result'])) {
-    if ($this->data['result'] == "succeed") {
-        $result['title'] = "Cadastro realizado com sucesso!";
-        $result['text'] = "Caso queira logar-se <a href=" . DEFAULT_URL . "/Home/login>clique aqui</a>";
-    } elseif ($this->data['result'] == "23000") {
+if (isset($data['result'])) {
+    if ($data['result'] == "succeed") {
+        header("location:" . DEFAULT_URL . "Home/login?result=success");
+    } elseif ($data['result'] == "23000") {
         $result['title'] = "Usuário já cadastrado no sistema!";
         $result['text'] = "O usuário {$dataForm['name']} já está cadastrado no sistema </br>Tente cadastrar outro usuário";
     } else {
         $result['title'] = "Error inesperado!";
-        $result['text'] = "Um erro inesperado ocorreu\nCódigo do erro:{$this->data['result']}\nAnote o código do erro e contate o desenvolvedor!";
+        $result['text'] = "Um erro inesperado ocorreu\nCódigo do erro:{$data['result']}\nAnote o código do erro e contate o desenvolvedor!";
     }
 }
 
@@ -54,7 +53,8 @@ if (isset($this->data['result'])) {
                             value="<?php echo (!empty($dataForm['name'])) ? $dataForm['name'] : "" ?>" required>
 
                         <label for="sobrenome" class="cad-card__label">Sobrenome: </label>
-                        <input id="sobrenome" name="sobrenome" type="text" placeholder="Digite seu sobrenome" class="cad-card__input"
+                        <input id="sobrenome" name="sobrenome" type="text" placeholder="Digite seu sobrenome"
+                            class="cad-card__input"
                             value="<?php echo (!empty($dataForm['sobrenome'])) ? $dataForm['sobrenome'] : "" ?>"
                             required>
 
@@ -63,17 +63,19 @@ if (isset($this->data['result'])) {
                             value="<?php echo (!empty($dataForm['cpf'])) ? $dataForm['cpf'] : "" ?>" required>
 
                         <label for="email" class="cad-card__label">Email: </label>
-                        <input id="email" name="email" type="email" placeholder="Digite seu email" class="cad-card__input"
+                        <input id="email" name="email" type="email" placeholder="Digite seu email"
+                            class="cad-card__input"
                             value="<?php echo (!empty($dataForm['email'])) ? $dataForm['email'] : "" ?>" required>
 
                         <label for="pass" class="cad-card__label">Senha: </label>
-                        <input id="pass" name="pass" type="password" placeholder="Digite sua senha" class="cad-card__input"
+                        <input id="pass" name="pass" type="password" placeholder="Digite sua senha"
+                            class="cad-card__input"
                             value="<?php echo (!empty($dataForm['pass'])) ? $dataForm['pass'] : "" ?>" required>
 
                     </div>
                 </form>
             </article>
-            <div class="popUp" style="<?php echo (isset($this->data['result'])) ? "display:flex;" : "display:none;" ?>">
+            <div class="popUp" style="<?php echo (isset($data['result'])) ? "display:flex;" : "display:none;" ?>">
                 <div class="popUp-content">
                     <span class="popUp-close">&times;</span>
                     <h1 class="popUp-title">
