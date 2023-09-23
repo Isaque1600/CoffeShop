@@ -8,9 +8,9 @@ class ConfigController extends Config
 {
     /**
      * Armazena a url
-     * @var string
+     * @var array
      */
-    private string $url;
+    private array $url;
     /**
      * Armazena o controlador da url
      * @var string
@@ -30,6 +30,8 @@ class ConfigController extends Config
     public function __construct()
     {
         Config::__construct();
+
+        var_dump(DEFAULT_URL);
 
         // Testa se a url não está vazia
         if (!empty(filter_input(INPUT_GET, 'url', FILTER_DEFAULT))) {
@@ -78,5 +80,4 @@ class ConfigController extends Config
             $classPage->index();
         }
     }
-
 }
