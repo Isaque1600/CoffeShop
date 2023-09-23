@@ -1,3 +1,4 @@
+-- Active: 1694518027618@@127.0.0.1@3306
 create schema cafeteria;
 
 use cafeteria;
@@ -87,7 +88,7 @@ create table
         Foreign Key (ocupacao) REFERENCES ocupacoes(ocupacaoId)
     )
 
-CREATE Table
+CREATE Table 
     pessoas_categoria(
         pessoa_categoriaId int PRIMARY KEY AUTO_INCREMENT,
         idpessoa int not null,
@@ -118,7 +119,7 @@ CREATE Table
         Foreign Key (pessoaId) REFERENCES pessoas(pessoaId)
     )
 
-drop table vendas;
+-- drop table vendas;
 
 CREATE Table
     vendas_item(
@@ -127,3 +128,9 @@ CREATE Table
         produtoId int NOT NULL,
         Foreign Key (produtoId) REFERENCES produtos(produtoId)
     )
+
+CREATE VIEW pessoa_Favoritos
+AS
+SELECT p.pessoaId, p.cpf_cnpj, pc.categoria 
+FROM pessoas p, pessoas_categoria pc
+WHERE p.pessoaId = pc.idpessoa;

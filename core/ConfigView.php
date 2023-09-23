@@ -10,7 +10,7 @@ class ConfigView
      * @param string $name Path do arquivo
      * @param array $data Dados para a view(pagina)
      */
-    public function __construct(private string $name, private array $data)
+    public function __construct(private string $name, private ?array $data)
     {
         // var_dump($name);
         // var_dump($data);
