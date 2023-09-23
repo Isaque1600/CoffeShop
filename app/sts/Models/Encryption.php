@@ -4,16 +4,33 @@ namespace Sts\Models;
 
 class Encryption
 {
+    /**
+     * Tamanho do iv1(Vetor de inicialização da cifra)
+     * @var string
+     */
     private string $iv1Size;
+    /**
+     * Tamanho do iv2(Vetor de inicialização da cifra)
+     * @var string
+     */
     private string $iv2Size;
+    /**
+     * @var string
+     */
     private string $firstKey;
+    /**
+     * @var string
+     */
     private string $secondKey;
+    /**
+     * @var string
+     */
     private string $thirdKey;
 
     /**
      * Criptografa um entrada
      * @param string $input texto a ser criptografado
-     * @return string entrada criptografada
+     * @return string entrada criptografada em base64
      */
     public function encrypt(string $input)
     {
@@ -26,10 +43,14 @@ class Encryption
         $iv1 = openssl_random_pseudo_bytes($this->iv1Size);
         $iv2 = openssl_random_pseudo_bytes($this->iv2Size);
 
+        // Primeira criptografia
         $firstEncrypt = openssl_encrypt($input, 'aes-256-cbc', $this->firstKey, OPENSSL_RAW_DATA, $iv1);
+        // Segunda Criptografia
         $secondEncrypt = openssl_encrypt($firstEncrypt, 'aes-128-cbc', $this->secondKey, OPENSSL_RAW_DATA, $iv2);
+        // Terceira Criptografia
         $thirdEncrypt = hash_hmac('sha3-512', $secondEncrypt, $this->thirdKey, true);
 
+        // Mix de saida da criptografia
         $output = $iv1 . $iv2 . $thirdEncrypt . $secondEncrypt;
 
         return base64_encode($output);
@@ -37,7 +58,7 @@ class Encryption
 
     /**
      * Descriptografa um entrada
-     * @param string $input texto criptografado
+     * @param string $input texto criptografado em base64
      * @return string texto descriptografado
      */
     public function decrypt(string $input)

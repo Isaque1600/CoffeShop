@@ -1,5 +1,5 @@
 <?php
-
+// * Pagina de login do usuario *
 $dataUser = (isset($data["form"])) ? $data["form"] : null;
 
 if (isset($data['result']) && $data['result'] == "success") {
