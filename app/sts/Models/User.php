@@ -37,10 +37,7 @@ class User extends Person
      */
     public function registerUser($userData): bool|string|null
     {
-<<<<<<< HEAD
-=======
         // instancia a classe de criptografia
->>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
         $encryption = new Encryption();
 
         try {
@@ -125,43 +122,6 @@ class User extends Person
             return false;
         } catch (PDOException $err) {
             // Caso de algum erro no bd ele joga uma excessão 
-            throw $err;
-        }
-    }
-
-    public function verifyUser($email, $senha): string|bool
-    {
-        $encryption = new Encryption();
-
-        try {
-            $userSelect = $this->connection->prepare(
-                "SELECT email, senha, nome, sobrenome, cpf_cnpj, tipo 
-                FROM pessoas 
-                WHERE email=:email"
-            );
-
-            $userSelect->bindParam(":email", $email);
-
-            if ($userSelect->execute()) {
-                $userData = $userSelect->fetch(PDO::FETCH_ASSOC);
-
-                $verifyPass = $encryption->decrypt($userData['senha']);
-                if (!empty($userData) && $verifyPass = $senha) {
-                    if (session_status() != PHP_SESSION_ACTIVE) {
-                        session_start();
-                        var_dump($userData);
-
-                        $_SESSION['user'] = $userData;
-                        $_SESSION['user']['status'] = "active";
-                        // var_dump($_SESSION);
-                        return "succeed";
-                    }
-                }
-
-            }
-
-            return false;
-        } catch (PDOException $err) {
             throw $err;
         }
     }

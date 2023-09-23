@@ -31,7 +31,6 @@ class ConfigController extends Config
     {
         Config::__construct();
 
-        var_dump(DEFAULT_URL);
 
         // Testa se a url não está vazia
         if (!empty(filter_input(INPUT_GET, 'url', FILTER_DEFAULT))) {

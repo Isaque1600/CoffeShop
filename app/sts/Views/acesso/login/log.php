@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-
-=======
 // * Pagina de login do usuario *
->>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
 $dataUser = (isset($data["form"])) ? $data["form"] : null;
 
 if (isset($data['result']) && $data['result'] == "success") {

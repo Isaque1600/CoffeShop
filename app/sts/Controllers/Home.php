@@ -25,14 +25,11 @@ class Home
      */
     private ?object $user;
 
-<<<<<<< HEAD
-=======
     /**
      * Carrega a pagina Home(index/inicial)
      * @param array|null $urlParametters Parametros da url
      * @return void
      */
->>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
     public function index(?array $urlParametters = [])
     {
         if (session_status() != PHP_SESSION_ACTIVE) {
@@ -47,38 +44,6 @@ class Home
         $loadView->renderView();
     }
 
-<<<<<<< HEAD
-    public function login(array $urlParametters = [])
-    {
-        $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
-        if (isset($this->dataForm['request'])) {
-            unset($this->dataForm['request']);
-
-            try {
-
-                $this->user = new User($this->dataForm);
-                $userData = $this->user->verifyUser($this->dataForm['email'], $this->dataForm['pass']);
-                // var_dump($_SESSION);
-
-                if (!empty($_SESSION) && $_SESSION['user']['status'] == "active") {
-                    header("location:" . DEFAULT_URL);
-                }
-
-                $this->data['result'] = "Email ou Senha incorretos!";
-            } catch (PDOException $err) {
-                // $this->data['result'] = $err->getCode();
-                $this->data['result'] = $err->getMessage();
-                $this->data['form'] = $this->dataForm;
-            }
-        }
-
-        if (!empty($urlParametters)) {
-            $this->data['result'] = (!empty($urlParametters['result'])) ? $urlParametters['result'] : null;
-        }
-
-        var_dump($this->data);
-=======
     /**
      * Carrega a pagina de login de usuario
      * @param array|null $urlParametters 
@@ -93,7 +58,6 @@ class Home
         if (isset($this->dataForm['request'])) {
             // Exclui a request
             unset($this->dataForm['request']);
->>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
 
             try {
 
@@ -131,14 +95,11 @@ class Home
         $loadView->renderView();
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Carrega a pagina de cadastro de usuario
      * @param array|null $urlParametters
      * @return void
      */
->>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
     public function cadastro(array $urlParametters = [])
     {
         // Pega os dados vindo por post do formulario
@@ -171,10 +132,6 @@ class Home
         $loadView->renderView();
     }
 
-<<<<<<< HEAD
-    public function sair(array $urlParametters = [])
-    {
-=======
     /**
      * Desloga o usuario
      * @param array $urlParametters
@@ -185,7 +142,6 @@ class Home
         // Verifica se tem alguma sessão ativa
         // Se não tiver ele seta uma para apagar os dados da variavel de sessão
         // e destruir ela
->>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
         if (session_status() != PHP_SESSION_ACTIVE) {
             session_start();
             // echo "hello";
