@@ -8,6 +8,7 @@ abstract class Config
     public function __construct()
     {
 
+        // Gambiarra para pegar a url default de qualquer pc q ele for rodado
         $url = explode("/", __DIR__);
         $urlDefault = "";
         array_pop($url);
@@ -15,10 +16,14 @@ abstract class Config
             $urlDefault .= $url[$i] . "/";
         }
 
+        // Seta a url default pra uma variavel de ambiente
         define("DEFAULT_URL", "http://localhost/" . $urlDefault);
 
+        // Seta a url default da pasta com os css pra uma variavel de ambiente
         define("CSS_PATH", DEFAULT_URL . "assets/css/");
+        // Seta a url default da pasta com os js pra uma variavel de ambiente
         define("JS_PATH", DEFAULT_URL . "assets/js/");
+        // Seta a url default da pasta com as imagens pra uma variavel de ambiente
         define("IMG_PATH", DEFAULT_URL . "assets/images/");
 
         define('FIRSTKEY', base64_encode('MACA'));

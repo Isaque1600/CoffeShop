@@ -1,3 +1,8 @@
+<?php
+// * Pagina inicial do site *
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
