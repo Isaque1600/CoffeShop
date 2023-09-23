@@ -9,10 +9,30 @@ use Sts\Models\User;
 
 class Home
 {
+    /**
+     * Dados a ser passados para a view
+     * @var array
+     */
     private array $data = [];
+    /**
+     * Dados vindos do formulario
+     * @var 
+     */
     private ?array $dataForm = null;
+    /**
+     * Objeto que comporta o Usuario(Cadastro, consulta de dados, etc)
+     * @var 
+     */
     private ?object $user;
 
+<<<<<<< HEAD
+=======
+    /**
+     * Carrega a pagina Home(index/inicial)
+     * @param array|null $urlParametters Parametros da url
+     * @return void
+     */
+>>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
     public function index(?array $urlParametters = [])
     {
         if (session_status() != PHP_SESSION_ACTIVE) {
@@ -27,6 +47,7 @@ class Home
         $loadView->renderView();
     }
 
+<<<<<<< HEAD
     public function login(array $urlParametters = [])
     {
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -57,38 +78,114 @@ class Home
         }
 
         var_dump($this->data);
+=======
+    /**
+     * Carrega a pagina de login de usuario
+     * @param array|null $urlParametters 
+     * @return void
+     */
+    public function login(array $urlParametters = [])
+    {
+        // Pega os dados vindo por post do formulario
+        $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
+        // Verifica se tem uma request
+        if (isset($this->dataForm['request'])) {
+            // Exclui a request
+            unset($this->dataForm['request']);
+>>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
+
+            try {
+
+                // Chama a classe user
+                $this->user = new User($this->dataForm);
+                // verifica se o usuario vindo do form está cadastrado no sistema
+                $userData = $this->user->verifyUser($this->dataForm['email'], $this->dataForm['pass']);
+                // var_dump($_SESSION);
+
+                // Caso o usuario estiver cadastrado ele cria a sessão e loga o usuario
+                if (!empty($_SESSION) && $_SESSION['user']['status'] == "active") {
+                    header("location:" . DEFAULT_URL);
+                }
+
+                // Caso não ele retorna o resultado como um erro
+                $this->data['result'] = "Email ou Senha incorretos!";
+            } catch (PDOException $err) {
+                // Caso haja algum erro na classe do banco ele retorna o codigo de erro e os dados do formulario 
+                $this->data['result'] = $err->getCode();
+                // $this->data['result'] = $err->getMessage();
+                $this->data['form'] = $this->dataForm;
+            }
+        }
+
+        // Caso tenha alguma variavel no Get ele manda
+        // mais usado para confirmar o cadastro do usuario quando for redirecionado
+        if (!empty($urlParametters)) {
+            $this->data['result'] = (!empty($urlParametters['result'])) ? $urlParametters['result'] : null;
+        }
+
+        // var_dump($this->data);
+
+        // Carrega a view
         $loadView = new ConfigView("sts/Views/acesso/login/log", $this->data);
         $loadView->renderView();
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Carrega a pagina de cadastro de usuario
+     * @param array|null $urlParametters
+     * @return void
+     */
+>>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
     public function cadastro(array $urlParametters = [])
     {
+        // Pega os dados vindo por post do formulario
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         // var_dump($this->dataForm);
 
+        // Verifica se tem um request
         if (isset($this->dataForm['registerUser'])) {
+            // Deleta a request
             unset($this->dataForm['registerUser']);
 
             try {
+                // Seta a classe de usuario
                 $this->user = new User($this->dataForm);
+                // Registra o usuario
                 $this->user->registerUser($this->dataForm);
 
+                // se der certo ele retorna um codigo de succeed 
                 $this->data['result'] = "succeed";
-                $this->data['form']['name'] = $this->dataForm['name'];
             } catch (PDOException $err) {
+                // Caso der algum erro na classe do banco ele retorna o codigo e os dados do formulario
                 $this->data['result'] = $err->getCode();
                 $this->data['form'] = $this->dataForm;
             }
 
         }
 
+        // Carrega a pagina/View
         $loadView = new ConfigView("sts/Views/acesso/cadastro/cad", $this->data);
         $loadView->renderView();
     }
 
+<<<<<<< HEAD
     public function sair(array $urlParametters = [])
     {
+=======
+    /**
+     * Desloga o usuario
+     * @param array $urlParametters
+     * @return void
+     */
+    public function sair(array $urlParametters = [])
+    {
+        // Verifica se tem alguma sessão ativa
+        // Se não tiver ele seta uma para apagar os dados da variavel de sessão
+        // e destruir ela
+>>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
         if (session_status() != PHP_SESSION_ACTIVE) {
             session_start();
             // echo "hello";

@@ -1,17 +1,21 @@
-Trabalho - Sistema de Recomendação em um site de Cafeteria local.
+-Sistema de Recomendação em um site de Cafeteria local-
 
-→ Especificação de requisitos do projeto.
+Especificação de requisitos do projeto.
 
 → Tópicos:
 	1. O que é o sistema?
 	2. Definição do contexto
 	3. Descrição do produto
 	4. Interface
+		4.1 Geral
+		4.2 Modelos de Páginas
 	5. Funcionalidades
+		5.1 Geral
+		5.2 Sistema de Recomendação
 	6. Requisitos funcionais
 	7. Método utilizado para extração de requisitos
 
-→ Especificações:
+Detalhes:
 
 1.O que é o sistema?
 É um sistema de cafeteria web integrado a um sistema de recomendação.
@@ -25,20 +29,26 @@ Uma vez logado, seus gostos e preferências serão processados pelo sistema e el
 
 
 4.Interface:
+4.1 geral:
 Optamos por utilizar uma seleção de cores suaves, mas com um toque de força em demonstrar ao usuário o que, ou onde ele necessita focar. Enquanto que as cores gerais ainda passam uma sensação de conforto, sem ser redundante ou exagerado.
 A interface oferece divisão dos produtos nas buscas pelas seções da tela inicial por categorias, cafés ou massas, por exemplo.
-Oferece um atendimento de cara nova, que ainda que tenha tudo que o cliente precisa saber, não passa a ser muita informação 
+Oferece um atendimento de cara nova, que ainda que tenha tudo que o cliente precisa saber, não passa a ser muita informação.
 
 5.Funcionalidades:
+5.1 Geral:
 A princípio, como funcionalidade principal o site tem de atender da melhor forma às recomendações de acordo com o gosto do cliente e conseguir chegar cada vez mais perto do atendimento que o usuário deseja com suas pesquisas mais feitas na opção pesquisar e suas respostas ao formulário de preferências do cliente.
-No topo da página haverá uma barra de navegação com opções do tipo: “Acessar”, “Cardápio”, “Meus Preferidos” e a barra de pesquisa. O cliente ao entrar na página principal do site, poderá cadastrar-se, e então, estará livre para fazer sua primeira compra e/ou pesquisar produtos que goste de acordo com categorias chave, que visam a facilitação e diminuição da complexidade.
-Na opção “Acessar” da barra de opções o cliente poderá realizar o cadastro ou login da sua conta.
+No topo da página haverá uma barra de navegação com opções do tipo: “Cardápio”, “Meus Preferidos”, “Sobre” e a barra de pesquisa. O cliente ao entrar na página principal do site, poderá cadastrar-se, e então, estará livre para fazer sua primeira compra e/ou pesquisar produtos que goste de acordo com categorias chave, que visam a facilitação e diminuição da complexidade.
+Na opção “Acessar” da barra de opções o cliente poderá realizar o cadastro ou login da sua conta;
 Registrar cliente (nome do cliente, cpf, email, senha chave para a conta, telefone, data de nascimento;
- Opção de login (e-mail e senha)
-Opção de “Meus Preferidos” (Produtos já consumidos pelo cliente (Seguindo a ordem de mais comprado - > menos comprado)
-“Reservar” onde o cliente fará seu pedido, requerendo: (CPF do cliente, produto, quantidade do produto e a forma de pagamento).
+Opção de login (e-mail e senha);
+Opção de “Meus Preferidos” (Produtos já consumidos pelo cliente (Seguindo a ordem de mais comprado - > menos comprado);
+“Reservar” onde o cliente fará seu pedido, requerendo: (CPF do cliente, produto, quantidade do produto e a forma de pagamento);
 Os produtos que são mais procurados por outros usuários no site são promovidos ao cliente na página inicial.
 A barra de pesquisa serve para o sistema avaliar o que o cliente mais busca e recomendar produtos semelhantes que possam o agradar.
+5.2 Sistema de Recomendação:
+Fazendo uso da barra de busca e das marcações como “preferidos” da escolha do cliente;
+O sistema de recomendação advém do histórico de pesquisa de cada cliente, trabalhando com palavras-chave que sejam usadas pelo cliente ao pesquisar certo produto, no caso do nosso projeto, palavras como: “café”, “bolo”, “salgado”, “chocolate”, “torta”, “creme”;
+Outra forma usada para recomendar produtos específicos ao cliente serão os produtos nos quais se encontram na página de “preferidos”, marcados com uma estrela amarela a um clique.
 
 6.Requisitos não funcionais:
 Utilização das linguagens: Java Script, CSS, Html, PHP, MySql, JQuery.
@@ -46,10 +56,16 @@ Utilização das linguagens: Java Script, CSS, Html, PHP, MySql, JQuery.
 7.Método utilizado para extração de requisitos:
 Colaboração e discussão estruturada da equipe.
 
+Equipe: Thiago, Dâmaris e Isaque.
+
+
+
 → Sugestões em vermelho:
 Criar um sistema de delivery;
 Formas de pagamento (ao longo do projeto especificar e detalhar mais       requisitos);
-
 	
 Paletta CSS
---platinum: #DDE3E3ff; --ash-gray: #A8BAB9ff; --kobicha: #61371Bff; --bistre: #2D271Dff; --cambridge-blue: #6D9891ff;
+--platinum: #DDE3E3ff; --ash-gray: #A8BAB9ff; --kobicha: #61371Bff; --bistre: #2D271Dff; --cambridge-blue: #6D9891ff; 
+
+Cores complementares
+#836958; 
