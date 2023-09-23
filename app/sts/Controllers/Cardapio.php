@@ -10,7 +10,6 @@ class Cardapio
 
     public function index(): void
     {
-
         $loadView = new ConfigView('app/sts/Views/', $this->data);
         $loadView->renderView();
     }
