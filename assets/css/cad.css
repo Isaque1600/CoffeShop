@@ -139,7 +139,7 @@ main {
 .cad-card__login-button:target {
   box-shadow: inset var(--ui-layout) 2px 1px 1px;
   font-size: 0.8em;
-  margin: 0.2em 0.1em;
+  margin: 0.13em 0.12em;
 }
 
 .cad-card__inputs {
@@ -151,20 +151,41 @@ main {
   margin-bottom: 0.3em;
 }
 
+.cad-card__input-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+  max-width: 85%;
+  overflow: hidden;
+}
+
 .cad-card__label {
   font-size: clamp(0.1ch, 1.3ch + 0.5vw, 3ch);
   color: var(--ui-layout);
+
 }
 
 .cad-card__input {
-  max-width: 85%;
   min-height: max(1.7rem);
   padding: .3rem;
   border-radius: 0.2rem;
   border: none;
   background: rgba(255, 255, 255, 0.304);
-  border-bottom: 0.01rem solid var(--ui-layout);
   outline: none;
+}
+
+.cad-card__label::after {
+  content: "";
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  background-color: var(--ui-layout);
+  left: 0;
+  bottom: 0;
+
+  translate: -100%;
+  transition: translate  0.4s cubic-bezier(.23,.63,.83,.54);
 }
 
 .cad-card__input::placeholder {
@@ -173,6 +194,12 @@ main {
 
 .cad-card__input:not(:focus) {
   filter: blur(.07em);
+  z-index: 200;
+}
+
+.cad-card__label:has(~ :focus)::after {
+  translate: 0;
+  z-index: 201;
 }
 
 .cad-card__input:valid {
