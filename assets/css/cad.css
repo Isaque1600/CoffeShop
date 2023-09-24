@@ -25,6 +25,7 @@ main {
   place-items: center;
   height: 100vh;
   background: linear-gradient(0, var(--ui-layout) 70%, var(--ui-details) 30%);
+  padding: 1rem;
 }
 
 .cad-card {
@@ -145,6 +146,7 @@ main {
 .cad-card__inputs {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .cad-card__inputs > * + * {
@@ -158,6 +160,7 @@ main {
   position: relative;
   max-width: 85%;
   overflow: hidden;
+  box-shadow: var(--ui-layout) -.1rem 0 0;
 }
 
 .cad-card__label {
@@ -190,12 +193,14 @@ main {
 
 .cad-card__input::placeholder {
   user-select: none;
+  opacity: 0;
 }
 
-.cad-card__input:not(:focus) {
-  filter: blur(.07em);
-  z-index: 200;
+.cad-card__input:focus::placeholder {
+  opacity: 1;
 }
+
+
 
 .cad-card__label:has(~ :focus)::after {
   translate: 0;

@@ -40,13 +40,17 @@ if (isset($data['result']) && $data['result'] == "success") {
                     </header>
                     <div class="cad-card__inputs">
 
-                        <label for="email" class="cad-card__label">Email: </label>
-                        <input id="email" name="email" type="email" placeholder="Digite seu email"
-                            class="cad-card__input" required>
+                        <div class="cad-card__input-container">
+                            <label for="email" class="cad-card__label">Email: </label>
+                            <input id="email" name="email" type="email" placeholder="Digite seu email"
+                                class="cad-card__input" required>
+                        </div>
 
-                        <label for="pass" class="cad-card__label">Senha: </label>
-                        <input id="pass" name="pass" type="password" placeholder="Digite sua senha"
-                            class="cad-card__input" required>
+                        <div class="cad-card__input-container">
+                            <label for="pass" class="cad-card__label">Senha: </label>
+                            <input id="pass" name="pass" type="password" placeholder="Digite sua senha"
+                                class="cad-card__input" required>
+                        </div>
 
                         <br>
 
