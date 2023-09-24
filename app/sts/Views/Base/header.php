@@ -1,17 +1,20 @@
-<header class="header">
-    <h1></h1>
-    <nav class="header__nav">
-        <ul class="nav__menu">
-            <li class="nav__logo"><a href="<?php echo DEFAULT_URL ?>"><img src="" alt="Home"></a></li>
-            <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/login">Login</a></li>
-            <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/cadastro">cadastro</a></li>
-            <li class="nav__item">Cardápio</li>
-            <li class="nav__item">Meus Preferidos</li>
-            <li class="nav__item">Sobre</li>
+<header class="header" id="pageTop">
+    <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/login">Login</a></li>
+                <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/cadastro">Cadastro</a></li>
+                <li class="nav__item"><a href="#">Cardápio</a></li>
+                <li class="nav__item"><a href="#">Preferidos</a></li>
+                <li class="nav__item"><a href="#">Sobre</a></li>
+            </ul>
+            <!--
             <div class="nav__search">
-                <p>NAV_BAR</p>
-                <!-- <p><i class="fa-solid fa-magnifying-glass" style="color: #2c261c;"></i> Pesquisar</p> -->
+
             </div>
-        </ul>
-    </nav>
-</header>
+            -->
+        </nav>
+        <a href="#pageTop" class="backToTop"><i class="fa-solid fa-up-long"></i></a>
+    </header>
+
+<script src="https://kit.fontawesome.com/9682b31f0e.js" crossorigin="anonymous"></script>

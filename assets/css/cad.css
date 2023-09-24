@@ -1,5 +1,5 @@
 :root {
-  --chr-color: #dde3e3ff;
+  --chr-color: #dde3e3;
   --chr-lgt-color: #dde3e391;
   --ui-layout: #2d271dff;
   --ui-details: #6d9891ff;
@@ -25,6 +25,7 @@ main {
   place-items: center;
   height: 100vh;
   background: linear-gradient(0, var(--ui-layout) 70%, var(--ui-details) 30%);
+  padding: 1rem;
 }
 
 .cad-card {
@@ -100,6 +101,7 @@ main {
 
 .cad-card__title {
   padding: 0.5rem;
+  user-select: none;
 }
 
 .cad-card__subtitle {
@@ -110,7 +112,7 @@ main {
 }
 
 .cad-card__title > a {
-  font-size: clamp(1rem, 1ch + 0.5vw, 2rem);
+  font-size: clamp(0.8rem, 1ch + 0.5vw, 2.3rem);
   color: var(--ui-layout);
 }
 
@@ -138,40 +140,76 @@ main {
 .cad-card__login-button:target {
   box-shadow: inset var(--ui-layout) 2px 1px 1px;
   font-size: 0.8em;
-  margin: 0.2em 0.1em;
+  margin: 0.13em 0.12em;
 }
 
 .cad-card__inputs {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .cad-card__inputs > * + * {
   margin-bottom: 0.3em;
 }
 
+.cad-card__input-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+  max-width: 85%;
+  overflow: hidden;
+  box-shadow: var(--ui-layout) -.1rem 0 0;
+}
+
 .cad-card__label {
-  font-size: clamp(0.1ch, 1.5ch + 0.5vw, 3ch);
+  font-size: clamp(0.1ch, 1.3ch + 0.5vw, 3ch);
   color: var(--ui-layout);
+
 }
 
 .cad-card__input {
-  max-width: 85%;
   min-height: max(1.7rem);
   padding: .3rem;
   border-radius: 0.2rem;
   border: none;
   background: rgba(255, 255, 255, 0.304);
-  border-bottom: 0.01rem solid var(--ui-layout);
   outline: none;
 }
 
-.cad-card__input:not(:focus) {
-  filter: blur(.10em);
+.cad-card__label::after {
+  content: "";
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  background-color: var(--ui-layout);
+  left: 0;
+  bottom: 0;
+
+  translate: -100%;
+  transition: translate  0.4s cubic-bezier(.23,.63,.83,.54);
+}
+
+.cad-card__input::placeholder {
+  user-select: none;
+  opacity: 0;
+}
+
+.cad-card__input:focus::placeholder {
+  opacity: 1;
 }
 
 
 
+.cad-card__label:has(~ :focus)::after {
+  translate: 0;
+  z-index: 201;
+}
+
+.cad-card__input:valid {
+  filter: blur(0);
+}
 
 
 /* Pop Up */
@@ -185,7 +223,6 @@ main {
   justify-content: center;
   align-items: center;
   z-index: 9999999;
-  font-size: clamp(1rem, -0.875rem + 6vw, 1.5rem);
 }
 
 .popUp-content {
@@ -194,19 +231,19 @@ main {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  background-color: gray;
+  background-color: var(--ui-details);
   padding: 2em;
   border-radius: 0.5em;
   box-shadow: 0 0 15px black;
-  min-width: 400px;
   max-width: 500px;
   min-height: 200px;
+  width: 80%;
   overflow: hidden;
 }
 
 .popUp-content h1 {
   font-size: clamp(1.5rem, -0.875rem + 6vw, 2rem);
-  width: max-content;
+  color: var(--cmplt-lgt-brown);
 }
 
 .popUp-close {
@@ -218,7 +255,8 @@ main {
   background: solid white;
   border-radius: 15px;
   z-index: 1;
-  /* color: black; */
+  color: white;
+  font-size: clamp(1.3rem, -0.875rem + 5vw, 1.7rem);
 }
 
 .popUp-title {
@@ -227,14 +265,11 @@ main {
   padding: 15px;
   margin-bottom: 10px;
   /* font-family: "Ubuntu Mono", monospace; */
-  font-size: 20px;
-  background-color: gray;
+  background-color: var(--ui-layout);
   position: absolute;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  padding: 0.5rem;
   border-top: transparent;
   text-align: center;
-  color: white;
   top: 0;
 }
 
@@ -243,6 +278,8 @@ main {
   /* font-family: "Ubuntu Mono", monospace; */
   color: white;
   user-select: text;
+  text-align: center;
+  font-size: clamp(1rem, -0.875rem + 5vw, 1.5rem);
 }
 
 /* Pop Up End */
@@ -270,5 +307,10 @@ main {
 @media (max-height: 470px) {
   main {
     height: max-content;
+
+  }
+
+  .cad-card__content {
+    max-height: max-content;
   }
 }

@@ -31,7 +31,6 @@ class ConfigController extends Config
     {
         Config::__construct();
 
-        var_dump(DEFAULT_URL);
 
         // Testa se a url não está vazia
         if (!empty(filter_input(INPUT_GET, 'url', FILTER_DEFAULT))) {
@@ -51,7 +50,7 @@ class ConfigController extends Config
                 $this->urlMethod = "index";
             }
         } else {
-            // Caso esteja vazia redireciona para a Home(index)
+            // Caso esteja vazia redireciona para a Home(index)g
             $this->urlController = "Home";
             $this->urlMethod = "index";
         }

@@ -16,8 +16,8 @@ if (isset($data['result']) && $data['result'] == "success") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logue-se</title>
     <link rel="stylesheet" href="<?php echo CSS_PATH ?>cad.css">
+    <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css">
 </head>
-
 <body>
     <main>
         <section class="cad-card">
@@ -31,7 +31,7 @@ if (isset($data['result']) && $data['result'] == "success") {
                 <form action="" method="post">
                     <header class="cad-card__form-header">
                         <div class="cad-card__title">
-                            <h1 class="cad-card__mtitle">Login</h1>
+                            <h1 class="cad-card__subtitle">Login</h1>
                             <a href="<?php echo DEFAULT_URL ?>Home/cadastro">Não tem conta ainda?</a>
                         </div>
                         <div class="cad-card__login">
@@ -40,13 +40,17 @@ if (isset($data['result']) && $data['result'] == "success") {
                     </header>
                     <div class="cad-card__inputs">
 
-                        <label for="email" class="cad-card__label">Email: </label>
-                        <input id="email" name="email" type="email" placeholder="Digite seu email"
-                            class="cad-card__input" required>
+                        <div class="cad-card__input-container">
+                            <label for="email" class="cad-card__label">Email: </label>
+                            <input id="email" name="email" type="email" placeholder="Digite seu email"
+                                class="cad-card__input" required>
+                        </div>
 
-                        <label for="pass" class="cad-card__label">Senha: </label>
-                        <input id="pass" name="pass" type="password" placeholder="Digite sua senha"
-                            class="cad-card__input" required>
+                        <div class="cad-card__input-container">
+                            <label for="pass" class="cad-card__label">Senha: </label>
+                            <input id="pass" name="pass" type="password" placeholder="Digite sua senha"
+                                class="cad-card__input" required>
+                        </div>
 
                         <br>
 
