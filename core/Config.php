@@ -11,7 +11,6 @@ abstract class Config
         // Gambiarra para pegar a url default de qualquer pc q ele for rodado
         $url = explode("/", __DIR__);
         $url = (count($url) < 2) ? explode("\\", __DIR__) : $url;
-        var_dump($url);
         $urlDefault = "";
         array_pop($url);
         for ($i = array_search("htdocs", $url) + 1; $i < count($url); $i++) {

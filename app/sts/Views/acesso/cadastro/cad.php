@@ -24,6 +24,7 @@ if (isset($data['result'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastre-se</title>
     <link rel="stylesheet" href="<?php echo CSS_PATH ?>cad.css">
+    <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css">
 </head>
 
 <body>
@@ -60,7 +61,7 @@ if (isset($data['result'])) {
                             required>
 
                         <label for="cpf" for="" class="cad-card__label">CPF: </label>
-                        <input id="cpf" name="cpf" type="number" placeholder="Digite seu CPF" class="cad-card__input"
+                        <input id="cpf" name="cpf" type="text" placeholder="Digite seu CPF" class="cad-card__input"
                             value="<?php echo (!empty($dataForm['cpf'])) ? $dataForm['cpf'] : "" ?>" required>
 
                         <label for="email" class="cad-card__label">Email: </label>
@@ -78,7 +79,7 @@ if (isset($data['result'])) {
             </article>
             <div class="popUp" style="<?php echo (isset($data['result'])) ? "display:flex;" : "display:none;" ?>">
                 <div class="popUp-content">
-                    <span class="popUp-close">&times;</span>
+                    <span class="popUp-close"><i class="fa-solid fa-xmark"></i></span>
                     <h1 class="popUp-title">
                         <?php echo $result['title']; ?>
                     </h1>
@@ -92,6 +93,7 @@ if (isset($data['result'])) {
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="<?php echo JS_PATH ?>main.js"></script>
+    <script src="https://kit.fontawesome.com/9682b31f0e.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
