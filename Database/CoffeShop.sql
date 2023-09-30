@@ -59,6 +59,10 @@ INSERT into categorias(nome) values('refrigerante');
 INSERT into categorias(nome) values('bolo');
 INSERT into categorias(nome) values('coxinha');
 INSERT into categorias(nome) values('pastel');
+<<<<<<< HEAD
+=======
+
+>>>>>>> b9aa51b (adicões no codigo do BD)
 
 -- @block
 CREATE TABLE produtos (
