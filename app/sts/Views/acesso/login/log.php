@@ -1,5 +1,5 @@
 <?php
-// * Pagina de login do usuario *
+// **** Pagina de login do usuario ****
 $dataUser = (isset($data["form"])) ? $data["form"] : null;
 
 if (isset($data['result']) && $data['result'] == "success") {
@@ -18,6 +18,7 @@ if (isset($data['result']) && $data['result'] == "success") {
     <link rel="stylesheet" href="<?php echo CSS_PATH ?>cad.css">
     <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css">
 </head>
+
 <body>
     <main>
         <section class="cad-card">

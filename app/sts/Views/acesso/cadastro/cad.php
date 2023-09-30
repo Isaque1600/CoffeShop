@@ -1,5 +1,5 @@
 <?php
-// * Pagina de cadastro do ususario *
+// **** Pagina de cadastro do ususario ****
 
 $dataForm = (isset($data['form'])) ? $data['form'] : null;
 
@@ -52,16 +52,17 @@ if (isset($data['result'])) {
 
                         <div class="cad-card__input-container">
                             <label for="name" class="cad-card__label">Nome: </label>
-                            <input id="name" name="name" type="text" placeholder="Digite seu nome" class="cad-card__input"
+                            <input id="name" name="name" type="text" placeholder="Digite seu nome"
+                                class="cad-card__input"
                                 value="<?php echo (!empty($dataForm['name'])) ? $dataForm['name'] : "" ?>" required>
                         </div>
 
                         <div class="cad-card__input-container">
                             <label for="sobrenome" class="cad-card__label">Sobrenome: </label>
-                                <input id="sobrenome" name="sobrenome" type="text" placeholder="Digite seu sobrenome"
-                                    class="cad-card__input"
-                                    value="<?php echo (!empty($dataForm['sobrenome'])) ? $dataForm['sobrenome'] : "" ?>"
-                                    required>
+                            <input id="sobrenome" name="sobrenome" type="text" placeholder="Digite seu sobrenome"
+                                class="cad-card__input"
+                                value="<?php echo (!empty($dataForm['sobrenome'])) ? $dataForm['sobrenome'] : "" ?>"
+                                required>
                         </div>
 
                         <div class="cad-card__input-container">

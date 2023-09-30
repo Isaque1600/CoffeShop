@@ -8,6 +8,8 @@
 
 <head>
     <title>Bonne Café</title>
+    <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css">
+    <link rel="stylesheet" href="<?php echo CSS_PATH ?>index.css">
 </head>
 
 <body>
