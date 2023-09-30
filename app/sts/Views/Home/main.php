@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="<?php echo CSS_PATH ?>index.css">
 </head>
 
+<?php
+require("app/sts/Views/Base/header.php");
+?>
+
 <body>
 
     <?php echo (isset($data['user'])) ? "Ola senhor(a): {$data['user']['nome']}" : ""; ?>

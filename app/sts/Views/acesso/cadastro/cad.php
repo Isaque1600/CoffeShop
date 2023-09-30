@@ -27,6 +27,10 @@ if (isset($data['result'])) {
     <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css">
 </head>
 
+<?php
+require("app/sts/Views/Base/header.php");
+?>
+
 <body>
     <main>
         <section class="cad-card">

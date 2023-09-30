@@ -29,7 +29,6 @@ class ConfigView
         $data = $this->data;
 
         if (file_exists('app/' . $this->name . ".php")) {
-            include("app/sts/Views/Base/header.php");
             include('app/' . $this->name . ".php");
             include("app/sts/Views/Base/footer.php");
         } else {

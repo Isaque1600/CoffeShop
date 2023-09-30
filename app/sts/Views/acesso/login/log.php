@@ -9,15 +9,19 @@ if (isset($data['result']) && $data['result'] == "success") {
 
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logue-se</title>
-    <link rel="stylesheet" href="<?php echo CSS_PATH ?>cad.css">
-    <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css">
+    <link rel="stylesheet" href="<?php echo CSS_PATH; ?>head-foot.css">
+    <link rel="stylesheet" href="<?php echo CSS_PATH; ?>cad.css">
+    <title>Logue</title>
 </head>
+
+<?php
+require("app/sts/Views/Base/header.php");
+?>
 
 <body>
     <main>
