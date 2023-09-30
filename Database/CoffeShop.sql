@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 -- Active: 1694518027618@@127.0.0.1@3306
+=======
+-- Active: 1695496441704@@127.0.0.1@3306@phpmyadmin
+>>>>>>> origin/main
 create schema cafeteria;
 
 use cafeteria;
