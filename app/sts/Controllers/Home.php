@@ -4,8 +4,8 @@ namespace Sts\Controllers;
 
 use Core\ConfigView;
 use PDOException;
-use Sts\Models\Encryption;
-use Sts\Models\User;
+use Sts\Models\RegisterUser;
+use Sts\Models\VerifyUser;
 
 class Home
 {
@@ -62,7 +62,7 @@ class Home
             try {
 
                 // Chama a classe user
-                $this->user = new User($this->dataForm);
+                $this->user = new VerifyUser($this->dataForm);
                 // verifica se o usuario vindo do form está cadastrado no sistema
                 $userData = $this->user->verifyUser($this->dataForm['email'], $this->dataForm['pass']);
                 // var_dump($_SESSION);
@@ -113,7 +113,7 @@ class Home
 
             try {
                 // Seta a classe de usuario
-                $this->user = new User($this->dataForm);
+                $this->user = new RegisterUser($this->dataForm);
                 // Registra o usuario
                 $this->user->registerUser($this->dataForm);
 
@@ -129,6 +129,12 @@ class Home
 
         // Carrega a pagina/View
         $loadView = new ConfigView("sts/Views/acesso/cadastro/cad", $this->data);
+        $loadView->renderView();
+    }
+
+    public function about(): void
+    {
+        $loadView = new ConfigView("sts/Views/sobre/sobre", $this->data);
         $loadView->renderView();
     }
 

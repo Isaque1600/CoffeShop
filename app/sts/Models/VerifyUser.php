@@ -5,7 +5,7 @@ namespace Sts\Models;
 use PDO;
 use PDOException;
 
-class User extends Person
+class VerifyUser extends Person
 {
     /**
      * So para guardar o tipo do usuario
@@ -31,60 +31,12 @@ class User extends Person
     }
 
     /**
-     * Metodo para registrar o usuario no ganco
-     * @param mixed $userData
-     * @return bool|string|null
-     */
-    public function registerUser($userData): bool|string|null
-    {
-        // instancia a classe de criptografia
-        $encryption = new Encryption();
-
-        try {
-            // prepara o statement de inserção de usuario no bd
-            $userInsert = $this->connection->prepare("INSERT INTO pessoas(
-                cpf_cnpj, 
-                nome, 
-                sobrenome, 
-                tipo, 
-                email, 
-                senha) VALUES(
-                :cpf_cnpj,
-                :name,
-                :sobrenome,
-                :type,
-                :email,
-                :pass
-                )");
-
-            // seta os dados da statement
-            $userInsert->bindParam(":cpf_cnpj", $userData['cpf']);
-            $userInsert->bindParam(":name", $userData['name']);
-            $userInsert->bindParam(":sobrenome", $userData['sobrenome']);
-            $userInsert->bindParam(":type", $this->type);
-            $userInsert->bindParam(":email", $userData['email']);
-            $userInsert->bindParam(":pass", $encryption->encrypt($userData['pass']));
-
-            // verifica se foi possivel inserir e retorna sucesso
-            if ($userInsert->execute()) {
-                return "success";
-            }
-
-            // se não retorna false
-            return false;
-        } catch (PDOException $err) {
-            // Caso tenha dado algum erro com o bd ele joga uma excessão
-            throw $err;
-        }
-    }
-
-    /**
      * Metodo para verificar a ocorrencia do usuario no bd
      * @param mixed $email email do usuario
      * @param mixed $senha senha do usuario
-     * @return string|bool
+     * @return string
      */
-    public function verifyUser($email, $senha): string|bool
+    public function verifyUser($email, $senha): string
     {
         // instancia a classe de criptografia
         $encryption = new Encryption();
@@ -103,7 +55,9 @@ class User extends Person
             // caso ele tenha dado certo ele verifica se a senha inserida no form esta certa e retorna sucesso
             if ($userSelect->execute()) {
                 $userData = $userSelect->fetch(PDO::FETCH_ASSOC);
+            }
 
+            if ($userData !== false) {
                 $verifyPass = $encryption->decrypt($userData['senha']);
                 if (!empty($userData) && $verifyPass = $senha) {
                     if (session_status() != PHP_SESSION_ACTIVE) {
@@ -116,10 +70,9 @@ class User extends Person
                         return "succeed";
                     }
                 }
-
             }
 
-            return false;
+            return "fail";
         } catch (PDOException $err) {
             // Caso de algum erro no bd ele joga uma excessão 
             throw $err;

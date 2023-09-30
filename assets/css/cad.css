@@ -160,18 +160,17 @@ main {
   position: relative;
   max-width: 85%;
   overflow: hidden;
-  box-shadow: var(--ui-layout) -.1rem 0 0;
+  box-shadow: var(--ui-layout) -0.1rem 0 0;
 }
 
 .cad-card__label {
   font-size: clamp(0.1ch, 1.3ch + 0.5vw, 3ch);
   color: var(--ui-layout);
-
 }
 
 .cad-card__input {
   min-height: max(1.7rem);
-  padding: .3rem;
+  padding: 0.3rem;
   border-radius: 0.2rem;
   border: none;
   background: rgba(255, 255, 255, 0.304);
@@ -188,7 +187,7 @@ main {
   bottom: 0;
 
   translate: -100%;
-  transition: translate  0.4s cubic-bezier(.23,.63,.83,.54);
+  transition: translate 0.4s cubic-bezier(0.23, 0.63, 0.83, 0.54);
 }
 
 .cad-card__input::placeholder {
@@ -200,8 +199,6 @@ main {
   opacity: 1;
 }
 
-
-
 .cad-card__label:has(~ :focus)::after {
   translate: 0;
   z-index: 201;
@@ -210,7 +207,6 @@ main {
 .cad-card__input:valid {
   filter: blur(0);
 }
-
 
 /* Pop Up */
 
@@ -307,7 +303,6 @@ main {
 @media (max-height: 470px) {
   main {
     height: max-content;
-
   }
 
   .cad-card__content {
