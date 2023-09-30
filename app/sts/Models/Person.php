@@ -2,6 +2,7 @@
 
 namespace Sts\Models;
 
+use Sts\Models\Conn;
 use PDO;
 
 /**
@@ -66,7 +67,7 @@ abstract class Person
      * Summary of verifyConnect
      * @return object|null
      */
-    protected function verifyConnect(): object|null
+    protected function verifyConnect(): ?object
     {
         return $this->connect;
     }
@@ -76,7 +77,7 @@ abstract class Person
      */
     public function setConnect(): void
     {
-        $connection = new Conn;
+        $connection = new Conn();
         $this->connect = $connection->connect();
         $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }

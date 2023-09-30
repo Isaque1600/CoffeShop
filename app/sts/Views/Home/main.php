@@ -1,17 +1,20 @@
-<<<<<<< HEAD
-=======
 <?php
 // * Pagina inicial do site *
 
 
 ?>
->>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <title>Bonne Café</title>
+    <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css">
+    <link rel="stylesheet" href="<?php echo CSS_PATH ?>index.css">
 </head>
+
+<?php
+require("app/sts/Views/Base/header.php");
+?>
 
 <body>
 

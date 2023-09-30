@@ -1,23 +1,28 @@
 <?php
-// * Pagina de login do usuario *
+// **** Pagina de login do usuario ****
 $dataUser = (isset($data["form"])) ? $data["form"] : null;
 
 if (isset($data['result']) && $data['result'] == "success") {
-    $result['title'] = ($data['result'] = "success") ? "Usuario cadastrado com sucesso!" : "";
-    $result['text'] = ($data['result'] = "success") ? "O usuario foi cadastrado com sucessor<br>Logue para acessar sua conta" : "";
+    $result['title'] = ($data['result'] == "success") ? "Usuario cadastrado com sucesso!" : "";
+    $result['text'] = ($data['result'] == "success") ? "O usuario foi cadastrado com sucessor<br>Logue para acessar sua conta" : "";
 }
 
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logue-se</title>
-    <link rel="stylesheet" href="<?php echo CSS_PATH ?>cad.css">
-    <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css">
+    <link rel="stylesheet" href="<?php echo CSS_PATH; ?>head-foot.css">
+    <link rel="stylesheet" href="<?php echo CSS_PATH; ?>cad.css">
+    <title>Logue</title>
 </head>
+
+<?php
+require("app/sts/Views/Base/header.php");
+?>
+
 <body>
     <main>
         <section class="cad-card">
@@ -55,7 +60,7 @@ if (isset($data['result']) && $data['result'] == "success") {
                         <br>
 
                         <p style="color:red;">
-                            <?php echo (isset($data['result'])) ? $data['result'] : "" ?>
+                            <?php echo (isset($data['result']) && $data['result'] !== "success") ? $data['result'] : "" ?>
                         </p>
 
                     </div>

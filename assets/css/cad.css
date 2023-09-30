@@ -170,7 +170,7 @@ main {
 
 .cad-card__input {
   min-height: max(1.7rem);
-  padding: .3rem;
+  padding: 0.3rem;
   border-radius: 0.2rem;
   border: none;
   background: rgba(255, 255, 255, 0.304);
@@ -305,7 +305,6 @@ main {
 @media (max-height: 470px) {
   main {
     height: max-content;
-
   }
 
   .cad-card__content {
