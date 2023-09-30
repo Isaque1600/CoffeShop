@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 <?php
 // * Pagina inicial do site *
 
 
 ?>
->>>>>>> ba6c5ecd38db30f2440aa73317948029c027b3d9
 <!DOCTYPE html>
 <html lang="pt-br">
 

@@ -52,6 +52,7 @@ CREATE TABLE categorias (
     nome VARCHAR(30) NULL UNIQUE KEY
 );
 INSERT into categorias(nome) values('salgado');
+<<<<<<< Updated upstream
 INSERT into categorias(nome) values('salgado');
 INSERT into categorias(nome) values('salgado');
 INSERT into categorias(nome) values('salgado');
@@ -59,6 +60,8 @@ INSERT into categorias(nome) values('salgado');
 INSERT into categorias(nome) values('salgado');
 INSERT into categorias(nome) values('salgado');
 INSERT into categorias(nome) values('salgado');
+=======
+>>>>>>> Stashed changes
 
 
 -- @block

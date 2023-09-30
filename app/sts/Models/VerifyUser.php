@@ -34,9 +34,9 @@ class VerifyUser extends Person
      * Metodo para verificar a ocorrencia do usuario no bd
      * @param mixed $email email do usuario
      * @param mixed $senha senha do usuario
-     * @return string|bool
+     * @return string
      */
-    public function verifyUser($email, $senha): string|bool
+    public function verifyUser($email, $senha): string
     {
         // instancia a classe de criptografia
         $encryption = new Encryption();
@@ -55,7 +55,9 @@ class VerifyUser extends Person
             // caso ele tenha dado certo ele verifica se a senha inserida no form esta certa e retorna sucesso
             if ($userSelect->execute()) {
                 $userData = $userSelect->fetch(PDO::FETCH_ASSOC);
+            }
 
+            if ($userData !== false) {
                 $verifyPass = $encryption->decrypt($userData['senha']);
                 if (!empty($userData) && $verifyPass = $senha) {
                     if (session_status() != PHP_SESSION_ACTIVE) {
@@ -68,10 +70,9 @@ class VerifyUser extends Person
                         return "succeed";
                     }
                 }
-
             }
 
-            return false;
+            return "fail";
         } catch (PDOException $err) {
             // Caso de algum erro no bd ele joga uma excessão 
             throw $err;

@@ -35,7 +35,7 @@ class RegisterUser extends Person
      * @param mixed $userData
      * @return bool|string|null
      */
-    public function registerUser($userData): bool|string|null
+    public function registerUser($userData): ?string
     {
         // instancia a classe de criptografia
         $encryption = new Encryption();
@@ -71,7 +71,7 @@ class RegisterUser extends Person
             }
 
             // se não retorna false
-            return false;
+            return "fail";
         } catch (PDOException $err) {
             // Caso tenha dado algum erro com o bd ele joga uma excessão
             throw $err;
