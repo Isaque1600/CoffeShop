@@ -52,17 +52,13 @@ CREATE TABLE categorias (
     nome VARCHAR(30) NULL UNIQUE KEY
 );
 INSERT into categorias(nome) values('salgado');
-<<<<<<< Updated upstream
-INSERT into categorias(nome) values('salgado');
-INSERT into categorias(nome) values('salgado');
-INSERT into categorias(nome) values('salgado');
-INSERT into categorias(nome) values('salgado');
-INSERT into categorias(nome) values('salgado');
-INSERT into categorias(nome) values('salgado');
-INSERT into categorias(nome) values('salgado');
-=======
->>>>>>> Stashed changes
-
+INSERT into categorias(nome) values('doce');
+INSERT into categorias(nome) values('cafe');
+INSERT into categorias(nome) values('suco');
+INSERT into categorias(nome) values('refrigerante');
+INSERT into categorias(nome) values('bolo');
+INSERT into categorias(nome) values('coxinha');
+INSERT into categorias(nome) values('pastel');
 
 -- @block
 CREATE TABLE produtos (
