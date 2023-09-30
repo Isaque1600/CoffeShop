@@ -1,7 +1,7 @@
 <header class="header" id="pageTop">
-    <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
         <nav class="nav">
             <ul class="nav__menu">
+                <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
                 <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/login">Login</a></li>
                 <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/cadastro">Cadastro</a></li>
                 <li class="nav__item"><a href="#">Cardápio</a></li>
