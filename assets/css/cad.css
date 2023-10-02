@@ -10,24 +10,14 @@
   --cmplt-lgt-brown: #836958;
 }
 
-/* Estilizações gerais (reset) */
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  font-family: "Roboto Serif", serif;
-}
-
 /* Main (conteúdo principal) */
 
 main {
   display: grid;
   place-items: center;
-  height: 100vh;
   background: linear-gradient(0, var(--ui-layout) 70%, var(--ui-details) 30%);
   padding: 1rem;
+  min-height: 100vh;
 }
 
 /* Formatação do card */
@@ -160,7 +150,6 @@ main {
   position: relative;
   max-width: 85%;
   overflow: hidden;
-
 }
 
 .cad-card__label {

@@ -29,10 +29,7 @@
             }
             ?>
         </ul>
-        <!--
-            <div class="nav__search">
 
-            </div>
             -->
     </nav>
     <a href="#pageTop" class="backToTop"><i class="fa-solid fa-up-long"></i></a>
