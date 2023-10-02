@@ -10,23 +10,17 @@
   --cmplt-lgt-brown: #836958;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap");
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  font-family: "Roboto Serif", serif;
-}
+/* Main (conteúdo principal) */
 
 main {
   display: grid;
   place-items: center;
-  height: 100vh;
   background: linear-gradient(0, var(--ui-layout) 70%, var(--ui-details) 30%);
   padding: 1rem;
+  min-height: 100vh;
 }
+
+/* Formatação do card */
 
 .cad-card {
   display: flex;
@@ -42,13 +36,11 @@ main {
   overflow: hidden;
 }
 
-/*
-  border-radius: 0.5rem;
-  */
-
 .cad-card > * {
   flex-basis: 50%;
 }
+
+/* Estilização da imagem do card */
 
 .cad-card__icon {
   display: flex;
@@ -85,6 +77,8 @@ main {
   user-select: none;
   z-index: 888;
 }
+
+/*Estilização do conteúdo do card (Form e seu título)*/
 
 .cad-card__content {
   display: flex;
@@ -140,17 +134,13 @@ main {
 .cad-card__login-button:target {
   box-shadow: inset var(--ui-layout) 2px 1px 1px;
   font-size: 0.8em;
-  margin: 0.13em 0.12em;
+  margin: 0.13em 0.09em;
 }
 
 .cad-card__inputs {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.cad-card__inputs > * + * {
-  margin-bottom: 0.3em;
 }
 
 .cad-card__input-container {
@@ -160,7 +150,6 @@ main {
   position: relative;
   max-width: 85%;
   overflow: hidden;
-  box-shadow: var(--ui-layout) -0.1rem 0 0;
 }
 
 .cad-card__label {
@@ -187,7 +176,7 @@ main {
   bottom: 0;
 
   translate: -100%;
-  transition: translate 0.4s cubic-bezier(0.23, 0.63, 0.83, 0.54);
+  transition: translate 0.4s cubic-bezier(.23,.63,.83,.54);
 }
 
 .cad-card__input::placeholder {
@@ -196,7 +185,7 @@ main {
 }
 
 .cad-card__input:focus::placeholder {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .cad-card__label:has(~ :focus)::after {
@@ -207,6 +196,8 @@ main {
 .cad-card__input:valid {
   filter: blur(0);
 }
+
+/* Fim do card */
 
 /* Pop Up */
 
@@ -260,7 +251,6 @@ main {
   height: 50px;
   padding: 15px;
   margin-bottom: 10px;
-  /* font-family: "Ubuntu Mono", monospace; */
   background-color: var(--ui-layout);
   position: absolute;
   padding: 0.5rem;
@@ -271,7 +261,6 @@ main {
 
 .popUp-text {
   margin-top: 30px;
-  /* font-family: "Ubuntu Mono", monospace; */
   color: white;
   user-select: text;
   text-align: center;
@@ -279,6 +268,8 @@ main {
 }
 
 /* Pop Up End */
+
+/* Media queries para responsividade */
 
 @media (max-width: 850px) {
   main {
@@ -309,3 +300,5 @@ main {
     max-height: max-content;
   }
 }
+
+/* Fim da responsividade */
