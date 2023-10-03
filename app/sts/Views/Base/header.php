@@ -23,7 +23,7 @@
                 echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "Home/login>Login</a></li>";
                 echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "Home/cadastro>Cadastro</a></li>";
             } else {
-                echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "User/perfil><img class=\"fa-user\" alt=\"Profile\"></img></a></li>";
+                echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "User/perfil class=\"profile\"><i class=\"fa-solid fa-user fa-xl\" alt=\"Profile\"></i></a></li>";
             }
             ?>
 >>>>>>> d6cdf1d (criação do insert helper)
