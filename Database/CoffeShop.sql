@@ -60,7 +60,6 @@ INSERT into categorias(nome) values('bolo');
 INSERT into categorias(nome) values('coxinha');
 INSERT into categorias(nome) values('pastel');
 
-
 -- @block
 CREATE TABLE produtos (
     produtoId int PRIMARY KEY AUTO_INCREMENT,
