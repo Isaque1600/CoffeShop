@@ -134,21 +134,23 @@ main h1 {
     padding: 2rem;
     grid-template-columns: repeat(2, 1fr);
     place-items: center;
-    background: linear-gradient(180deg, transparent 30%, var(--cmplt-brown) 31%); 
+    background: var(--ui-layout);
   }
 
   .benefit > * {
     padding: .5rem;
+    color: white;
   }
 
   @media(max-width: 1130px) {
     .company-benefits__container {
       grid-template-columns: repeat(2, 1fr);
+      width: 100%;
     }
 
     .benefit {
       grid-template-columns: 1fr;
-      background: linear-gradient(180deg, transparent 40%, var(--cmplt-brown) 41%); 
+      background: linear-gradient(180deg, transparent 40%, var(--ui-layout) 41%); 
     }
 
     .benefit:last-child {
