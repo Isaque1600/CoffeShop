@@ -11,7 +11,7 @@
                 <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/cadastro">Cadastro</a></li>
                 <li class="nav__item"><a href="#">Cardápio</a></li>
                 <li class="nav__item"><a href="#">Preferidos</a></li>
-                <li class="nav__item"><a href="#">Sobre</a></li>
+                <li class="nav__item"><a href="../sobre/sobre.html">Sobre</a></li>
             </ul>
             <!--
     <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
