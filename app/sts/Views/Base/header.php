@@ -4,16 +4,16 @@
 </head>
 
 <header class="header" id="pageTop">
-        <nav class="nav">
-            <ul class="nav__menu">
-                <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
-                <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/login">Login</a></li>
-                <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/cadastro">Cadastro</a></li>
-                <li class="nav__item"><a href="#">Cardápio</a></li>
-                <li class="nav__item"><a href="#">Preferidos</a></li>
-                <li class="nav__item"><a href="../sobre/sobre.html">Sobre</a></li>
-            </ul>
-            <!--
+    <nav class="nav">
+        <ul class="nav__menu">
+            <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
+            <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/login">Login</a></li>
+            <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/cadastro">Cadastro</a></li>
+            <li class="nav__item"><a href="#">Cardápio</a></li>
+            <li class="nav__item"><a href="#">Preferidos</a></li>
+            <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/sobre">Sobre</a></li>
+        </ul>
+        <!--
     <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
     <nav class="nav">
         <ul class="nav__menu">
