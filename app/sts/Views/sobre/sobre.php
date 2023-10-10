@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo CSS_PATH ?>sobre.css">
-    <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css">
+    <link rel="stylesheet" href="../../../../assets/css/sobre.css">
+    <link rel="stylesheet" href="../../../../assets/css/head-foot.css">
     <title>Sobre nós</title>
 </head>
 

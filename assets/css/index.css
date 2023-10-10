@@ -11,7 +11,6 @@
 
 main {
   background-color: var(--cmplt-lgt-brown);
-
   background-image: radial-gradient(#836958 2px, #DDE3E3 2px);
   background-size: 40px 40px;
   overflow: hidden;
@@ -41,7 +40,6 @@ main h1 {
   --_gap: .5rem;
 
   display: flex;
-
   padding-top: 1rem;
   gap: var(--_gap);
   font-size: clamp(1rem, -0.625rem + 3.3333vw, 1.25rem);

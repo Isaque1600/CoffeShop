@@ -1,3 +1,16 @@
+:root {
+  /*Paleta Principal*/
+  --chr-color: #dde3e3ff;
+  --chr-lgt-color: #dde3e391;
+  --ui-layout: #2d271dff;
+  --ui-details: #6d9891ff;
+
+  /*Cores Complementares*/
+  --cmplt-brown: #61371bff;
+  --cmplt-green: #a8bab9ff;
+  --cmplt-lgt-brown: #836958;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -10,16 +23,16 @@
     position: relative;
       font-size: clamp(3.125rem, -0.625rem + 10vw, 5rem);
       user-select: none;
+      width: 100%;
+      text-align: center;
   }
   
   .scroll-advice {
-    text-align: center;
     padding-top: 1rem;
     opacity: .5;
   }
   
   .scroll-icon {
-    text-align: center;
     display: inline-block;
     width: 100%;
     font-size: clamp(1.5rem, -0.625rem + 10vw, 3rem);
@@ -51,7 +64,7 @@
     position: sticky;
     top: 30%;
     padding-bottom: 40vh;
-    color: white;
+    color: var(--chr-color);
     mix-blend-mode: difference;
   }
   
@@ -66,8 +79,9 @@
   .hero__bg-video {
     position: absolute;
     z-index: -1;
-    bottom: 0;
     width: 100%;
+    pointer-events: none;
+    left: 0;
   }
   
   @media (max-width: 600px) {
@@ -100,7 +114,7 @@
     padding-inline: 3rem;
     padding-block: 2rem;
     position: relative;
-    color: white;
+    color: var(--chr-color);
   }
 
   .presentation__intro::after {
@@ -111,12 +125,6 @@
     z-index: -1;
     mix-blend-mode: difference;
 
-  }
-
-  @media (max-width: 800px) {
-    .presentation__intro {
-        width: 50%;
-    }
   }
 
   .cafeteria {
@@ -134,7 +142,7 @@
   .cafeteria__bg-gradient {
     height: 100%;
    /* background-image: linear-gradient(to bottom, rgb(173, 69, 0), transparent 70%);*/
-    background-image: linear-gradient(to bottom, rgb(109, 152, 145), transparent 70%);
+    background-image: linear-gradient(to bottom, rgb(40, 150, 30), transparent 70%);
     mix-blend-mode: difference;
     position: relative;
     grid-column: 1 / 3;
@@ -142,7 +150,7 @@
   }
 
   .cafeteria__bg-gradient h2 {
-    font-size: clamp(3.75rem, -5.625rem + 30vw, 5.25rem);
+    font-size: clamp(1.75rem, -5.625rem + 30vw, 5.25rem);
     text-align: center;
     position: sticky;
     top: 30%;
@@ -169,10 +177,21 @@
     opacity: .6;
   }
 
-  .presentation__intro, .cafeteria__intro h2 {
-    font-size: clamp(3.125rem, 1.875rem + 3.3333vw, 3.75rem);
+  .presentation__intro h2 {
+    font-size: clamp(2.125rem, 1.875rem + 3.3333vw, 3.75rem);
   }
 
-  .presentation__intro, .cafeteria__intro p {
+  .presentation__intro p {
     font-size: clamp(1rem, -0.625rem + 3.3333vw, 1.25rem);
+  }
+
+  @media (max-width: 750px) {
+    .cafeteria__intro {
+      grid-column: span 2;
+      grid-row: 4;
+    }
+
+    .presentation__intro {
+      width: 100%;
+    }
   }
