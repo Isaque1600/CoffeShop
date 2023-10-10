@@ -32,6 +32,10 @@
     display: none;
   }
 
+  video::-webkit-media-controls {
+    display: none;
+  }
+
   img {
     display: block;
     width: 100%;
