@@ -5,28 +5,19 @@
 
 <header class="header" id="pageTop">
     <nav class="nav">
+        <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
         <ul class="nav__menu">
-            <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
-            <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/login">Login</a></li>
-            <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/cadastro">Cadastro</a></li>
             <li class="nav__item"><a href="#">Cardápio</a></li>
-<<<<<<< HEAD
             <li class="nav__item"><a href="#">Preferidos</a></li>
-            <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/sobre">Sobre</a></li>
-=======
             <li class="nav__item"><a href="#">Sobre</a></li>
             <?php
-            if (isset($_SESSION['user'])) {
-                echo "<li class=\"nav__item\"><a href=\"#\">Preferidos</a></li>";
-            }
             if (!isset($_SESSION['user'])) {
                 echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "Home/login>Login</a></li>";
                 echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "Home/cadastro>Cadastro</a></li>";
             } else {
-                echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "User/perfil class=\"profile\"><i class=\"fa-solid fa-user fa-xl\" alt=\"Profile\"></i></a></li>";
+                echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "User/perfil>Profile</a></li>";
             }
             ?>
->>>>>>> d6cdf1d (criação do insert helper)
         </ul>
         <!--
     <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
@@ -35,14 +26,7 @@
             <li class="nav__item"><a href="#">Cardápio</a></li>
             <li class="nav__item"><a href="#">Preferidos</a></li>
             <li class="nav__item"><a href="#">Sobre</a></li>
-            <?php
-            if (!isset($_SESSION) || $_SESSION['user']['status'] !== "active") {
-                echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "Home/login>Login</a></li>";
-                echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "Home/cadastro>Cadastro</a></li>";
-            } else {
-                echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "User/perfil>Profile</a></li>";
-            }
-            ?>
+            
         </ul>
 
             -->
