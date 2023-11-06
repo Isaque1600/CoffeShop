@@ -13,6 +13,7 @@
   
   /*Importando a fonte utilizada*/
   @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap");
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
   /* Estilizações gerais */
 
@@ -20,7 +21,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "Roboto Serif", serif;
+    font-family: 'Roboto', sans-serif;
     text-decoration: none;
   }
 
@@ -73,13 +74,7 @@
     list-style: none;
   }
 
-  .nav__item{
-    position: relative;
-    cursor: pointer;
-    padding: calc(var(--_gap) / 2);
-  }
-
-  .nav__item::after {
+  .nav a::after {
     content: "";
     height: 3px;
     width: 100%;
@@ -98,15 +93,17 @@
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 500;
-    min-inline-size: 3rem;
+    padding: calc(var(--_gap) / 2);
   }
   
   .nav__item:hover a,
   .nav a:focus-visible {
     opacity: 1;
+    position: relative;
+    cursor: pointer;
   }
 
-  .nav__item:hover::after {
+  .nav a:hover::after {
     scale: 1 1;
   }
 

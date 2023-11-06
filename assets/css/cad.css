@@ -33,7 +33,6 @@ main {
   max-height: max(100% - 2vh);
   height: 100%;
   border-radius: 0.5rem;
-  overflow: hidden;
 }
 
 .cad-card > * {
@@ -126,15 +125,13 @@ main {
   color: var(--cmplt-lgt-brown);
   font-weight: 600;
   cursor: pointer;
-  transition: ease-out 0.2s;
+  transition: ease-out .2s;
   border-radius: 0.2em;
 }
 
 .cad-card__login-button:hover,
 .cad-card__login-button:target {
-  box-shadow: inset var(--ui-layout) 2px 1px 1px;
-  font-size: 0.8em;
-  margin: 0.13em 0.09em;
+  filter: brightness(50%);
 }
 
 .cad-card__inputs {

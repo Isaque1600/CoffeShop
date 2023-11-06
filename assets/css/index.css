@@ -10,8 +10,7 @@
 }
 
 main {
-  background-color: var(--cmplt-lgt-brown);
-  background-image: radial-gradient(#836958 2px, #DDE3E3 2px);
+  background-color: var(--chr-color);
   background-size: 40px 40px;
   overflow: hidden;
 }
@@ -19,7 +18,7 @@ main {
 main h1 {
   text-align: center;
   font-size: clamp(1.5rem, -2.5rem + 10vw, 3.125rem);
-  padding-bottom: 2rem;
+  padding-block: 3rem;
 }
 
 .products {
@@ -148,7 +147,6 @@ main h1 {
 
     .benefit {
       grid-template-columns: 1fr;
-      background: linear-gradient(180deg, transparent 40%, var(--ui-layout) 41%); 
     }
 
     .benefit:last-child {
