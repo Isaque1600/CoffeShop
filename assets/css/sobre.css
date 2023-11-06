@@ -64,7 +64,7 @@
     position: sticky;
     top: 30%;
     padding-bottom: 40vh;
-    color: var(--chr-color);
+    color: white;
     mix-blend-mode: difference;
   }
   
@@ -82,6 +82,7 @@
     width: 100%;
     pointer-events: none;
     left: 0;
+    bottom: 15%;
   }
   
   @media (max-width: 600px) {
@@ -89,13 +90,7 @@
     top: 5rem;
     }
      .hero__bg-video {
-      bottom: 20%;
-    }
-  }
-  
-  @media (min-width: 600px) {
-      .hero__bg-video {
-      bottom: 15%;
+      display: none;
     }
   }
 
@@ -104,7 +99,6 @@
     background-image: url("../images/bg-grains.jpg");
     background-size: cover;
     background-position: left center;
-    filter: grayscale(10%);
     isolation: isolate;
   }
 
@@ -142,7 +136,7 @@
   .cafeteria__bg-gradient {
     height: 100%;
    /* background-image: linear-gradient(to bottom, rgb(173, 69, 0), transparent 70%);*/
-    background-image: linear-gradient(to bottom, rgb(40, 150, 30), transparent 70%);
+    background-image: linear-gradient(to bottom, rgb(21, 78, 16), transparent 70%);
     mix-blend-mode: difference;
     position: relative;
     grid-column: 1 / 3;
