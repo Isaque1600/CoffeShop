@@ -1,12 +1,12 @@
-:root{
-    --chr-color: #DDE3E3ff;
-    --ui-layout: #2D271Dff;
-    --ui-details: #6D9891ff;
+:root {
+  /*Paleta Principal*/
+  --chr-color: #dde3e3ff;
+  --chr-lgt-color: #dde3e391;
+  --ui-layout: #000000;
+  --ui-details: #6d9891ff;
 
-    /*Cores Complementares*/
-    --cmplt-brown: #61371Bff;
-    --cmplt-green: #A8BAB9ff;
-    --cmplt-lgt-brown: #836958; 
+  /*Cores Complementares*/
+  --cmplt-green: #a8bab9ff;
 }
 
 main {
@@ -95,6 +95,7 @@ main h1 {
     border-radius: 2rem;
     overflow: hidden;
     display: grid;
+    overflow: hidden;
   }
 
   .showcase__img {
@@ -105,7 +106,7 @@ main h1 {
   .showcase__details {
     grid-column: 1;
     grid-row: 2;
-    background-color: #8369588d;
+    background-color: rgba(0, 0, 0, 0.455);
     padding-inline: 1rem;
     padding-block: 1.5rem;
     color: var(--chr-color);

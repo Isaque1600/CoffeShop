@@ -2,13 +2,11 @@
   /*Paleta Principal*/
   --chr-color: #dde3e3ff;
   --chr-lgt-color: #dde3e391;
-  --ui-layout: #2d271dff;
+  --ui-layout: #000000;
   --ui-details: #6d9891ff;
 
   /*Cores Complementares*/
-  --cmplt-brown: #61371bff;
   --cmplt-green: #a8bab9ff;
-  --cmplt-lgt-brown: #836958;
 }
 
 * {
