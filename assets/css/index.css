@@ -29,7 +29,7 @@ main h1 {
 
 .products__categories, .scroller__container {
   grid-column: span 2;
-  max-width: 50%;
+  max-width: 65%;
   width: 50%;
   display: grid;
   place-items: center;

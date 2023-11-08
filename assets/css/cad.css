@@ -14,7 +14,11 @@
 main {
   display: grid;
   place-items: center;
-  background: var(--ui-layout);
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image:  radial-gradient(#000000 1.1px, transparent 1.1px), radial-gradient(#000000 1.1px, #e5e5f7 1.1px);
+  background-size: 44px 44px;
+  background-position: 0 0,22px 22px;
   padding: 1rem;
   min-height: 100vh;
 }
@@ -26,7 +30,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   background-color: var(--chr-color);
-  border: 0.2em var(--ui-layout) inset;
+  box-shadow: var(--ui-layout) 5px 5px 10px;
   max-width: max(80% - 4vh);
   width: 100%;
   max-height: max(100% - 2vh);
