@@ -7,6 +7,7 @@
 
   /*Cores Complementares*/
   --cmplt-green: #a8bab9ff;
+  --cmplt-brown: #2b0000;
 }
 
 /* Main (conteúdo principal) */
@@ -14,8 +15,12 @@
 main {
   display: grid;
   place-items: center;
-  background: var(--ui-layout);
-  padding: 1rem;
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image:  radial-gradient(#000000 1.1px, transparent 1.1px), radial-gradient(#000000 1.1px, #e5e5f7 1.1px);
+  background-size: 44px 44px;
+  background-position: 0 0,22px 22px;
+  padding-block: 5rem;
   min-height: 100vh;
 }
 
@@ -26,12 +31,13 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   background-color: var(--chr-color);
-  border: 0.2em var(--ui-layout) inset;
+  box-shadow: var(--ui-layout) 5px 5px 10px;
   max-width: max(80% - 4vh);
   width: 100%;
   max-height: max(100% - 2vh);
   height: 100%;
   border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .cad-card > * {
@@ -51,29 +57,22 @@ main {
 
 .cad-card__legenda::after {
   content: "";
-  background-image: url(../images/img-grande.jpg);
+  background-image: url(../images/pexels-rajdeepcraft-6416554.jpg);
   background-size: cover;
-  filter: blur(0.1rem);
+  background-position: center;
   z-index: -2;
   inset: 0;
   position: absolute;
+  width: 100%;
 }
 
 .cad-card__legenda::before {
   content: "";
-  background-color: #4141415d;
   background-repeat: no-repeat;
   z-index: -1;
   inset: 0;
   position: absolute;
-  backdrop-filter: blur(0.3rem);
-}
-
-.cad-card__img {
-  mix-blend-mode: color-dodge;
-  filter: drop-shadow(0 0 0.7rem #dde3e3ff);
-  user-select: none;
-  z-index: 888;
+  backdrop-filter: blur(0.2rem);
 }
 
 /*Estilização do conteúdo do card (Form e seu título)*/
@@ -82,18 +81,18 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  padding: 2em;
 }
 
 .cad-card__form-header {
   display: flex;
   justify-content: space-between;
-  margin: 2em 0;
+  margin: 0 0 2em 0;
 }
 
 .cad-card__title {
-  padding: 0.5rem;
   user-select: none;
+  padding: 2em 1em;
 }
 
 .cad-card__subtitle {
@@ -162,7 +161,7 @@ main {
   outline: none;
   color: var(--chr-color);
   font-weight: bolder;
-  border-bottom: solid 1px var(--ui-layout);
+  border-bottom: solid 3px var(--cmplt-brown);
 }
 
 .cad-card__input::placeholder {
@@ -249,34 +248,20 @@ main {
 
 /* Media queries para responsividade */
 
-@media (max-width: 850px) {
+@media (max-width: 1050px) {
   main {
     height: 110vh;
   }
 
   .cad-card {
-    justify-content: start;
-    max-height: max-content;
-  }
-
-  .cad-card__content {
-    border-top: 0.1rem solid var(--ui-layout);
-    flex-basis: 100%;
+    min-height: 30%;
+    overflow: scroll;
   }
 
   .cad-card__icon {
-    flex-basis: 100%;
-  }
-}
-
-@media (max-height: 470px) {
-  main {
-    height: max-content;
+    display: none;
   }
 
-  .cad-card__content {
-    max-height: max-content;
-  }
 }
 
 /* Fim da responsividade */

@@ -7,6 +7,7 @@
   
     /*Cores Complementares*/
     --cmplt-green: #a8bab9ff;
+    --cmplt-brown: #2b0000;
   }
   
   /*Importando a fonte utilizada*/
@@ -162,7 +163,7 @@
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  background-color: var(--ui-layout);
+  background-color: var(--cmplt-brown);
   color: var(--ui-details);
   border-radius: 50%;
   transition: filter 350ms;
