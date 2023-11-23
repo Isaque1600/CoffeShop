@@ -12,11 +12,13 @@
     <link rel="stylesheet" href="<?php echo CSS_PATH ?>index.css">
 </head>
 
-<?php
-require("app/sts/Views/Base/header.php");
-?>
 
 <body>
+
+    <?php
+    require("app/sts/Views/Base/header.php");
+    ?>
+
     <main class="main">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#000000" fill-opacity="1"

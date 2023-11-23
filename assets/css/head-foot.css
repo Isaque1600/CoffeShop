@@ -133,7 +133,7 @@ body {
   color: var(--chr-color);
 }
 
-.profile {
+.profile-box {
   padding: 0.6em;
   background-color: transparent;
   border: var(--chr-color) 2px solid;

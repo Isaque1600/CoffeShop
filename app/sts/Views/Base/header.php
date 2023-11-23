@@ -5,17 +5,17 @@
 
 <header class="header" id="pageTop">
     <nav class="nav">
-        <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
+        <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Logo"></a>
         <ul class="nav__menu">
-            <li class="nav__item"><a href="#">Cardápio</a></li>
-            <li class="nav__item"><a href="#">Preferidos</a></li>
-            <li class="nav__item"><a href="#">Sobre</a></li>
+            <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/cardapio">Cardápio</a></li>
+            <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/preferidos">Preferidos</a></li>
+            <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/sobre">Sobre</a></li>
             <?php
-            if (!isset($_SESSION['user'])) {
+            if (! isset($_SESSION['user'])) {
                 echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "Home/login>Login</a></li>";
                 echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "Home/cadastro>Cadastro</a></li>";
             } else {
-                echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "User/perfil>Profile</a></li>";
+                echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "User/perfil class=\"profile\"><span class=\"profile-box\"><i class=\"fa-solid fa-user fa-xl profile-icon\" alt=\"Profile\"></i></span></a></li>";
             }
             ?>
         </ul>
