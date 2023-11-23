@@ -41,7 +41,7 @@ require("app/sts/Views/Base/header.php");
                 </figure>
             </article>
             <article class="cad-card__content">
-                <form action="" method="post">
+                <form action="" method="post" class="scrollable-container">
                     <header class="cad-card__form-header">
                         <div class="cad-card__title">
                             <h1 class="cad-card__subtitle">Cadastre-se</h1>

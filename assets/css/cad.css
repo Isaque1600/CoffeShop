@@ -1,13 +1,13 @@
 :root {
-  --chr-color: #dde3e3;
+  /*Paleta Principal*/
+  --chr-color: #dde3e3ff;
   --chr-lgt-color: #dde3e391;
-  --ui-layout: #2d271dff;
+  --ui-layout: #000000;
   --ui-details: #6d9891ff;
 
   /*Cores Complementares*/
-  --cmplt-brown: #61371bff;
   --cmplt-green: #a8bab9ff;
-  --cmplt-lgt-brown: #836958;
+  --cmplt-brown: #2b0000;
 }
 
 /* Main (conteúdo principal) */
@@ -15,8 +15,12 @@
 main {
   display: grid;
   place-items: center;
-  background: linear-gradient(0, var(--ui-layout) 70%, var(--ui-details) 30%);
-  padding: 1rem;
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image:  radial-gradient(#000000 1.1px, transparent 1.1px), radial-gradient(#000000 1.1px, #e5e5f7 1.1px);
+  background-size: 44px 44px;
+  background-position: 0 0,22px 22px;
+  padding-block: 5rem;
   min-height: 100vh;
 }
 
@@ -26,8 +30,8 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: var(--cmplt-lgt-brown);
-  border: 0.2em var(--cmplt-brown) inset;
+  background-color: var(--chr-color);
+  box-shadow: var(--ui-layout) 5px 5px 10px;
   max-width: max(80% - 4vh);
   width: 100%;
   max-height: max(100% - 2vh);
@@ -53,29 +57,22 @@ main {
 
 .cad-card__legenda::after {
   content: "";
-  background-image: url(../images/img-grande.jpg);
+  background-image: url(../images/pexels-rajdeepcraft-6416554.jpg);
   background-size: cover;
-  filter: blur(0.1rem);
+  background-position: center;
   z-index: -2;
   inset: 0;
   position: absolute;
+  width: 100%;
 }
 
 .cad-card__legenda::before {
   content: "";
-  background-color: #4141415d;
   background-repeat: no-repeat;
   z-index: -1;
   inset: 0;
   position: absolute;
-  backdrop-filter: blur(0.3rem);
-}
-
-.cad-card__img {
-  mix-blend-mode: color-dodge;
-  filter: drop-shadow(0 0 0.7rem #dde3e3ff);
-  user-select: none;
-  z-index: 888;
+  backdrop-filter: blur(0.2rem);
 }
 
 /*Estilização do conteúdo do card (Form e seu título)*/
@@ -84,24 +81,24 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left: 0.1rem solid var(--ui-layout);
+  padding: 2em;
 }
 
 .cad-card__form-header {
   display: flex;
   justify-content: space-between;
-  margin: 2em 0;
+  margin: 0 0 2em 0;
 }
 
 .cad-card__title {
-  padding: 0.5rem;
   user-select: none;
+  padding: 2em 1em;
 }
 
 .cad-card__subtitle {
   font-size: clamp(1.7rem, -0.875rem + 8vw, 2.5rem);
   min-width: max-content;
-  color: var(--chr-lgt-color);
+  color: var(--ui-layout);
   -webkit-text-stroke: #00000094 0.05rem;
 }
 
@@ -112,7 +109,7 @@ main {
 
 .cad-card__title > a:hover {
   text-decoration: overline;
-  color: var(--cmplt-brown);
+  color: var(--ui-details);
 }
 
 .cad-card__login {
@@ -123,18 +120,16 @@ main {
   padding: 0.5em;
   border: none;
   background-color: var(--cmplt-green);
-  color: var(--cmplt-lgt-brown);
+  color: var(--ui-layout);
   font-weight: 600;
   cursor: pointer;
-  transition: ease-out 0.2s;
+  transition: ease-out .2s;
   border-radius: 0.2em;
 }
 
 .cad-card__login-button:hover,
 .cad-card__login-button:target {
-  box-shadow: inset var(--ui-layout) 2px 1px 1px;
-  font-size: 0.8em;
-  margin: 0.13em 0.09em;
+  filter: brightness(50%);
 }
 
 .cad-card__inputs {
@@ -162,39 +157,21 @@ main {
   padding: 0.3rem;
   border-radius: 0.2rem;
   border: none;
-  background: rgba(255, 255, 255, 0.304);
+  background: var(--ui-details);
   outline: none;
-}
-
-.cad-card__label::after {
-  content: "";
-  height: 3px;
-  width: 100%;
-  position: absolute;
-  background-color: var(--ui-layout);
-  left: 0;
-  bottom: 0;
-
-  translate: -100%;
-  transition: translate 0.4s cubic-bezier(.23,.63,.83,.54);
+  color: var(--chr-color);
+  font-weight: bolder;
+  border-bottom: solid 3px var(--cmplt-brown);
 }
 
 .cad-card__input::placeholder {
   user-select: none;
   opacity: 0;
+  color: var(--chr-color);
 }
 
 .cad-card__input:focus::placeholder {
   opacity: 0.5;
-}
-
-.cad-card__label:has(~ :focus)::after {
-  translate: 0;
-  z-index: 201;
-}
-
-.cad-card__input:valid {
-  filter: blur(0);
 }
 
 /* Fim do card */
@@ -271,34 +248,20 @@ main {
 
 /* Media queries para responsividade */
 
-@media (max-width: 850px) {
+@media (max-width: 1050px) {
   main {
     height: 110vh;
   }
 
   .cad-card {
-    justify-content: start;
-    max-height: max-content;
-  }
-
-  .cad-card__content {
-    border-top: 0.1rem solid var(--ui-layout);
-    flex-basis: 100%;
+    min-height: 30%;
+    overflow: scroll;
   }
 
   .cad-card__icon {
-    flex-basis: 100%;
-  }
-}
-
-@media (max-height: 470px) {
-  main {
-    height: max-content;
+    display: none;
   }
 
-  .cad-card__content {
-    max-height: max-content;
-  }
 }
 
 /* Fim da responsividade */

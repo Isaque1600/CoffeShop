@@ -5,14 +5,17 @@
   /*Paleta Principal*/
   --chr-color: #dde3e3ff;
   --chr-lgt-color: #dde3e391;
-  --ui-layout: #2d271dff;
+  --ui-layout: #000000;
   --ui-details: #6d9891ff;
 
   /*Cores Complementares*/
-  --cmplt-brown: #61371bff;
   --cmplt-green: #a8bab9ff;
-  --cmplt-lgt-brown: #836958;
+  --cmplt-brown: #2b0000;
 }
+
+/*Importando a fonte utilizada*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 /* Estilizações gerais */
 
@@ -20,7 +23,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Roboto Serif", serif;
+  font-family: "Roboto", sans-serif;
   text-decoration: none;
 }
 
@@ -32,9 +35,13 @@ html {
   display: none;
 }
 
+video::-webkit-media-controls {
+  display: none;
+}
+
 img {
   display: block;
-  width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -69,13 +76,7 @@ body {
   list-style: none;
 }
 
-.nav__item {
-  position: relative;
-  cursor: pointer;
-  padding: calc(var(--_gap) / 2);
-}
-
-.nav__item::after {
+.nav a::after {
   content: "";
   height: 3px;
   width: 100%;
@@ -94,12 +95,14 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 500;
-  min-inline-size: 3rem;
+  padding: calc(var(--_gap) / 2);
 }
 
 .nav__item:hover a,
 .nav a:focus-visible {
   opacity: 1;
+  position: relative;
+  cursor: pointer;
 }
 
 .nav__item:hover::after {
@@ -170,7 +173,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  background-color: var(--ui-layout);
+  background-color: var(--cmplt-brown);
   color: var(--ui-details);
   border-radius: 50%;
   transition: filter 350ms;
