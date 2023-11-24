@@ -132,7 +132,7 @@ class Home
         $loadView->renderView();
     }
 
-    public function about(): void
+    public function sobre(): void
     {
         $loadView = new ConfigView("sts/Views/sobre/sobre", $this->data);
         $loadView->renderView();
