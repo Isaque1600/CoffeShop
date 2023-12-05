@@ -53,13 +53,15 @@ body {
 .header {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: var(--ui-layout);
+  height: 15vh;
 }
 
 .nav {
   display: flex;
   justify-content: space-around;
-  align-items: flex-end;
+  align-items: center;
   background-color: var(--ui-layout);
   font-size: clamp(0.5rem, -0.875rem + 3vw, 0.9rem);
 
@@ -76,6 +78,22 @@ body {
   list-style: none;
 }
 
+.nav a {
+  color: var(--chr-color);
+  opacity: 0.7;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: calc(var(--_gap) / 2);
+  position: relative;
+}
+
+.nav__item:hover a,
+.nav a:focus-visible {
+  opacity: 1;
+  cursor: pointer;
+}
+
 .nav a::after {
   content: "";
   height: 3px;
@@ -89,24 +107,66 @@ body {
   transition: scale 250ms;
 }
 
-.nav a {
-  color: var(--chr-color);
-  opacity: 0.7;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: calc(var(--_gap) / 2);
+.nav__item:hover ::after {
+  scale: 1 1;
 }
 
-.nav__item:hover a,
-.nav a:focus-visible {
-  opacity: 1;
-  position: relative;
+.nav__search {
+  display: grid;
+  grid-template-columns: 2rem;
+  grid-template-rows: 2rem;
+  place-items: center;
+  padding-left: 3rem;
+}
+
+.search-input {
+  border-radius: .3rem;
+  grid-row: 1/2;
+  outline-color: var(--ui-details);
+  grid-column: 1;
+  max-width: 2rem;
+  min-height: 2rem;
+  border: none;
+  transition: max-width 200ms;
+  background-color: var(--cmplt-green);
+  padding: .5rem;
   cursor: pointer;
 }
 
-.nav__item:hover::after {
-  scale: 1 1;
+.search-input::placeholder {
+  opacity: 0;
+  transition: opacity 600ms;
+  text-align: center;
+  cursor: text;
+}
+
+.search-label {
+  grid-column: 1;
+  grid-row: 1/2;
+  z-index: 88;
+  color: var(--ui-layout)
+}
+
+.search-label-one {
+  user-select: none;
+  cursor: pointer;
+  transition: translate 300ms, opacity 600ms;
+}
+
+.search-input:focus {
+  max-width: 5rem;
+  outline: 2px var(--ui-details) solid;
+  cursor: text;
+}
+
+.nav__search:focus-within .search-label-one {
+  translate: 40px;
+  opacity: 0;
+  cursor: text;
+}
+
+.nav__search:focus-within .search-input::placeholder {
+  opacity: .5;
 }
 
 /* Botão de voltar ao topo*/

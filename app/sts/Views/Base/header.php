@@ -18,6 +18,10 @@
                 echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "User/perfil class=\"profile\"><span class=\"profile-box\"><i class=\"fa-solid fa-user fa-xl profile-icon\" alt=\"Profile\"></i></span></a></li>";
             }
             ?>
+            <li class="nav__search">
+                <label class="search-label" for="search"><i class="fa-solid fa-magnifying-glass search-label-one"></i></label>
+                <input class="search-input" type="text" name="search" id="search" placeholder="Pesquise">
+            </li>
         </ul>
         <!--
     <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
