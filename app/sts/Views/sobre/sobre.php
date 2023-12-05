@@ -45,7 +45,6 @@
             </article>
         </section>
     </main>
-    <script src="https://kit.fontawesome.com/9682b31f0e.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
