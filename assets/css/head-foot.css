@@ -200,6 +200,65 @@ body {
   border-radius: 50%;
 }
 
+.cart-sidebar {
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  min-width: 25%;
+  background-color: var(--cmplt-green);
+  padding: 1rem;
+  z-index: 778;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.cart-sidebar > * {
+  height: min-content;
+}
+
+.cart-sidebar > h2, p, i {
+  color: var(--chr-color);
+}
+
+.cart-sidebar h2 {
+  padding-bottom: 2rem;
+}
+
+.cart-title {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--cmplt-brown);
+  padding: 1rem;
+  border-radius: .5rem;
+  width: auto;
+}
+
+.cart-item > * {
+  padding-inline: .5rem;
+}
+
+.cart-item > b {
+  color: white;
+}
+
+.trash {
+  background: var(--cmplt-brown);
+  border: none;
+}
+
+.trash-icon:hover {
+  color: red;
+}
+
 /* Botão de voltar ao topo*/
 
 /* Fim do Header */

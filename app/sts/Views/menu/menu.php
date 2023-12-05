@@ -25,14 +25,7 @@
         <section class="title">
             <div class="menu-info">
                 <h1>Cardápio</h1>
-                <h2 class="category-info">Sobremesas</h2>
             </div>
-            <div class="product-categories">
-                <a href="#" class="category">Cafés</a>
-                <a href="#" class="category">Massas</a>
-                <a href="#" class="category">Sobremesas</a>
-            </div>
-        </section>
         <section class="menu">
             <?php
 

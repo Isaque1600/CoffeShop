@@ -83,7 +83,6 @@
     <script type="text/javascript" src="<?php echo JS_PATH; ?>jquery.js"></script>
     <script type="text/javascript" src="<?php echo JS_PATH; ?>main.js"></script>
     <script type="text/javascript" src="<?php echo JS_PATH ?>index.js"></script>
-    <script src="https://kit.fontawesome.com/9682b31f0e.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
