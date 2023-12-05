@@ -1,3 +1,9 @@
+<?php
+
+// var_dump($data);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -29,92 +35,16 @@
         </section>
         <section class="menu">
             <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-alisha-mishra-1346345.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704660.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-spotwizardlee-9884561.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-bytes-for-food-15157808.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-alisha-mishra-1346345.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-spotwizardlee-9884561.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704660.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-rajdeepcraft-6416554.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                </div>
+                <?php
+
+                foreach($data['produtos'] as $key => $value) {
+                    echo "<div class=\"img-container\"><img src=\"".IMG_PATH.$value['path'].".png"."\" alt=\"\" class=\"item-img\"></div>";
+                    echo "<div class=\"item-details\">";
+                    echo "<p>".$value['nome']."</p>";
+                    echo "<b>R$".$value['valor']."</b>";
+                    echo "</div>";
+                }
+                ?>
             </div>
         </section>
     </main>
