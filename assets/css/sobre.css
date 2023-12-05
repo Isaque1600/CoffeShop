@@ -67,7 +67,7 @@
   position: sticky;
   top: 30%;
   padding-bottom: 40vh;
-  color: var(--chr-color);
+  color: white;
   mix-blend-mode: difference;
 }
 
