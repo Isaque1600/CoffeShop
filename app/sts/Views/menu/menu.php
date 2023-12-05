@@ -19,14 +19,7 @@
         <section class="title">
             <div class="menu-info">
                 <h1>Cardápio</h1>
-                <h2 class="category-info">Sobremesas</h2>
             </div>
-            <div class="product-categories">
-                <a href="#" class="category">Cafés</a>
-                <a href="#" class="category">Massas</a>
-                <a href="#" class="category">Sobremesas</a>
-            </div>
-        </section>
         <section class="menu">
             <div class="menu__item-container">
                 <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt=""

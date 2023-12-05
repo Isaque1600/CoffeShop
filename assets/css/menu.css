@@ -20,11 +20,16 @@
 .menu-info {
     display: flex;
     align-items: center;
+    justify-content: center;
     column-gap: 1rem;
 }
 
 .title h1 {
     font-size: clamp(1.875rem, 0.875rem + 4vw, 3.125rem);
+}
+
+.title-preferidos h1 {
+    text-decoration: dashed gold;
 }
 
 .category-info {
@@ -87,6 +92,7 @@
 .item-img {
     transition: scale .3s, border-radius .3s;
     cursor: pointer;
+    width: 100%;
 }
 
 .item-img:hover {
@@ -103,10 +109,27 @@
     font-size: clamp(0.9375rem, 0.3125rem + 1.6667vw, 1.25rem);
 }
 
-.item-details b {
+.item-details b, .favoritar, .add-cart {
     align-self: flex-end;
     font-size: clamp(0.875rem, 0.375rem + 1.3333vw, 1.125rem);
 }
+
+.favoritar {
+    accent-color: gold;
+}
+
+.favoritar:focus-within label {
+    color: gold;
+}
+
+.add-cart > * {
+    accent-color: var(--ui-details);
+}
+
+.add-cart:focus-within label i {
+    color: var(--ui-details);
+}
+
 
 @media (min-width: 1070px) {
     .menu {
