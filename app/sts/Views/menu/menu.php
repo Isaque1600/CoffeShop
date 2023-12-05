@@ -26,21 +26,21 @@
             <div class="menu-info">
                 <h1>Cardápio</h1>
             </div>
-        <section class="menu">
-            <?php
+            <section class="menu">
+                <?php
 
-            foreach($data['produtos'] as $key => $value) {
-                echo "<div class=\"menu__item-container\">";
-                echo "<div class=\"img-container\"><img src=\"".IMG_PATH.$value['path'].".png"."\" alt=\"\" class=\"item-img\"></div>";
-                echo "<div class=\"item-details\">";
-                echo "<p>".$value['nome']."</p>";
-                echo "<b>R$".$value['valor']."</b>";
-                echo "</div>";
-                echo "</div>";
-            }
+                foreach($data['produtos'] as $key => $value) {
+                    echo "<div class=\"menu__item-container\">";
+                    echo "<div class=\"img-container\"><img src=\"".IMG_PATH.$value['path'].".png"."\" alt=\"\" class=\"item-img\"></div>";
+                    echo "<div class=\"item-details\">";
+                    echo "<p>".$value['nome']."</p>";
+                    echo "<b>R$".$value['valor']."</b>";
+                    echo "</div>";
+                    echo "</div>";
+                }
 
-            ?>
-        </section>
+                ?>
+            </section>
     </main>
 </body>
 
