@@ -27,6 +27,14 @@
                 <div class="item-details">
                     <p>Teste</p>
                     <b>R$99.99</b>
+                    <div class="favoritar">
+                        <label for="favorito">Favoritar: </label>
+                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
+                    </div>
+                    <div class="add-cart">
+                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
+                        <input type="checkbox" name="addcart" id="addcart">
+                    </div>
                 </div>
             </div>
             <div class="menu__item-container">
@@ -35,6 +43,14 @@
                 <div class="item-details">
                     <p>Teste</p>
                     <b>R$99.99</b>
+                    <div class="favoritar">
+                        <label for="favorito">Favoritar: </label>
+                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
+                    </div>
+                    <div class="add-cart">
+                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
+                        <input type="checkbox" name="addcart" id="addcart">
+                    </div>
                 </div>
             </div>
             <div class="menu__item-container">
@@ -43,6 +59,14 @@
                 <div class="item-details">
                     <p>Teste</p>
                     <b>R$99.99</b>
+                    <div class="favoritar">
+                        <label for="favorito">Favoritar: </label>
+                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
+                    </div>
+                    <div class="add-cart">
+                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
+                        <input type="checkbox" name="addcart" id="addcart">
+                    </div>
                 </div>
             </div>
             <div class="menu__item-container">
@@ -51,6 +75,14 @@
                 <div class="item-details">
                     <p>Teste</p>
                     <b>R$99.99</b>
+                    <div class="favoritar">
+                        <label for="favorito">Favoritar: </label>
+                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
+                    </div>
+                    <div class="add-cart">
+                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
+                        <input type="checkbox" name="addcart" id="addcart">
+                    </div>
                 </div>
             </div>
             <div class="menu__item-container">
@@ -59,6 +91,14 @@
                 <div class="item-details">
                     <p>Teste</p>
                     <b>R$99.99</b>
+                    <div class="favoritar">
+                        <label for="favorito">Favoritar: </label>
+                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
+                    </div>
+                    <div class="add-cart">
+                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
+                        <input type="checkbox" name="addcart" id="addcart">
+                    </div>
                 </div>
             </div>
             <div class="menu__item-container">
@@ -67,6 +107,14 @@
                 <div class="item-details">
                     <p>Teste</p>
                     <b>R$99.99</b>
+                    <div class="favoritar">
+                        <label for="favorito">Favoritar: </label>
+                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
+                    </div>
+                    <div class="add-cart">
+                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
+                        <input type="checkbox" name="addcart" id="addcart">
+                    </div>
                 </div>
             </div>
             <div class="menu__item-container">
@@ -75,6 +123,14 @@
                 <div class="item-details">
                     <p>Teste</p>
                     <b>R$99.99</b>
+                    <div class="favoritar">
+                        <label for="favorito">Favoritar: </label>
+                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
+                    </div>
+                    <div class="add-cart">
+                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
+                        <input type="checkbox" name="addcart" id="addcart">
+                    </div>
                 </div>
             </div>
             <div class="menu__item-container">
@@ -83,6 +139,14 @@
                 <div class="item-details">
                     <p>Teste</p>
                     <b>R$99.99</b>
+                    <div class="favoritar">
+                        <label for="favorito">Favoritar: </label>
+                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
+                    </div>
+                    <div class="add-cart">
+                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
+                        <input type="checkbox" name="addcart" id="addcart">
+                    </div>
                 </div>
             </div>
             <div class="menu__item-container">
@@ -91,6 +155,14 @@
                 <div class="item-details">
                     <p>Teste</p>
                     <b>R$99.99</b>
+                    <div class="favoritar">
+                        <label for="favorito">Favoritar: </label>
+                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
+                    </div>
+                    <div class="add-cart">
+                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
+                        <input type="checkbox" name="addcart" id="addcart">
+                    </div>
                 </div>
             </div>
             <div class="menu__item-container">
@@ -99,6 +171,14 @@
                 <div class="item-details">
                     <p>Teste</p>
                     <b>R$99.99</b>
+                    <div class="favoritar">
+                        <label for="favorito">Favoritar: </label>
+                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
+                    </div>
+                    <div class="add-cart">
+                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
+                        <input type="checkbox" name="addcart" id="addcart">
+                    </div>
                 </div>
             </div>
             <div class="menu__item-container">
@@ -107,6 +187,14 @@
                 <div class="item-details">
                     <p>Teste</p>
                     <b>R$99.99</b>
+                    <div class="favoritar">
+                        <label for="favorito">Favoritar: </label>
+                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
+                    </div>
+                    <div class="add-cart">
+                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
+                        <input type="checkbox" name="addcart" id="addcart">
+                    </div>
                 </div>
             </div>
         </section>

@@ -20,6 +20,7 @@
                 <label class="search-label" for="search"><i class="fa-solid fa-magnifying-glass search-label-one"></i></label>
                 <input class="search-input" type="text" name="search" id="search" placeholder="Pesquise">
             </li>
+            <li><button class="open-cart">$</button></li>
         </ul>
         <!--
     <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
@@ -40,6 +41,7 @@
         <h2>Carrinho <i class="fa-solid fa-cart-shopping" style="color: #6d9891ff;"></i></h2>
         <p>X</p>
     </div>
+    <button class="buy">Comprar</button>
     <li class="cart-item">
     <p>Teste</p>
     <b>R$99.99</b>

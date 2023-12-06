@@ -1,0 +1,153 @@
+/*Importando a fonte utilizada*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap");
+
+:root {
+  /*Paleta Principal*/
+  --chr-color: #dde3e3ff;
+  --chr-lgt-color: #dde3e391;
+  --ui-layout: #000000;
+  --ui-details: #6d9891ff;
+
+  /*Cores Complementares*/
+  --cmplt-green: #a8bab9ff;
+  --cmplt-brown: #2b0000;
+}
+
+/*Importando a fonte utilizada*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+/* Estilizações gerais */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+video::-webkit-media-controls {
+  display: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Estilização do body */
+
+body {
+    background-color: #000000;
+    opacity: 1;
+    background-image: radial-gradient(#d9dbfd 0.55px, #000000 0.55px);
+    background-size: 11px 11px;
+    color: var(--chr-color);
+}
+
+h1 {
+    font-size: clamp(1.5625rem, 0.3125rem + 5vw, 3.125rem);
+    background-color: var(--ui-details);
+    padding: 1.5rem;
+}
+
+.user-info {
+    display: flex;
+    padding: 2rem;
+    font-weight: bolder;
+    letter-spacing: .1rem;
+}
+
+.user-info > * {
+    flex-basis: 100%;
+}
+
+.user-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-data > * {
+    padding: 1rem;
+    background-color: var(--ui-layout);
+    border: 3px var(--ui-details) solid;
+    transition: all 200ms;
+}
+
+.user-data > *:hover {
+    background-color: var(--ui-details);
+}
+
+.user-opt {
+    display: grid;
+    grid-template-columns: repeat(1fr, 2);
+}
+
+.user-opt .favorite {
+    grid-column: 1;
+}
+
+.user-opt .logout {
+    grid-column: auto;
+}
+
+.user-opt  > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 250ms;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    letter-spacing: .2rem;
+    color: white;
+}
+
+.user-opt .produto {
+    grid-column: 1;
+}
+
+.user-opt .vendas {
+    grid-column: 2;
+}
+ 
+.user-opt .vendas + .logout {
+    grid-column: 1 / 3;
+}
+
+
+
+.user-opt .favorite:hover {
+    background-color: gold;
+}
+
+.user-opt .logout:hover {
+    background-color: red;
+}
+
+.user-opt .produto:hover {
+    background-color: rgb(0, 72, 255);
+}
+
+.user-opt .vendas:hover {
+    background-color: rgb(20, 118, 56);
+}
+
+@media (max-width: 600px) {
+    .user-info {
+        flex-direction: column;
+    }
+
+    .user-opt > * {
+        height: 5rem;
+    }
+}
