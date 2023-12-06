@@ -41,7 +41,8 @@
                     echo "</div>";
                     echo "<div class=\"add-cart\">";
                     echo "    <label for=\"addcart\"><i class=\"fa-solid fa-cart-shopping\"></i></label>";
-                    echo "    <input type=\"checkbox\" name=\"addcart\" id=\"addcart\">";
+                    echo "    <input type=\"checkbox\" name=\"".$value['nome']."\" id=\"addcart\">";
+                    echo "</div>";
                     echo "</div>";
                     echo "</div>";
                 }

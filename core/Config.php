@@ -23,6 +23,7 @@ abstract class Config {
         // Seta a url default da pasta com os js pra uma variavel de ambiente
         define("JS_PATH", DEFAULT_URL."assets/js/");
         // Seta a url default da pasta com as imagens pra uma variavel de ambiente
+        define("IMG_FLSYSTEM", $_SERVER['DOCUMENT_ROOT']."/".$urlDefault."assets/images/");
         define("IMG_PATH", DEFAULT_URL."assets/images/");
         // Seta o path para o header
         define("HEADER", "app/sts/Views/Base/header.php");

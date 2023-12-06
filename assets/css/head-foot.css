@@ -243,6 +243,10 @@ i {
   padding-bottom: 2rem;
 }
 
+.cart-sidebar p {
+  cursor: pointer;
+}
+
 .cart-title {
   display: flex;
   justify-content: space-between;

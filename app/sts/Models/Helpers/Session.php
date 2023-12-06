@@ -25,11 +25,11 @@ class Session {
     }
 
     public function delete(): void {
-        if($this->create()) {
-            $_SESSION = [];
-            session_abort();
-            session_destroy();
-        }
+        $this->create();
+        $_SESSION = [];
+        // session_abort();
+        session_destroy();
+
     }
 
     public function update(?string $name = null, mixed $new): void {

@@ -40,7 +40,7 @@
 <ul class="cart-sidebar">
     <div class="cart-title">
         <h2>Carrinho <i class="fa-solid fa-cart-shopping" style="color: #6d9891ff;"></i></h2>
-        <p>X</p>
+        <p class="close-cart">X</p>
     </div>
     <button class="buy">Comprar</button>
     <li class="cart-item">
