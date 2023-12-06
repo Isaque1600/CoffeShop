@@ -33,6 +33,24 @@ class Select {
 
     }
 
+    public function selectName(string $name) {
+        $this->setConnect();
+
+        try {
+            $query = $this->connect->prepare("SELECT * FROM produtos WHERE nome LIKE :name");
+
+            $name = "%$name%";
+
+            $query->bindParam(":name", $name, PDO::PARAM_STR);
+
+            if($query->execute()) {
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $err) {
+            throw $err;
+        }
+    }
+
     private function getTableQuery($type = "all") {
 
         if($type == "all") {

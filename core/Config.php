@@ -31,4 +31,5 @@ abstract class Config {
         define('SECONDKEY', base64_encode('MARIANO'));
         define('THIRDKEY', base64_encode('DAM'));
     }
+
 }

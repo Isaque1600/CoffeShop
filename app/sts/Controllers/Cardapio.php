@@ -29,4 +29,25 @@ class Cardapio {
         $loadView->renderView();
     }
 
+    public function pesquisar($urlParameters = []): void {
+        $session = new Session;
+        $select = new Select();
+
+        $session->create();
+
+        try {
+            if(!empty($urlParameters['search'])) {
+                $this->data['produtos'] = $select->selectName($urlParameters['search']);
+                $this->data['search'] = $urlParameters['search'];
+            } else {
+                $this->data['produtos'] = $select->selectAll("produtos");
+            }
+        } catch (PDOException $err) {
+            $this->data['err'] = $err->getMessage();
+        }
+
+        $loadView = new ConfigView('sts/Views/pesquisa/pesquisa', $this->data);
+        $loadView->renderView();
+    }
+
 }
