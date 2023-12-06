@@ -1,0 +1,79 @@
+/*Importando a fonte utilizada*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap");
+
+:root {
+  /*Paleta Principal*/
+  --chr-color: #dde3e3ff;
+  --chr-lgt-color: #dde3e391;
+  --ui-layout: #000000;
+  --ui-details: #6d9891ff;
+
+  /*Cores Complementares*/
+  --cmplt-green: #a8bab9ff;
+  --cmplt-brown: #2b0000;
+}
+
+/*Importando a fonte utilizada*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+/* Estilizações gerais */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+video::-webkit-media-controls {
+  display: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Estilização do body */
+
+body {
+    background-color: var(--cmplt-brown);
+    color: var(--chr-color);
+}
+
+h1 {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: clamp(1.5625rem, 0.8125rem + 3vw, 2.5rem);
+}
+
+.vendas {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+}
+
+.venda {
+    background-color: var(--ui-details);
+    padding: 1.5rem;
+    letter-spacing: .1rem;
+    width: max-content;
+    max-width: 80%;
+    border-radius: .7rem;
+}
+
+b {
+    color: var(--ui-layout);
+}
