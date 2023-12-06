@@ -36,10 +36,9 @@
                     echo "<p>".$value['nome']."</p>";
                     echo "<b>R$".$value['valor']."</b>";
                     echo "</div>";
-                    echo "</div>";
                 }
-
                 ?>
+                </div>
             </section>
     </main>
 </body>
