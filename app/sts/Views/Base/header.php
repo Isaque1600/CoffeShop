@@ -21,6 +21,7 @@
                         class="fa-solid fa-magnifying-glass search-label-one"></i></label>
                 <input class="search-input" type="text" name="search" id="search" placeholder="Pesquise">
             </li>
+            <li><button class="open-cart">$</button></li>
         </ul>
         <!--
     <a href="<?php echo DEFAULT_URL ?>"><img src="<?php echo IMG_PATH ?>logo.png" alt="Home-icon"></a>
@@ -36,66 +37,65 @@
     </nav>
     <a href="#pageTop" class="backToTop"><i class="fa-solid fa-up-long"></i></a>
 </header>
-<sidebar>
-    <ul class="cart-sidebar">
-        <div class="cart-title">
-            <h2>Carrinho <i class="fa-solid fa-cart-shopping" style="color: #6d9891ff;"></i></h2>
-            <p class="cart-close">X</p>
-        </div>
-        <li class="cart-item">
-            <p>Teste</p>
-            <b>R$99.99</b>
-            <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-        </li>
-        <li class="cart-item">
-            <p>Teste</p>
-            <b>R$99.99</b>
-            <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-        </li>
-        <li class="cart-item">
-            <p>Teste</p>
-            <b>R$99.99</b>
-            <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-        </li>
-        <li class="cart-item">
-            <p>Teste</p>
-            <b>R$99.99</b>
-            <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-        </li>
-        <li class="cart-item">
-            <p>Teste</p>
-            <b>R$99.99</b>
-            <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-        </li>
-        <li class="cart-item">
-            <p>Teste</p>
-            <b>R$99.99</b>
-            <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-        </li>
-        <li class="cart-item">
-            <p>Teste</p>
-            <b>R$99.99</b>
-            <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-        </li>
-        <li class="cart-item">
-            <p>Teste</p>
-            <b>R$99.99</b>
-            <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-        </li>
-        <li class="cart-item">
-            <p>Teste</p>
-            <b>R$99.99</b>
-            <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-        </li>
-        <li class="cart-item">
-            <p>Teste</p>
-            <b>R$99.99</b>
-            <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-        </li>
-        <li class="cart-item">
-            <p>Teste</p>
-            <b>R$99.99</b>
-            <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-        </li>
-    </ul>
-</sidebar>
+<ul class="cart-sidebar">
+    <div class="cart-title">
+        <h2>Carrinho <i class="fa-solid fa-cart-shopping" style="color: #6d9891ff;"></i></h2>
+        <p>X</p>
+    </div>
+    <button class="buy">Comprar</button>
+    <li class="cart-item">
+        <p>Teste</p>
+        <b>R$99.99</b>
+        <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
+    </li>
+    <li class="cart-item">
+        <p>Teste</p>
+        <b>R$99.99</b>
+        <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
+    </li>
+    <li class="cart-item">
+        <p>Teste</p>
+        <b>R$99.99</b>
+        <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
+    </li>
+    <li class="cart-item">
+        <p>Teste</p>
+        <b>R$99.99</b>
+        <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
+    </li>
+    <li class="cart-item">
+        <p>Teste</p>
+        <b>R$99.99</b>
+        <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
+    </li>
+    <li class="cart-item">
+        <p>Teste</p>
+        <b>R$99.99</b>
+        <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
+    </li>
+    <li class="cart-item">
+        <p>Teste</p>
+        <b>R$99.99</b>
+        <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
+    </li>
+    <li class="cart-item">
+        <p>Teste</p>
+        <b>R$99.99</b>
+        <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
+    </li>
+    <li class="cart-item">
+        <p>Teste</p>
+        <b>R$99.99</b>
+        <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
+    </li>
+    <li class="cart-item">
+        <p>Teste</p>
+        <b>R$99.99</b>
+        <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
+    </li>
+    <li class="cart-item">
+        <p>Teste</p>
+        <b>R$99.99</b>
+        <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
+    </li>
+</ul>
