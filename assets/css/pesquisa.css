@@ -62,7 +62,7 @@
   display: grid;
   grid-gap: var(--grd-gap);
   padding: var(--grd-gap);
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
 
   /*
     background-color: #e5e5f7;

@@ -41,6 +41,7 @@ class Cardapio {
                 $this->data['search'] = $urlParameters['search'];
             } else {
                 $this->data['produtos'] = $select->selectAll("produtos");
+                $this->data['search'] = "";
             }
         } catch (PDOException $err) {
             $this->data['err'] = $err->getMessage();
