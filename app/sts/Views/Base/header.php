@@ -17,7 +17,8 @@
             }
             ?>
             <li class="nav__search">
-                <label class="search-label" for="search"><i class="fa-solid fa-magnifying-glass search-label-one"></i></label>
+                <label class="search-label" for="search"><i
+                        class="fa-solid fa-magnifying-glass search-label-one"></i></label>
                 <input class="search-input" type="text" name="search" id="search" placeholder="Pesquise">
             </li>
             <li><button class="open-cart">$</button></li>
@@ -39,62 +40,21 @@
 <ul class="cart-sidebar">
     <div class="cart-title">
         <h2>Carrinho <i class="fa-solid fa-cart-shopping" style="color: #6d9891ff;"></i></h2>
-        <p>X</p>
+        <p class="close-cart">X</p>
+        <button class="buy">Comprar</button>
     </div>
-    <button class="buy">Comprar</button>
-    <li class="cart-item">
-    <p>Teste</p>
-    <b>R$99.99</b>
-    <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-    </li>
-    <li class="cart-item">
-    <p>Teste</p>
-    <b>R$99.99</b>
-    <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-    </li>
-    <li class="cart-item">
-    <p>Teste</p>
-    <b>R$99.99</b>
-    <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-    </li>
-    <li class="cart-item">
-    <p>Teste</p>
-    <b>R$99.99</b>
-    <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-    </li>
-    <li class="cart-item">
-    <p>Teste</p>
-    <b>R$99.99</b>
-    <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-    </li>
-    <li class="cart-item">
-    <p>Teste</p>
-    <b>R$99.99</b>
-    <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-    </li>
-    <li class="cart-item">
-    <p>Teste</p>
-    <b>R$99.99</b>
-    <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-    </li>
-    <li class="cart-item">
-    <p>Teste</p>
-    <b>R$99.99</b>
-    <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-    </li>
-    <li class="cart-item">
-    <p>Teste</p>
-    <b>R$99.99</b>
-    <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-    </li>
-    <li class="cart-item">
-    <p>Teste</p>
-    <b>R$99.99</b>
-    <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-    </li>
-    <li class="cart-item">
-    <p>Teste</p>
-    <b>R$99.99</b>
-    <button class="trash"><i class="fa-solid fa-trash trash-icon"></i></button>
-    </li>
+    <?php
+
+    if(isset($_SESSION['user']['cart'])) {
+        foreach($_SESSION['user']['cart'] as $key => $value) {
+            echo "<li class=\"cart-item\">";
+            echo "<p>$key</p>";
+            echo "<b>R$".$value[0]." x ".$value[1]."</b>";
+            echo "<button class=\"trash\" name=\"$key\"><i class=\"fa-solid fa-trash trash-icon\"></i></button>";
+            echo "</li>";
+        }
+    }
+
+
+    ?>
 </ul>

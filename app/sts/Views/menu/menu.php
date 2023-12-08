@@ -1,3 +1,9 @@
+<?php
+// echo "<pre>";
+// var_dump($_SESSION);
+// echo "</pre>";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,184 +26,28 @@
             <div class="menu-info">
                 <h1>Cardápio</h1>
             </div>
-        <section class="menu">
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                    <div class="favoritar">
-                        <label for="favorito">Favoritar: </label>
-                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
-                    </div>
-                    <div class="add-cart">
-                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
-                        <input type="checkbox" name="addcart" id="addcart">
-                    </div>
+            <section class="menu">
+                <?php
+
+                foreach($data['produtos'] as $key => $value) {
+                    echo "<div class=\"menu__item-container\">";
+                    echo "<div class=\"img-container\"><img src=\"".IMG_PATH.$value['path'].".png"."\" alt=\"\" class=\"item-img\"></div>";
+                    echo "<div class=\"item-details\">";
+                    echo "<p>".$value['nome']."</p>";
+                    echo "<b>R$".$value['valor']."</b>";
+                    echo "<div class=\"favoritar\">";
+                    echo "    <label for=\"favorito\">Favoritar: </label>";
+                    echo "    <input class=\"favorito\" type=\"checkbox\" name=\"favorito\" id=\"favorito\">";
+                    echo "</div>";
+                    echo "<div class=\"add-cart\">";
+                    echo "    <button type=\"button\" name=\"".$value['nome']."\" id=\"addcart\" class=\"addcart\"><i class=\"fa-solid fa-cart-shopping\"></i></button>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+                ?>
                 </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-alisha-mishra-1346345.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                    <div class="favoritar">
-                        <label for="favorito">Favoritar: </label>
-                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
-                    </div>
-                    <div class="add-cart">
-                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
-                        <input type="checkbox" name="addcart" id="addcart">
-                    </div>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704660.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                    <div class="favoritar">
-                        <label for="favorito">Favoritar: </label>
-                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
-                    </div>
-                    <div class="add-cart">
-                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
-                        <input type="checkbox" name="addcart" id="addcart">
-                    </div>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-spotwizardlee-9884561.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                    <div class="favoritar">
-                        <label for="favorito">Favoritar: </label>
-                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
-                    </div>
-                    <div class="add-cart">
-                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
-                        <input type="checkbox" name="addcart" id="addcart">
-                    </div>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                    <div class="favoritar">
-                        <label for="favorito">Favoritar: </label>
-                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
-                    </div>
-                    <div class="add-cart">
-                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
-                        <input type="checkbox" name="addcart" id="addcart">
-                    </div>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-bytes-for-food-15157808.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                    <div class="favoritar">
-                        <label for="favorito">Favoritar: </label>
-                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
-                    </div>
-                    <div class="add-cart">
-                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
-                        <input type="checkbox" name="addcart" id="addcart">
-                    </div>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                    <div class="favoritar">
-                        <label for="favorito">Favoritar: </label>
-                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
-                    </div>
-                    <div class="add-cart">
-                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
-                        <input type="checkbox" name="addcart" id="addcart">
-                    </div>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-alisha-mishra-1346345.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                    <div class="favoritar">
-                        <label for="favorito">Favoritar: </label>
-                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
-                    </div>
-                    <div class="add-cart">
-                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
-                        <input type="checkbox" name="addcart" id="addcart">
-                    </div>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-spotwizardlee-9884561.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                    <div class="favoritar">
-                        <label for="favorito">Favoritar: </label>
-                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
-                    </div>
-                    <div class="add-cart">
-                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
-                        <input type="checkbox" name="addcart" id="addcart">
-                    </div>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704660.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                    <div class="favoritar">
-                        <label for="favorito">Favoritar: </label>
-                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
-                    </div>
-                    <div class="add-cart">
-                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
-                        <input type="checkbox" name="addcart" id="addcart">
-                    </div>
-                </div>
-            </div>
-            <div class="menu__item-container">
-                <div class="img-container"><img src="<?php echo IMG_PATH ?>pexels-rajdeepcraft-6416554.jpg" alt=""
-                        class="item-img"></div>
-                <div class="item-details">
-                    <p>Teste</p>
-                    <b>R$99.99</b>
-                    <div class="favoritar">
-                        <label for="favorito">Favoritar: </label>
-                        <input class="favorito" type="checkbox" name="favorito" id="favorito">
-                    </div>
-                    <div class="add-cart">
-                        <label for="addcart"><i class="fa-solid fa-cart-shopping"></i></label>
-                        <input type="checkbox" name="addcart" id="addcart">
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
     </main>
 </body>
 

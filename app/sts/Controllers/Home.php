@@ -4,11 +4,11 @@ namespace Sts\Controllers;
 
 use Core\ConfigView;
 use PDOException;
+use Sts\Models\Helpers\Session;
 use Sts\Models\RegisterUser;
 use Sts\Models\VerifyUser;
 
-class Home
-{
+class Home {
     /**
      * Dados a ser passados para a view
      * @var array
@@ -30,12 +30,11 @@ class Home
      * @param array|null $urlParametters Parametros da url
      * @return void
      */
-    public function index(?array $urlParametters = [])
-    {
-        if (session_status() != PHP_SESSION_ACTIVE) {
+    public function index(?array $urlParametters = []) {
+        if(session_status() != PHP_SESSION_ACTIVE) {
             session_start();
 
-            if (!empty($_SESSION) && $_SESSION['user']['status'] = "active") {
+            if(!empty($_SESSION) && $_SESSION['user']['status'] = "active") {
                 $this->data['user'] = $_SESSION['user'];
             }
         }
@@ -49,13 +48,12 @@ class Home
      * @param array|null $urlParametters 
      * @return void
      */
-    public function login(array $urlParametters = [])
-    {
+    public function login(array $urlParametters = []) {
         // Pega os dados vindo por post do formulario
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         // Verifica se tem uma request
-        if (isset($this->dataForm['request'])) {
+        if(isset($this->dataForm['request'])) {
             // Exclui a request
             unset($this->dataForm['request']);
 
@@ -68,8 +66,8 @@ class Home
                 // var_dump($_SESSION);
 
                 // Caso o usuario estiver cadastrado ele cria a sessão e loga o usuario
-                if (!empty($_SESSION) && $_SESSION['user']['status'] == "active") {
-                    header("location:" . DEFAULT_URL);
+                if(!empty($_SESSION) && $_SESSION['user']['status'] == "active") {
+                    header("location:".DEFAULT_URL);
                 }
 
                 // Caso não ele retorna o resultado como um erro
@@ -84,7 +82,7 @@ class Home
 
         // Caso tenha alguma variavel no Get ele manda
         // mais usado para confirmar o cadastro do usuario quando for redirecionado
-        if (!empty($urlParametters)) {
+        if(!empty($urlParametters)) {
             $this->data['result'] = (!empty($urlParametters['result'])) ? $urlParametters['result'] : null;
         }
 
@@ -100,14 +98,13 @@ class Home
      * @param array|null $urlParametters
      * @return void
      */
-    public function cadastro(array $urlParametters = [])
-    {
+    public function cadastro(array $urlParametters = []) {
         // Pega os dados vindo por post do formulario
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         // var_dump($this->dataForm);
 
         // Verifica se tem um request
-        if (isset($this->dataForm['registerUser'])) {
+        if(isset($this->dataForm['registerUser'])) {
             // Deleta a request
             unset($this->dataForm['registerUser']);
 
@@ -132,8 +129,10 @@ class Home
         $loadView->renderView();
     }
 
-    public function sobre(): void
-    {
+    public function sobre(): void {
+        $session = new Session;
+        $session->create();
+
         $loadView = new ConfigView("sts/Views/sobre/sobre", $this->data);
         $loadView->renderView();
     }
@@ -143,19 +142,18 @@ class Home
      * @param array $urlParametters
      * @return void
      */
-    public function sair(array $urlParametters = [])
-    {
+    public function sair(array $urlParametters = []) {
         // Verifica se tem alguma sessão ativa
         // Se não tiver ele seta uma para apagar os dados da variavel de sessão
         // e destruir ela
-        if (session_status() != PHP_SESSION_ACTIVE) {
+        if(session_status() != PHP_SESSION_ACTIVE) {
             session_start();
             // echo "hello";
 
             unset($_SESSION['user']);
             session_destroy();
         }
-        header("location:" . DEFAULT_URL);
+        header("location:".DEFAULT_URL);
     }
 
 }

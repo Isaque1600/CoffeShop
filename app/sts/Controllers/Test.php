@@ -5,17 +5,10 @@ namespace Sts\Controllers;
 use Core\ConfigView;
 use Sts\Models\Encryption;
 
-class Test
-{
+class Test {
     private ?array $data = [];
 
-    public function test(array $urlParametters)
-    {
-
-        $encryption = new Encryption;
-        $ciphedText = $encryption->encrypt('hola');
-        var_dump($encryption->decrypt($ciphedText));
-
+    public function test(array $urlParametters) {
         $loadView = new ConfigView("sts/Views/teste", $this->data);
         $loadView->renderView();
     }
