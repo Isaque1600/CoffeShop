@@ -17,6 +17,8 @@ class User {
 
         $session->create();
 
+        // var_dump($_SESSION);
+
         if(isset($_SESSION) && $_SESSION['user']['tipo'] == 'usuario') {
             $loadView = new ConfigView('sts/Views/users/pfgeneral', $this->data);
             $loadView->renderView();
@@ -24,9 +26,6 @@ class User {
             $loadView = new ConfigView('sts/Views/users/pfadm', $this->data);
             $loadView->renderView();
         }
-
-
-
     }
 
     public function favoritos(?array $urlParameters = null): void {
@@ -43,6 +42,7 @@ class User {
         if(isset($this->dataForm['submit'])) {
             unset($this->dataForm['submit']);
 
+            $this->data['dataForm'] = true;
             $this->dataForm['path'] = "prod/".$this->dataForm["nome"];
 
             // var_dump($_FILES);

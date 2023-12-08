@@ -28,10 +28,12 @@
     </form>
     <p>
         <?php
-        if($data['stats'] == "success") {
-            echo "Produto cadastrado com sucesso!";
-        } else {
-            echo "falha ao cadastra produto!";
+        if(isset($data['dataForm'])) {
+            if($data['stats'] == "success") {
+                echo "Produto cadastrado com sucesso!";
+            } else {
+                echo "falha ao cadastra produto!";
+            }
         }
         ?>
     </p>

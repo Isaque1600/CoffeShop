@@ -124,12 +124,18 @@
   color: gold;
 }
 
-.add-cart > * {
+.addcart > * {
   accent-color: var(--ui-details);
 }
 
-.add-cart:focus-within label i {
+/* .addcart:focus-within label i {
   color: var(--ui-details);
+} */
+
+.addcart {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 @media (min-width: 1070px) {

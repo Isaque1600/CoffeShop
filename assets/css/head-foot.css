@@ -250,7 +250,8 @@ i {
 .cart-title {
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding: 1.5rem;
+  position: relative;
 }
 
 .buy {
@@ -263,6 +264,9 @@ i {
   transition: all 200ms;
   cursor: pointer;
   width: max-content;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .buy:hover {

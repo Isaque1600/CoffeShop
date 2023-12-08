@@ -74,6 +74,11 @@ INSERT into categorias(nome) values('salgado');
 INSERT into categorias(nome) values('chantilly');
 INSERT into categorias(nome) values('bolo');
 
+-- @block produtos delete
+
+DROP TABLE produtos;
+-- DROP TABLE produtos_categoria;
+
 -- @block produtos
 CREATE TABLE IF NOT EXISTS produtos (
     produtoId int PRIMARY KEY AUTO_INCREMENT,
@@ -85,26 +90,26 @@ CREATE TABLE IF NOT EXISTS produtos (
     path varchar(100) NOT NULL
 );
 
-INSERT INTO produtos (nome, quantidade, valor, path) values ("café preto", 10, 0, "prod/cafe-preto");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("café latte", 10, 0, "prod/cafe-latte");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("capuccino", 10, 0, "prod/capuccino");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("café americano", 10, 0, "prod/cafe-americano");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("café espresso", 10, 0, "prod/cafe-espresso");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("café mocha", 10, 0, "prod/cafe-mocha");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("café com leite", 10, 0, "prod/cafe-com-leite");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("café com creme", 10, 0, "prod/cafe-com-creme");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("bolo de chocolate", 10, 0, "prod/bolo-de-chocolate");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("torta de limão", 10, 0, "prod/torta-de-limão");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("croissant", 10, 0, "prod/croissant");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("cookie", 10, 0, "prod/cookie");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("bolo de cenoura com chocolate", 10, 0, "prod/bolo-de-cenoura-com-chocolate");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("brownie", 10, 0, "prod/brownie");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("torta de frango", 10, 0, "prod/torta-de-frango");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("waffle com morangos", 10, 0, "prod/waffle-com-morangos");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("donuts", 10, 0, "prod/donuts");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("pão-de-queijo", 10, 0, "prod/pao-de-queijo");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("torrada", 10, 0, "prod/torrada");
-INSERT INTO produtos (nome, quantidade, valor, path) values ("sonho", 10, 0, "prod/sonho");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("café preto", 10, 5, "prod/cafe-preto");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("café latte", 10, 5, "prod/cafe-latte");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("capuccino", 10, 5, "prod/capuccino");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("café americano", 10, 5, "prod/cafe-americano");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("café espresso", 10, 5, "prod/cafe-espresso");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("café mocha", 10, 5, "prod/cafe-mocha");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("café com leite", 10, 5, "prod/cafe-com-leite");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("café com creme", 10, 5, "prod/cafe-com-creme");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("bolo de chocolate", 10, 7, "prod/bolo-de-chocolate");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("torta de limão", 10, 7, "prod/torta-de-limão");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("croissant", 10, 5, "prod/croissant");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("cookie", 10, 3, "prod/cookie");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("bolo de cenoura com chocolate", 10, 7, "prod/bolo-de-cenoura-com-chocolate");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("brownie", 10, 7, "prod/brownie");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("torta de frango", 10, 7, "prod/torta-de-frango");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("waffle com morangos", 10, 5, "prod/waffle-com-morangos");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("donuts", 10, 3, "prod/donuts");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("pão-de-queijo", 10, 5, "prod/pao-de-queijo");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("torrada", 10, 0.5, "prod/torrada");
+INSERT INTO produtos (nome, quantidade, valor, path) values ("sonho", 10, 3, "prod/sonho");
 
 CREATE TABLE IF NOT EXISTS produtos_categoria (
     idProduto int NOT NULL,
@@ -136,6 +141,9 @@ CREATE TABLE IF NOT EXISTS pessoas (
     nivelAcesso INT (2) NULL,
     FOREIGN KEY (ocupacao) REFERENCES ocupacoes (ocupacaoId)
 );
+
+INSERT INTO pessoas (nome, tipo, email, senha) VALUES ('teste', 'usuario', 'teste@gmail.com', 'teste');
+INSERT INTO pessoas (nome, tipo, email, senha) VALUES ('caixa', 'func', 'caixa@gmail.com', 'caixa');
 
 
 CREATE TABLE IF NOT EXISTS pessoas_categoria (

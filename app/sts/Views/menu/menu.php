@@ -1,7 +1,7 @@
 <?php
-
-// var_dump($data);
-
+// echo "<pre>";
+// var_dump($_SESSION);
+// echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -40,8 +40,7 @@
                     echo "    <input class=\"favorito\" type=\"checkbox\" name=\"favorito\" id=\"favorito\">";
                     echo "</div>";
                     echo "<div class=\"add-cart\">";
-                    echo "    <label for=\"addcart\"><i class=\"fa-solid fa-cart-shopping\"></i></label>";
-                    echo "    <input type=\"checkbox\" name=\"".$value['nome']."\" id=\"addcart\">";
+                    echo "    <button type=\"button\" name=\"".$value['nome']."\" id=\"addcart\" class=\"addcart\"><i class=\"fa-solid fa-cart-shopping\"></i></button>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";

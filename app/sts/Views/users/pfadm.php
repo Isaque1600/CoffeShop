@@ -17,14 +17,22 @@
 
     ?>
 
-    <h1>Olá, *Nome*</h1>
+    <h1>Olá,
+        <?php echo $_SESSION['user']['nome'] ?>
+    </h1>
     <div class="user-info">
         <div class="user-data">
-            <p class="data">Nome: Josivelha</p>
-            <p class="data">Sobrenome: Josivelha</p>
-            <p class="data">CPF: 1231231234</p>
-            <p class="data">Email: testo123@gmail.com</p>
-            <p class="data">Senha: 1234</p>
+            <?php
+            use Sts\Models\Encryption;
+
+            $encryption = new Encryption();
+            // var_dump($_SESSION);
+            echo "<p class=\"data\">Nome:".$_SESSION['user']['nome']."</p>";
+            echo "<p class=\"data\">Sobrenome: Josivelha</p>";
+            echo "<p class=\"data\">CPF: 1231231234</p>";
+            echo "<p class=\"data\">Email:".$_SESSION['user']['email']."</p>";
+            echo "<p class=\"data\">Senha:".$_SESSION['user']['senha']."</p>";
+            ?>
         </div>
         <div class="user-opt">
             <a class="produto" href="<?php echo DEFAULT_URL ?>User/cadastrarProdutos"><i
