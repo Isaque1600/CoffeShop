@@ -20,12 +20,11 @@
   height: 300vh;
   background-image: linear-gradient(
     to bottom,
-    transparent 50%,
+    transparent 35%,
     rgba(0, 0, 0, 1) 80%
   );
   position: relative;
   font-size: clamp(3.125rem, -0.625rem + 10vw, 5rem);
-  user-select: none;
   width: 100%;
   text-align: center;
 }
@@ -33,6 +32,7 @@
 .scroll-advice {
   padding-top: 1rem;
   opacity: 0.5;
+  color: var(--ui-layout);
 }
 
 .scroll-icon {

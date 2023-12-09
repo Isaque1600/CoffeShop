@@ -1,3 +1,4 @@
+-- Active: 1702060009878@@127.0.0.1@3306@phpmyadmin
 --@block drop db
 
 DROP schema cafeteria;
@@ -73,11 +74,6 @@ INSERT into categorias(nome) values('doce');
 INSERT into categorias(nome) values('salgado');
 INSERT into categorias(nome) values('chantilly');
 INSERT into categorias(nome) values('bolo');
-
--- @block produtos delete
-
-DROP TABLE produtos;
--- DROP TABLE produtos_categoria;
 
 -- @block produtos
 CREATE TABLE IF NOT EXISTS produtos (
@@ -184,28 +180,3 @@ CREATE TABLE IF NOT EXISTS vendas_item (
     FOREIGN KEY (vendaId) REFERENCES vendas (vendaId)
 );
 
-
-
--- @block views
--- drop table vendas;
-CREATE VIEW pessoa_Favoritos AS
-SELECT
-    p.pessoaId as pessoaId,
-    p.cpf_cnpj as cpf_cnpj,
-    pc.categoria as categoria
-FROM
-    pessoas p,
-    pessoas_categoria pc
-WHERE
-    p.pessoaId = pc.idpessoa;
-
-CREATE VIEW produtos_Categorias AS
-SELECT
-    p.produtoId as protudoId,
-    p.codBarras as codBarras,
-    pc.categoria as categoria
-FROM
-    produtos p,
-    produtos_categoria pc
-WHERE
-    p.produtoId = pc.produto_categoriaId;

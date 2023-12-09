@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css" />
   <link rel="stylesheet" href="<?php echo CSS_PATH ?>profile.css" />
+  <link rel="stylesheet" href="../../../../assets/css/profile.css">
+  <link rel="stylesheet" href="../../../../assets/css/head-foot.css">
   <title>Perfil</title>
 </head>
 

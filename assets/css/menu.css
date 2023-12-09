@@ -5,16 +5,21 @@
   --ui-layout: #000000;
   --ui-details: #6d9891ff;
 
+  --bg-color: #262A56;
+
   /*Cores Complementares*/
   --cmplt-green: #a8bab9ff;
   --cmplt-brown: #2b0000;
+}
+
+body {
+  background-color: #B8621B;
 }
 
 .title {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  gap: 2rem;
 }
 
 .menu-info {
@@ -26,6 +31,7 @@
 
 .title h1 {
   font-size: clamp(1.875rem, 0.875rem + 4vw, 3.125rem);
+  padding-block: 2rem;
 }
 
 .title-preferidos h1 {
@@ -102,7 +108,9 @@
 .item-details {
   display: flex;
   flex-direction: column;
+  gap: .2rem;
   padding: 1rem;
+  text-transform: capitalize;
 }
 
 .item-details p {
@@ -128,9 +136,9 @@
   accent-color: var(--ui-details);
 }
 
-/* .addcart:focus-within label i {
+.addcart:hover i {
   color: var(--ui-details);
-} */
+}
 
 .addcart {
   background-color: transparent;

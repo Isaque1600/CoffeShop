@@ -56,6 +56,15 @@
                 echo " <div class=\"item-details\">";
                 echo " <p>".$value['nome']."</p>";
                 echo " <b>R$".$value['valor']."</b>";
+                echo "<div class=\"favoritar\">";
+                echo "    <label for=\"favorito\">Favoritar: </label>";
+                echo "    <input class=\"favorito\" type=\"checkbox\" name=\"favorito\" id=\"favorito\">";
+                echo "</div>";
+                echo "<div class=\"add-cart\">";
+                echo "    <button type=\"button\" name=\"".$value['nome']."\" id=\"addcart\" class=\"addcart\"><i class=\"fa-solid fa-cart-shopping\"></i></button>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
                 echo " </div>";
                 echo "</div>";
             }
