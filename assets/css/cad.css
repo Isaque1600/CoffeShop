@@ -17,9 +17,10 @@ main {
   place-items: center;
   background-color: #e5e5f7;
   opacity: 1;
-  background-image:  radial-gradient(#000000 1.1px, transparent 1.1px), radial-gradient(#000000 1.1px, #e5e5f7 1.1px);
+  background-image: radial-gradient(#000000 1.1px, transparent 1.1px),
+    radial-gradient(#000000 1.1px, #e5e5f7 1.1px);
   background-size: 44px 44px;
-  background-position: 0 0,22px 22px;
+  background-position: 0 0, 22px 22px;
   padding-block: 5rem;
   min-height: 100vh;
 }
@@ -123,7 +124,7 @@ main {
   color: var(--ui-layout);
   font-weight: 600;
   cursor: pointer;
-  transition: ease-out .2s;
+  transition: ease-out 0.2s;
   border-radius: 0.2em;
 }
 
@@ -261,7 +262,6 @@ main {
   .cad-card__icon {
     display: none;
   }
-
 }
 
 /* Fim da responsividade */

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../assets/css/head-foot.css">
-    <link rel="stylesheet" href="../../../../assets/css/finalizar.css">
+    <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css">
+    <link rel="stylesheet" href="<?php echo CSS_PATH ?>finalizar.css">
     <title>Finalizar Compra</title>
 </head>
+
 <body>
     <section class="thanks">
-        <img src="../../../../assets/images/undraw_empty_cart_co35.svg" alt="">
+        <img src="<?php echo IMG_PATH ?>undraw_empty_cart_co35.svg" alt="">
         <h1>Agradecemos pela compra</h1>
         <p>Leve o token a nossa loja mais próxima para retirada.</p>
     </section>
@@ -19,17 +21,17 @@
         </header>
         <ul class="items">
             <li class="item">
-                <img src="../../../../assets/images/pexels-mohammad-khorram-14704657.jpg" alt="">
+                <img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt="">
                 <p>Mocha</p>
                 <p>3 x <b>R$99,99</b></p>
             </li>
             <li class="item">
-                <img src="../../../../assets/images/pexels-mohammad-khorram-14704657.jpg" alt="">
+                <img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt="">
                 <p>Mocha</p>
                 <p>3 x <b>R$99,99</b></p>
             </li>
             <li class="item">
-                <img src="../../../../assets/images/pexels-mohammad-khorram-14704657.jpg" alt="">
+                <img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt="">
                 <p>Mocha</p>
                 <p>3 x <b>R$99,99</b></p>
             </li>
@@ -38,8 +40,8 @@
             <p>Valor Total: <b>R$99,99</b></p>
             <p>Token: <b>KFC123</b></p>
         </div>
-        <a href="#">Retornar ao início</a>
+        <a href="<?php echo DEFAULT_URL ?>">Retornar ao início</a>
     </section>
-    <script type="text/javascript" src="https://kit.fontawesome.com/9682b31f0e.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

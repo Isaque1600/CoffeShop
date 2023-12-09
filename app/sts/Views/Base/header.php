@@ -10,10 +10,10 @@
             <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Cardapio/">Cardápio</a></li>
             <li class="nav__item"><a href="<?php echo DEFAULT_URL ?>Home/sobre">Sobre</a></li>
             <?php
-            if(!isset($_SESSION['user'])) {
-                echo "<li class=\"nav__item\"><a href=".DEFAULT_URL."Home/login>Login</a></li>";
+            if (!isset($_SESSION['user'])) {
+                echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "Home/login>Login</a></li>";
             } else {
-                echo "<li class=\"nav__item\"><a href=".DEFAULT_URL."User/perfil class=\"profile\"><span class=\"profile-box\"><i class=\"fa-solid fa-user fa-xl profile-icon\" alt=\"Profile\"></i></span></a></li>";
+                echo "<li class=\"nav__item\"><a href=" . DEFAULT_URL . "User/perfil class=\"profile\"><span class=\"profile-box\"><i class=\"fa-solid fa-user fa-xl profile-icon\" alt=\"Profile\"></i></span></a></li>";
             }
             ?>
             <li class="nav__search">
@@ -41,21 +41,21 @@
     <div class="cart-title">
         <h2>Carrinho <i class="fa-solid fa-cart-shopping" style="color: #6d9891ff;"></i></h2>
         <p class="close-cart"><i class="fa-solid fa-xmark"></i></p>
-        <button class="buy">Comprar</button>
+        <a href="<?php echo DEFAULT_URL ?>user/pagamento" class="buy">Comprar</a>
     </div>
-            <div class="cart-items">
-                <?php
-                
-                        if(isset($_SESSION['user']['cart'])) {
-                foreach($_SESSION['user']['cart'] as $key => $value) {
-                    echo "<li class=\"cart-item\">";
-                    echo "<p>$key</p>";
-                    echo "<b>R$".$value[0]." x ".$value[1]."</b>";
-                    echo "<button class=\"trash\" name=\"$key\"><i class=\"fa-solid fa-trash trash-icon\"></i></button>";
-                    echo "</li>";
-                }
-                        }
-                        ?>
-            </div>
+    <div class="cart-items">
+        <?php
+
+        if (isset($_SESSION['user']['cart'])) {
+            foreach ($_SESSION['user']['cart'] as $key => $value) {
+                echo "<li class=\"cart-item\">";
+                echo "<p>$key</p>";
+                echo "<b>R$" . $value[0] . " x " . $value[1] . "</b>";
+                echo "<button class=\"trash\" name=\"$key\"><i class=\"fa-solid fa-trash trash-icon\"></i></button>";
+                echo "</li>";
+            }
+        }
+        ?>
+    </div>
     </div>
 </ul>

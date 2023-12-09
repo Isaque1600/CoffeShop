@@ -18,7 +18,7 @@
     ?>
 
     <h1>Olá,
-        <?php echo $_SESSION['user']['nome'] ?>
+        <?php echo $data['user']['nome'] ?>
     </h1>
     <div class="user-info">
         <div class="user-data">
@@ -27,11 +27,11 @@
 
             $encryption = new Encryption();
             // var_dump($_SESSION);
-            echo "<p class=\"data\">Nome:".$_SESSION['user']['nome']."</p>";
+            echo "<p class=\"data\">Nome:" . $data['user']['nome'] . "</p>";
             echo "<p class=\"data\">Sobrenome: Josivelha</p>";
             echo "<p class=\"data\">CPF: 1231231234</p>";
-            echo "<p class=\"data\">Email:".$_SESSION['user']['email']."</p>";
-            echo "<p class=\"data\">Senha:".$_SESSION['user']['senha']."</p>";
+            echo "<p class=\"data\">Email:" . $data['user']['email'] . "</p>";
+            echo "<p class=\"data\">Senha:" . $data['user']['senha'] . "</p>";
             ?>
         </div>
         <div class="user-opt">

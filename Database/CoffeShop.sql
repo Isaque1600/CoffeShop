@@ -75,6 +75,7 @@ INSERT into categorias(nome) values('salgado');
 INSERT into categorias(nome) values('chantilly');
 INSERT into categorias(nome) values('bolo');
 
+
 -- @block produtos
 CREATE TABLE IF NOT EXISTS produtos (
     produtoId int PRIMARY KEY AUTO_INCREMENT,
@@ -165,6 +166,8 @@ CREATE TABLE IF NOT EXISTS vendas (
     cvv int NULL,
     dataVencimento varchar(5) NULL,
     nomeNoCartao varchar(30) NULL,
+    dataVenda date NOT NULL,
+    token varchar(6) NULL,
     FOREIGN KEY (cpf_cnpj) REFERENCES pessoas (cpf_cnpj),
     FOREIGN KEY (pessoaId) REFERENCES pessoas (pessoaId)
 );
