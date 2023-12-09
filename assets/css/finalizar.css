@@ -12,7 +12,107 @@
     --cmplt-brown: #2b0000;
   }
 
-body {
+  .pay-form-wrapper {
+    padding-block: 2rem;
+    background: radial-gradient(circle at 10% 10%, var(--bg-color) 18%, var(--ui-details) 18%); 
+  }
+
+.pay-form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    gap: 1rem;
+    background-color: var(--bg-color);
+    color: var(--chr-color);
+}
+
+select, select > * {
+    padding: .2rem;
+    border-radius: .1rem;
+    border: none;
+    color: var(--chr-color);
+    cursor: pointer;
+    background-color: var(--ui-details);
+}
+
+.pay-form > input:last-child {
+    padding: .3rem;
+    border-radius: .15rem;
+    border: none;
+    background-color: var(--ui-details);
+    cursor: pointer;
+    color: var(--chr-color);
+}
+
+.pay-form > input:last-child:hover {
+    filter: brightness(50%);
+}
+
+.pay-form > * {
+    width: fit-content;
+}
+
+.pay-form input:last-child {
+    align-self: center;
+}
+
+.pay-form > .input-wrapper {
+    align-self: flex-end;
+}
+
+.input-wrapper input {
+    padding: .3rem;
+    border-radius: .15rem;
+    border: none;
+}
+
+/* Fim do formulário de pagamento */
+
+.qrcode-container {
+    padding-block: 2rem;
+    width: fit-content;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    position: relative;
+    height: 100vh;
+}
+
+.qrcode {
+    width: 300px;
+    height: 300px;
+}
+
+.qrcode-container p {
+    color: var(--ui-layout);
+    padding: .5rem;
+    background-color: var(--ui-details);
+    border-radius: .25rem;
+    font-size: clamp(0.9375rem, 0.4375rem + 2vw, 1.5625rem);
+}
+
+.upper-img {
+    position: absolute;
+    z-index: -3;
+    top: 5px;
+    left: 3px;
+    max-width: 300px;
+}
+
+.bottom-img {
+    position: absolute;
+    bottom: 5px;
+    right: 3px;
+    z-index: -3;
+    max-width: 300px;
+}
+/* Fim da página de Qr Code */
+
+.wrapper-thanks {
     display: grid;
     grid-template-columns: 55% 45%;
 }
@@ -90,7 +190,7 @@ body {
     font-size: clamp(0.9375rem, 0.6875rem + 1vw, 1.25rem);
 }
 
-a {
+.general-info a {
     color: var(--chr-color);
     text-decoration: underline;
 }
@@ -98,3 +198,8 @@ a {
 a:hover {
     color: var(--ui-details);
 }
+
+/* Fim dos agradecimentos */
+
+
+

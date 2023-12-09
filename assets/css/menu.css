@@ -141,9 +141,11 @@ body {
 }
 
 .addcart {
-  background-color: transparent;
+  background-color: var(--ui-layout);
+  padding: .2rem;
   border: none;
   cursor: pointer;
+  border-radius: .1rem;
 }
 
 @media (min-width: 1070px) {
