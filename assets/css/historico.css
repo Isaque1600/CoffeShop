@@ -7,6 +7,9 @@
   --chr-lgt-color: #dde3e391;
   --ui-layout: #000000;
   --ui-details: #6d9891ff;
+  
+
+  --bg-color: #0f0f42;
 
   /*Cores Complementares*/
   --cmplt-green: #a8bab9ff;
@@ -47,8 +50,10 @@ img {
 /* Estilização do body */
 
 body {
-    background-color: var(--cmplt-brown);
+    background-color: var(--ui-details);
     color: var(--chr-color);
+    width: 80%;
+    margin: 0 auto;
 }
 
 h1 {
@@ -57,23 +62,63 @@ h1 {
     font-size: clamp(1.5625rem, 0.8125rem + 3vw, 2.5rem);
 }
 
+.history-date {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: 1rem;
+  gap: 1rem;
+  flex-direction: column-reverse;
+}
+
+.history-date button {
+  padding: .5rem;
+  background-color: var(--cmplt-brown);
+  color: var(--chr-color);
+  border-radius: .25rem;
+  border: none;
+  cursor: pointer;
+}
+
+.history-date button:hover {
+  filter: brightness(50%);
+}
+
+.history-date input {
+  padding: 1rem;
+  background-color: var(--ui-layout);
+  color: var(--chr-color);
+  border: none;
+  border-radius: .5rem;
+}
+
+.table-wrapper {
+  overflow-x: scroll;
+}
+
 .vendas {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 1rem;
-    list-style: none;
+  margin: 0 auto;
 }
 
-.venda {
-    background-color: var(--ui-details);
-    padding: 1.5rem;
-    letter-spacing: .1rem;
-    width: max-content;
-    max-width: 80%;
-    border-radius: .7rem;
+table, th, td {
+  border: 1px solid var(--ui-layout);
+  border-collapse: collapse;
+  text-align: left;
+  font-size: clamp(0.625rem, 0.375rem + 1vw, 0.9375rem);
 }
 
-b {
-    color: var(--ui-layout);
+th {
+  background-color: var(--ui-layout);
+}
+
+td {
+  color: var(--ui-layout);
+}
+
+th, td {
+  padding: 1rem;
+}
+
+.vendas td:last-child {
+  text-align: center;
 }
