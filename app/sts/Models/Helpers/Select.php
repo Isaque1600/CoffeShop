@@ -7,12 +7,14 @@ use PDOException;
 use Sts\Models\Conn;
 use PDO;
 
-class Select {
+class Select
+{
 
     private object $connect;
     private string $table;
 
-    public function selectAll($table) {
+    public function selectAll($table)
+    {
         $this->setConnect();
 
         $this->table = $table;
@@ -21,7 +23,7 @@ class Select {
 
             $query = $this->getTableQuery('all');
 
-            if($query->execute()) {
+            if ($query->execute()) {
                 return $query->fetchAll(PDO::FETCH_ASSOC);
             }
 
@@ -33,7 +35,8 @@ class Select {
 
     }
 
-    public function selectName(string $name) {
+    public function selectName(string $name)
+    {
         $this->setConnect();
 
         try {
@@ -43,7 +46,7 @@ class Select {
 
             $query->bindParam(":name", $name, PDO::PARAM_STR);
 
-            if($query->execute()) {
+            if ($query->execute()) {
                 return $query->fetchAll(PDO::FETCH_ASSOC);
             }
         } catch (PDOException $err) {
@@ -51,10 +54,41 @@ class Select {
         }
     }
 
-    private function getTableQuery($type = "all") {
+    public function selectVenda()
+    {
+        $this->setConnect();
 
-        if($type == "all") {
-            switch($this->table) {
+        try {
+            $query = $this->connect->prepare("SELECT * FROM vendas ORDER BY vendaId");
+
+            if ($query->execute()) {
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $err) {
+            throw $err;
+        }
+    }
+
+    public function selectVendaItem()
+    {
+        $this->setConnect();
+
+        try {
+            $query = $this->connect->prepare("SELECT * FROM vendas_item ORDER BY vendaId");
+
+            if ($query->execute()) {
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $err) {
+            throw $err;
+        }
+    }
+
+    private function getTableQuery($type = "all")
+    {
+
+        if ($type == "all") {
+            switch ($this->table) {
                 case 'produtos':
                     return $this->connect->prepare("SELECT * FROM produtos ");
 
@@ -114,7 +148,8 @@ class Select {
 
     }
 
-    private function setConnect() {
+    private function setConnect()
+    {
         $connect = new Conn;
         $this->connect = $connect->connect();
         $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

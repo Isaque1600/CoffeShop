@@ -1,3 +1,11 @@
+<?php
+
+echo "<pre>";
+var_dump($data);
+echo "</pre>";
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,8 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css">
     <link rel="stylesheet" href="<?php echo CSS_PATH ?>historico.css">
-    <link rel="stylesheet" href="../../../../assets/css/historico.css">
-    <link rel="stylesheet" href="../../../../assets/css/head-foot.css">
     <title>Histórico de Vendas</title>
 </head>
 
@@ -21,27 +27,35 @@
 
     <h1>Últimas Vendas Realizadas</h1>
     <form action="" class="history-date">
-        <input type="date" name="date" id="date">
+        <input type="text" name="date" id="date" class="date" placeholder="dd/mm/yyyy">
         <button type="submit">Checar</button>
     </form>
     <div class="table-wrapper">
         <table class="vendas">
             <thead>
                 <tr>
-                    <th>Datas</th>
-                    <th>Comprador</th>
+                    <th>Id</th>
+                    <th>Data Venda</th>
+                    <th>Cliente</th>
                     <th>Produto</th>
-                    <th>Valor</th>
+                    <th>Quantidade</th>
+                    <th>Valor Unitário</th>
+                    <th>Valor Total</th>
                     <th>Token</th>
+                    <th>Total Venda</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th>9 de janeiro</th>
+                    <th>1</th>
+                    <td>9 de janeiro</td>
                     <td>Seu José</td>
                     <td>Bolacha</td>
-                    <td>R$89,99</td>
+                    <td>2</td>
+                    <td>R$2,00</td>
+                    <td>R$4,00</td>
                     <td>123jqz</td>
+                    <td rowspan="2">R$6,00</td>
                 </tr>
                 <tr>
                     <th>9 de janeiro</th>
@@ -136,7 +150,8 @@
             </tfoot>
         </table>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="<?php echo JS_PATH ?>sellsHistory.js"></script>
 </body>
 
 </html>
