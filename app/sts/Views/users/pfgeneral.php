@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="<?php echo CSS_PATH ?>head-foot.css" />
   <link rel="stylesheet" href="<?php echo CSS_PATH ?>profile.css" />
-  <link rel="stylesheet" href="../../../../assets/css/profile.css">
-  <link rel="stylesheet" href="../../../../assets/css/head-foot.css">
   <title>Perfil</title>
 </head>
 
@@ -20,7 +18,7 @@
   ?>
 
   <h1>Olá,
-    <?php echo $_SESSION['user']['nome'] ?>
+    <?php echo $data['user']['nome'] ?>
   </h1>
   <div class="user-info">
     <div class="user-data">
@@ -29,11 +27,11 @@
 
       $encryption = new Encryption();
       // var_dump($_SESSION);
-      echo "<p class=\"data\">Nome:".$_SESSION['user']['nome']."</p>";
+      echo "<p class=\"data\">Nome:" . $data['user']['nome'] . "</p>";
       echo "<p class=\"data\">Sobrenome: Josivelha</p>";
       echo "<p class=\"data\">CPF: 1231231234</p>";
-      echo "<p class=\"data\">Email:".$_SESSION['user']['email']."</p>";
-      echo "<p class=\"data\">Senha:".$_SESSION['user']['senha']."</p>";
+      echo "<p class=\"data\">Email:" . $data['user']['email'] . "</p>";
+      echo "<p class=\"data\">Senha:" . $data['user']['senha'] . "</p>";
       ?>
     </div>
     <div class="user-opt">

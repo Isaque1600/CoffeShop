@@ -1,3 +1,21 @@
+<?php
+
+if (isset($data['dataForm']) && isset($data['stats'])) {
+    if ($data['stats'][0] == "success" && $data['stats'][1] == "success") {
+        $result['title'] = "Cadastro sucedido!";
+        $result['text'] = "O cadastro do produto foi feito com exito!";
+    } else {
+        $result['title'] = "Erro ocorrido!";
+        if ($data['stats'][0] != "success") {
+            $result['text'] = $data['stats'][0];
+        } else {
+            $result['text'] = "Um erro critico ocorreu, contate o administrador para resolver-lo!";
+        }
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -26,17 +44,20 @@
         <label for="img" class="input-name">Imagem: </label><input required type="file" class="input" name="path">
         <button type="submit" name="submit">Cadastrar</button>
     </form>
-    <p>
-        <?php
-        if(isset($data['dataForm'])) {
-            if($data['stats'] == "success") {
-                echo "Produto cadastrado com sucesso!";
-            } else {
-                echo "falha ao cadastra produto!";
-            }
-        }
-        ?>
-    </p>
+    <div class="popUp" style="<?php echo (isset($result)) ? "display:flex;" : "display:none;" ?>">
+        <div class="popUp-content">
+            <span class="popUp-close">&times;</span>
+            <h1 class="popUp-title">
+                <?php echo $result['title']; ?>
+            </h1>
+            <p class="popUp-text">
+                <?php echo $result['text']; ?>
+            </p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="<?php echo JS_PATH ?>main.js"></script>
 </body>
 
 </html>

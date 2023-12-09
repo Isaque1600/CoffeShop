@@ -47,48 +47,119 @@ img {
 /* Estilização do body */
 
 body {
-    padding: 2rem;
-    background-color: var(--cmplt-brown);
+  padding: 2rem;
+  background-color: var(--cmplt-brown);
 }
 
 h1 {
-    color: var(--chr-color);
-    text-align: center;
-    padding: 1.5rem;
-    font-size: clamp(1.5625rem, 0.8125rem + 3vw, 2.5rem);
+  color: var(--chr-color);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: clamp(1.5625rem, 0.8125rem + 3vw, 2.5rem);
 }
 
 .form-produto {
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 1rem;
-    gap: 1rem;
-    width: max-content;
-    max-width: 70%;
-    margin: 0 auto;
-    background-color: var(--ui-details);
-    border-radius: .5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 1rem;
+  gap: 1rem;
+  width: max-content;
+  max-width: 70%;
+  margin: 0 auto;
+  background-color: var(--ui-details);
+  border-radius: 0.5rem;
 }
 
 .form-produto > * {
-    width: 100%;
-    border-radius: .2rem;
-    border: none;
-    height: 25px;
+  width: 100%;
+  border-radius: 0.2rem;
+  border: none;
+  height: 25px;
 }
 
 .form-produto > *:focus {
-    outline: 2px var(--ui-layout) solid; 
+  outline: 2px var(--ui-layout) solid;
 }
 
 label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 button {
-    transition: all 200ms;
+  transition: all 200ms;
 }
 
 button:hover {
-    background-color: var(--cmplt-green);
+  background-color: var(--cmplt-green);
 }
+
+/* Pop Up */
+
+.popUp {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.353);
+  backdrop-filter: blur(15px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999999;
+}
+
+.popUp-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: var(--ui-details);
+  padding: 2em;
+  border-radius: 0.5em;
+  box-shadow: 0 0 15px black;
+  max-width: 500px;
+  min-height: 200px;
+  width: 80%;
+  overflow: hidden;
+}
+
+.popUp-content h1 {
+  font-size: clamp(1.5rem, -0.875rem + 6vw, 2rem);
+  color: var(--cmplt-lgt-brown);
+}
+
+.popUp-close {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background: solid white;
+  border-radius: 15px;
+  z-index: 1;
+  color: white;
+  font-size: clamp(1.3rem, -0.875rem + 5vw, 1.7rem);
+}
+
+.popUp-title {
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: var(--ui-layout);
+  position: absolute;
+  padding: 0.5rem;
+  border-top: transparent;
+  text-align: center;
+  top: 0;
+  color: white !important;
+}
+
+.popUp-text {
+  margin-top: 30px;
+  color: white;
+  user-select: text;
+  text-align: center;
+  font-size: clamp(1rem, -0.875rem + 5vw, 1.5rem);
+}
+
+/* Pop Up End */

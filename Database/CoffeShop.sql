@@ -75,6 +75,7 @@ INSERT into categorias(nome) values('salgado');
 INSERT into categorias(nome) values('chantilly');
 INSERT into categorias(nome) values('bolo');
 
+
 -- @block produtos
 CREATE TABLE IF NOT EXISTS produtos (
     produtoId int PRIMARY KEY AUTO_INCREMENT,
