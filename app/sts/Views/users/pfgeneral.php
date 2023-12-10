@@ -35,7 +35,7 @@
       ?>
     </div>
     <div class="user-opt">
-      <a class="favorite" href="#"><i class="fa-solid fa-star"></i> Preferidos</a>
+      <a class="favorite" href="<?php echo DEFAULT_URL ?>User/favoritos"><i class="fa-solid fa-star"></i> Preferidos</a>
       <a class="logout" href="<?php echo DEFAULT_URL ?>User/logOut"><i class="fa-solid fa-right-from-bracket"></i>
         LogOut</a>
     </div>

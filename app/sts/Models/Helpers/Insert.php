@@ -6,14 +6,16 @@ use Sts\Models\Conn;
 use PDO;
 use PDOException;
 
-class Insert {
+class Insert
+{
     private string $table;
     private array $data;
     private string $columns;
     private string $values;
     private ?object $connect;
 
-    public function insert(string $table, array $data): string {
+    public function insert(string $table, array $data): string
+    {
         $this->table = $table;
         $this->data = $data;
         $this->setConnect();
@@ -26,7 +28,7 @@ class Insert {
 
             $query = $this->setTable();
 
-            if($query->execute($this->data)) {
+            if ($query->execute($this->data)) {
                 return "success";
             }
 
@@ -38,9 +40,46 @@ class Insert {
 
     }
 
-    private function setTable(): ?object {
+    public function insertVendaItem(?array $data)
+    {
+        $this->table = 'vendas';
+        $this->data = $data['venda'];
+        $this->setConnect();
+        $this->formatData();
 
-        switch($this->table) {
+        try {
+
+            $query1 = $this->setTable();
+
+            if ($query1->execute($this->data)) {
+                $venda = $this->connect->lastInsertId();
+
+                foreach ($data['venda_item'] as $key => $value) {
+                    $subtotal = ($value[0] * $value[1]);
+
+                    $query2 = $this->connect->prepare("INSERT INTO vendas_item(vendaId, produtoId, quantidade, preco_unit, subtotal) VALUES (:vendaId, :produtoId, :quantidade, :preco_unit, :subtotal)");
+
+                    $query2->bindParam(":vendaId", $venda, PDO::PARAM_INT);
+                    $query2->bindParam(":produtoId", $value[2], PDO::PARAM_INT);
+                    $query2->bindParam(":quantidade", $value[1], PDO::PARAM_STR);
+                    $query2->bindParam(":preco_unit", $value[0], PDO::PARAM_STR);
+                    $query2->bindParam(":subtotal", $subtotal, PDO::PARAM_STR);
+
+                    $query2->execute();
+                }
+            }
+
+            return 'success';
+
+        } catch (PDOException $err) {
+            throw $err;
+        }
+    }
+
+    private function setTable(): ?object
+    {
+
+        switch ($this->table) {
             case 'pessoas':
                 return $this->connect->prepare("INSERT INTO pessoas({$this->columns}) VALUES ({$this->values})");
 
@@ -54,10 +93,7 @@ class Insert {
                 return $this->connect->prepare("INSERT INTO produtos_categoria({$this->columns} VALUES ({$this->values})");
 
             case 'vendas':
-                return $this->connect->prepare("INSERT INTO vendas({$this->columns}) VALUES {$this->values}");
-
-            case 'vendas_item':
-                return $this->connect->prepare("INSERT INTO vendas_item({$this->columns}) VALUES({$this->values})");
+                return $this->connect->prepare("INSERT INTO vendas({$this->columns}) VALUES ({$this->values})");
 
             case 'formaPagamento':
                 return $this->connect->prepare("INSERT INTO formaPagamento({$this->columns}) VALUES({$this->values})");
@@ -74,12 +110,20 @@ class Insert {
 
     }
 
-    private function formatData(): void {
+    private function formatData(): void
+    {
+        foreach ($this->data as $key => $value) {
+            if ($value == "" || $value == " ") {
+                $this->data[$key] = null;
+            }
+        }
+
         $this->columns = implode(", ", array_keys($this->data));
-        $this->values = ":".implode(", :", array_keys($this->data));
+        $this->values = ":" . implode(", :", array_keys($this->data));
     }
 
-    private function setConnect(): void {
+    private function setConnect(): void
+    {
         $connection = new Conn();
         $this->connect = $connection->connect();
         $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

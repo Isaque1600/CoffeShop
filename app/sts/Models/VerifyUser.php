@@ -5,7 +5,8 @@ namespace Sts\Models;
 use PDO;
 use PDOException;
 
-class VerifyUser extends Person {
+class VerifyUser extends Person
+{
     /**
      * So para guardar o tipo do usuario
      * @var string
@@ -35,14 +36,15 @@ class VerifyUser extends Person {
      * @param mixed $senha senha do usuario
      * @return string
      */
-    public function verifyUser($email, $senha): string {
+    public function verifyUser($email, $senha): string
+    {
         // instancia a classe de criptografia
         $encryption = new Encryption();
 
         try {
             // prepara o statement de consulta
             $userSelect = $this->connection->prepare(
-                "SELECT email, senha, nome, sobrenome, cpf_cnpj, tipo 
+                "SELECT pessoaId, email, senha, nome, sobrenome, cpf_cnpj, tipo 
                 FROM pessoas 
                 WHERE email=:email"
             );
@@ -51,14 +53,14 @@ class VerifyUser extends Person {
             $userSelect->bindParam(":email", $email);
 
             // caso ele tenha dado certo ele verifica se a senha inserida no form esta certa e retorna sucesso
-            if($userSelect->execute()) {
+            if ($userSelect->execute()) {
                 $userData = $userSelect->fetch(PDO::FETCH_ASSOC);
             }
 
-            if($userData !== false) {
+            if ($userData !== false) {
                 $verifyPass = $encryption->decrypt($userData['senha']);
-                if(!empty($userData) && $verifyPass = $senha) {
-                    if(session_status() != PHP_SESSION_ACTIVE) {
+                if (!empty($userData) && $verifyPass = $senha) {
+                    if (session_status() != PHP_SESSION_ACTIVE) {
                         session_start();
                         // var_dump($userData);
 

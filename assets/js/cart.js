@@ -9,8 +9,6 @@ $(document).ready(function () {
 
   $(".addcart").on("click", function () {
     path = location.href.split("/");
-    path.pop();
-    path.pop();
     url = "";
     for (const element of path) {
       url += element + "/";
@@ -25,8 +23,6 @@ $(document).ready(function () {
 
   $(".trash").on("click", function () {
     path = location.href.split("/");
-    path.pop();
-    path.pop();
     url = "";
     for (const element of path) {
       url += element + "/";
@@ -36,5 +32,11 @@ $(document).ready(function () {
     }
 
     location.href = url + "Cardapio/removecart?name=" + $(this).attr("name");
+  });
+
+  $("#formaPagamento").on("change", function (e) {
+    if ($(this).val() == "debito") {
+      $(".input-wrapper").removeAttr("hidden");
+    } else $(".input-wrapper").attr("hidden", "true");
   });
 });

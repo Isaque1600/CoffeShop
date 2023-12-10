@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS formaPagamento (
 );
 
 CREATE TABLE IF NOT EXISTS vendas (
-    vendaId int PRIMARY KEY,
+    vendaId int PRIMARY KEY AUTO_INCREMENT,
     pessoaId int NOT NULL,
     valor double NULL,
     cpf_cnpj VARCHAR(18) NULL,
@@ -166,14 +166,14 @@ CREATE TABLE IF NOT EXISTS vendas (
     cvv int NULL,
     dataVencimento varchar(5) NULL,
     nomeNoCartao varchar(30) NULL,
-    dataVenda date NOT NULL,
+    dataVenda DATE NOT NULL,
     token varchar(6) NULL,
     FOREIGN KEY (cpf_cnpj) REFERENCES pessoas (cpf_cnpj),
     FOREIGN KEY (pessoaId) REFERENCES pessoas (pessoaId)
 );
 
 CREATE TABLE IF NOT EXISTS vendas_item (
-    venda_itemId int PRIMARY KEY,
+    venda_itemId int PRIMARY KEY AUTO_INCREMENT,
     vendaId int NOT NULL,
     produtoId int NOT NULL,
     quantidade int NOT NULL,

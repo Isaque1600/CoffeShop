@@ -59,7 +59,7 @@ class Select
         $this->setConnect();
 
         try {
-            $query = $this->connect->prepare("SELECT * FROM vendas ORDER BY vendaId");
+            $query = $this->connect->prepare("SELECT vendaId, pessoaId, valor, dataVenda, token FROM vendas ORDER BY vendaId");
 
             if ($query->execute()) {
                 return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -82,6 +82,32 @@ class Select
         } catch (PDOException $err) {
             throw $err;
         }
+    }
+
+    public function selectId($table, $id)
+    {
+        $this->setConnect();
+
+        try {
+            if ($table == "produtos") {
+                $query = $this->connect->prepare("SELECT nome FROM produtos WHERE produtoId = :id");
+            } elseif ($table == "pessoas") {
+                $query = $this->connect->prepare("SELECT nome FROM pessoas WHERE pessoaId = :id");
+            }
+
+            $query->bindParam(":id", $id, PDO::PARAM_INT);
+
+            if ($query->execute()) {
+                return $query->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
+    public function selectCat($table, $id)
+    {
+
     }
 
     private function getTableQuery($type = "all")

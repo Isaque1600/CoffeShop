@@ -1,8 +1,8 @@
 <?php
 
-echo "<pre>";
-var_dump($data);
-echo "</pre>";
+// echo "<pre>";
+// var_dump($data);
+// echo "</pre>";
 
 ?>
 
@@ -26,17 +26,13 @@ echo "</pre>";
     ?>
 
     <h1>Últimas Vendas Realizadas</h1>
-    <form action="" class="history-date">
-        <input type="text" name="date" id="date" class="date" placeholder="dd/mm/yyyy">
-        <button type="submit">Checar</button>
-    </form>
     <div class="table-wrapper">
         <table class="vendas">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Data Venda</th>
-                    <th>Cliente</th>
+                    <th>Cliente Id</th>
                     <th>Produto</th>
                     <th>Quantidade</th>
                     <th>Valor Unitário</th>
@@ -46,108 +42,22 @@ echo "</pre>";
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th>1</th>
-                    <td>9 de janeiro</td>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>2</td>
-                    <td>R$2,00</td>
-                    <td>R$4,00</td>
-                    <td>123jqz</td>
-                    <td >R$6,00</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
-                <tr>
-                    <th>9 de janeiro</th>
-                    <td>Seu José</td>
-                    <td>Bolacha</td>
-                    <td>R$89,99</td>
-                    <td>123jqz</td>
-                </tr>
+                <?php
+                foreach ($data['vendas_item'] as $key => $value) {
+                    echo "<tr>";
+                    echo " <th>{$value['vendaId']}</th>";
+                    echo " <td>{$value['dataVenda']}</td>";
+                    echo " <td>{$value['pessoaId']}</td>";
+                    echo " <td>{$value['produtoId']}</td>";
+                    echo " <td>{$value['quantidade']}</td>";
+                    echo " <td>R$" . $value['preco_unit'] . "</td>";
+                    echo " <td>R$" . $value['subtotal'] . "</td>";
+                    echo " <td>{$value['token']}</td>";
+                    echo " <td>R$" . $value['valor'] . "</td>";
+                    echo "</tr>";
+                }
+                ?>
             </tbody>
-            <tfoot>
-                <tr>
-                    <th>Faturamento</th>
-                    <td colspan="8">R$999,999</td>
-                </tr>
-            </tfoot>
         </table>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
