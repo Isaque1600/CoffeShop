@@ -94,7 +94,8 @@ class User
     {
         $session = new Session;
         $session->create();
-        $token = new TokenGenerator;
+        $token = new TokenGenerator();
+        $token = $token->generateRandomString(6);
 
         $valor = 0;
 
@@ -126,14 +127,14 @@ class User
 
             unset($this->dataForm['formaPagamento']);
 
-            $this->dataForm = array_merge($this->dataForm, array("pessoaId" => $_SESSION['user']['pessoaId'], "valor" => $valor, "dataVenda" => $date->format("Y-m-d"), "token" => $token->generateRandomString(6)));
+            $this->dataForm = array_merge($this->dataForm, array("pessoaId" => $_SESSION['user']['pessoaId'], "valor" => $valor, "dataVenda" => $date->format("Y-m-d"), "token" => $token));
 
             // var_dump($this->dataForm);
 
             try {
                 $this->data['test'] = $insert->insertVendaItem(array("venda" => $this->dataForm, "venda_item" => $_SESSION['user']['cart']));
 
-
+                header("location:" . DEFAULT_URL . "User/finalizarCompras?token=$token");
             } catch (PDOException $err) {
                 $this->data['err'] = $err->getMessage();
             }

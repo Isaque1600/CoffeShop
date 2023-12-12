@@ -1,8 +1,5 @@
 -- Active: 1702060009878@@127.0.0.1@3306@phpmyadmin
---@block drop db
-
 DROP schema cafeteria;
-
 -- @block DB start
 CREATE schema IF NOT EXISTS cafeteria;
 
@@ -46,6 +43,8 @@ CREATE TABLE IF NOT EXISTS empresa (
     incricaoEstadual varchar(30) NULL,
     atividadePrincipal varchar(100) NULL
 );
+
+INSERT INTO empresa values ('11.111.111/0001-11', 'Bonne Café', 'Bonne Café', '2023-12-12', '00000-000', 'rua x', '01', 'y', 'Parelhas', 'RN', 'xxx', 'Cafeteria');
 
 
 /* CREATE TABLE configuracoes(
@@ -116,7 +115,61 @@ CREATE TABLE IF NOT EXISTS produtos_categoria (
     FOREIGN KEY (idCategoria) REFERENCES categorias (categoriaId)
 );
 
--- drop table produtos_categoria;
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (1, 1);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (1, 10);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (2, 1);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (2, 8);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (3, 1);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (3, 8);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (3, 16);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (4, 1);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (4, 10);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (5, 1);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (6, 1);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (6, 4);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (6, 16);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (7, 1);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (7, 8);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (8, 1);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (8, 16);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (9, 3);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (9, 17);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (9, 14);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (9, 4);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (10, 3);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (10, 14);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (10, 7);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (11, 2);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (11, 15);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (12, 3);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (12, 14);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (12, 4);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (12, 6);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (13, 3);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (13, 4);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (13, 17);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (13, 14);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (14, 3);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (14, 4);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (14, 14);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (15, 2);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (15, 15);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (16, 3);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (16, 5);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (16, 14);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (16, 10);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (17, 3);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (17, 4);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (17, 5);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (17, 6);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (17, 14);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (18, 2);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (18, 13);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (18, 15);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (19, 2);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (19, 15);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (20, 3);
+INSERT INTO produtos_categoria (idProduto, idCategoria) values (20, 14);
 
 -- @block pessoas
 CREATE TABLE IF NOT EXISTS ocupacoes (

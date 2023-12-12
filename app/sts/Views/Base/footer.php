@@ -8,6 +8,7 @@
                 class="fa-brands fa-whatsapp"></i></a>
         <a href="#"><i class="fa-brands fa-facebook"></i></a>
     </article>
+    <h2 class="footer_title">Copyright © 2023 Dâmaris, Isaque e Thiago</h2>
     <script src="https://kit.fontawesome.com/9682b31f0e.js" crossorigin="anonymous"></script>
 </footer>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
