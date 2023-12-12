@@ -19,8 +19,8 @@
     include(HEADER);
     ?>
     <form action="" class="categories-container" method="POST">
+    <h2>Categorias</h2>
         <ul class="wrapper">
-            <h2>Categorias</h2>
             <?php
 
             foreach ($data['categorias'] as $key => $value) {
