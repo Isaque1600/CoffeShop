@@ -8,6 +8,8 @@
   --ui-layout: #000000;
   --ui-details: #6d9891ff;
 
+  --bg-orange: #B8621B;
+
   /*Cores Complementares*/
   --cmplt-green: #a8bab9ff;
   --cmplt-brown: #2b0000;
@@ -48,7 +50,7 @@ img {
 
 body {
 
-  background-color: var(--cmplt-brown);
+  background-color: var(--bg-orange);
 }
 
 h1 {
