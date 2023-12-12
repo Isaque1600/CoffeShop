@@ -47,7 +47,7 @@ img {
 /* Estilização do body */
 
 body {
-  padding: 2rem;
+
   background-color: var(--cmplt-brown);
 }
 
@@ -65,7 +65,7 @@ h1 {
   gap: 1rem;
   width: max-content;
   max-width: 70%;
-  margin: 0 auto;
+  margin: .5rem auto;
   background-color: var(--ui-details);
   border-radius: 0.5rem;
 }

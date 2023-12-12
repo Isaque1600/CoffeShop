@@ -52,8 +52,6 @@ img {
 body {
     background-color: var(--ui-details);
     color: var(--chr-color);
-    width: 80%;
-    margin: 0 auto;
 }
 
 h1 {
