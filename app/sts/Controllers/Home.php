@@ -35,11 +35,50 @@ class Home
      */
     public function index(?array $urlParametters = [])
     {
-        if (session_status() != PHP_SESSION_ACTIVE) {
-            session_start();
+        $session = new Session();
+        $select = new Select();
 
-            if (!empty($_SESSION) && $_SESSION['user']['status'] = "active") {
+        if ($session->create()) {
+            if (isset($_SESSION['user']) && $_SESSION['user']['status'] = "active") {
                 $this->data['user'] = $_SESSION['user'];
+            }
+        }
+
+        if (isset($_SESSION['user'])) {
+            try {
+                $pessoaCategorias = $select->selectCat('pessoa', $_SESSION['user']['pessoaId']);
+
+                $produtos = $select->selectAll('produtos');
+
+                foreach ($produtos as $key => $value) {
+                    $prodCategorias = $select->selectCat('produto', $value['produtoId']);
+                    $produtos[$key]['categorias'] = $prodCategorias;
+                }
+
+                foreach ($produtos as $key => $value) {
+                    if (!array_diff($value['categorias'], $pessoaCategorias)) {
+                        unset($produtos[$key]);
+                    }
+                }
+
+                $produtos = array_values($produtos);
+
+                for ($i = 0; $i < count($produtos); $i++) {
+                    $prevValue = count($produtos[$i]['categorias']);
+                    for ($j = $i + 1; $j < count($produtos); $j++) {
+                        $nextValue = count($produtos[$j]['categorias']);
+                        if ($prevValue < $nextValue) {
+                            $helper = $produtos[$i];
+                            $produtos[$i] = $produtos[$j];
+                            $produtos[$j] = $helper;
+                        }
+                    }
+                }
+
+                $this->data['produtos'] = array_slice($produtos, 0, 3);
+
+            } catch (PDOException $err) {
+                $this->data['err'] = $err->getMessage();
             }
         }
 

@@ -20,7 +20,31 @@ class Cardapio
         $session->create();
 
         try {
-            $this->data['produtos'] = $select->selectAll("produtos");
+            $pessoaCategorias = $select->selectCat('pessoa', $_SESSION['user']['pessoaId']);
+
+            $produtos = $select->selectAll('produtos');
+            $allProdutos = $select->selectAll('produtos');
+
+            foreach ($produtos as $key => $value) {
+                $prodCategorias = $select->selectCat('produto', $value['produtoId']);
+                $produtos[$key]['categorias'] = $prodCategorias;
+            }
+
+            $produtos = array_values($produtos);
+
+            for ($i = 0; $i < count($produtos); $i++) {
+                $prevValue = count($produtos[$i]['categorias']);
+                for ($j = $i + 1; $j < count($produtos); $j++) {
+                    $nextValue = count($produtos[$j]['categorias']);
+                    if ($prevValue < $nextValue) {
+                        $helper = $produtos[$i];
+                        $produtos[$i] = $produtos[$j];
+                        $produtos[$j] = $helper;
+                    }
+                }
+            }
+
+            $this->data['produtos'] = $produtos;
         } catch (PDOException $err) {
             $this->data['err'] = $err->getMessage();
         } catch (Exception $err) {

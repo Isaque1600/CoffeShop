@@ -28,8 +28,8 @@
             $encryption = new Encryption();
             // var_dump($_SESSION);
             echo "<p class=\"data\">Nome:" . $data['user']['nome'] . "</p>";
-            echo "<p class=\"data\">Sobrenome: Josivelha</p>";
-            echo "<p class=\"data\">CPF: 1231231234</p>";
+            echo "<p class=\"data\">Sobrenome: " . $data['user']['sobrenome'] . "</p>";
+            echo "<p class=\"data\">CPF ou CNPJ: " . $data['user']['cpf_cnpj'] . "</p>";
             echo "<p class=\"data\">Email:" . $data['user']['email'] . "</p>";
             echo "<p class=\"data\">Senha:" . $data['user']['senha'] . "</p>";
             ?>

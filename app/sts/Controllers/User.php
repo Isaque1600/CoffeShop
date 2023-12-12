@@ -66,13 +66,21 @@ class User
                 }
             }
 
-            // foreach ($produtos as $key => $value) {
-            //     if (count($value['categoria'])) {
-            //         # code...
-            //     }
-            // }
+            $produtos = array_values($produtos);
 
+            for ($i = 0; $i < count($produtos); $i++) {
+                $prevValue = count($produtos[$i]['categorias']);
+                for ($j = $i + 1; $j < count($produtos); $j++) {
+                    $nextValue = count($produtos[$j]['categorias']);
+                    if ($prevValue < $nextValue) {
+                        $helper = $produtos[$i];
+                        $produtos[$i] = $produtos[$j];
+                        $produtos[$j] = $helper;
+                    }
+                }
+            }
 
+            $this->data['produtos'] = $produtos;
 
         } catch (PDOException $err) {
             $this->data['err'] = $err->getMessage();
@@ -113,6 +121,7 @@ class User
 
             if ($this->dataForm['formaPagamento'] == "pix") {
                 header("location:" . DEFAULT_URL . "pagamento/pix");
+                exit;
             }
 
             unset($this->dataForm['formaPagamento']);

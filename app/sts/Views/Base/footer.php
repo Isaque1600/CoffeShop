@@ -4,7 +4,8 @@
     </h2>
     <article class="footer__social">
         <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://wa.me/558381502963/?text='ola damaris, gostaria de um café'"><i
+                class="fa-brands fa-whatsapp"></i></a>
         <a href="#"><i class="fa-brands fa-facebook"></i></a>
     </article>
     <script src="https://kit.fontawesome.com/9682b31f0e.js" crossorigin="anonymous"></script>

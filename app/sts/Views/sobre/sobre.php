@@ -17,7 +17,7 @@
 
     <main>
         <section class="hero">
-            <p class="scroll-advice">Scroll Down</p>
+            <p class="scroll-advice">Role para baixo</p>
             <b class="scroll-icon"><i class="fa-regular fa-hand-point-down"></i></b>
             <div class="hero__title">
                 <h2>Bonne Café</h2>

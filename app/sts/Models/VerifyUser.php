@@ -44,7 +44,7 @@ class VerifyUser extends Person
         try {
             // prepara o statement de consulta
             $userSelect = $this->connection->prepare(
-                "SELECT pessoaId, email, senha, nome, sobrenome, cpf_cnpj, tipo 
+                "SELECT *
                 FROM pessoas 
                 WHERE email=:email"
             );

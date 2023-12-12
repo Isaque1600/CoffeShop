@@ -25,40 +25,50 @@
                 d="M0,288L40,250.7C80,213,160,139,240,138.7C320,139,400,213,480,234.7C560,256,640,224,720,197.3C800,171,880,149,960,160C1040,171,1120,213,1200,202.7C1280,192,1360,128,1400,96L1440,64L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z">
             </path>
         </svg>
-        <h1>Produtos mais vendidos</h1>
+        <h1>Para Você</h1>
         <section class="products">
-            <div class="products__categories">
-                <a href="#" class="product__category">Cafés</a>
-                <a href="#" class="product__category">Massas</a>
-                <a href="#" class="product__category">Sobremesas</a>
-            </div>
             <div class="scroller__container">
                 <div class="products__showcase scroller">
                     <div class="scroller__inner">
-                        <figure class="showcase__content">
-                            <img src="<?php echo IMG_PATH ?>pexels-spotwizardlee-9884561.jpg" alt=""
-                                class="showcase__img">
-                            <div class="showcase__details">
-                                <figcaption>Teste</figcaption>
-                                <b>R$39,99</b>
-                            </div>
-                        </figure>
-                        <figure class="showcase__content">
-                            <img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt=""
-                                class="showcase__img">
-                            <div class="showcase__details">
-                                <figcaption>Teste</figcaption>
-                                <b>R$39,99</b>
-                            </div>
-                        </figure>
-                        <figure class="showcase__content">
-                            <img src="<?php echo IMG_PATH ?>pexels-alisha-mishra-1346345.jpg" alt=""
-                                class="showcase__img">
-                            <div class="showcase__details">
-                                <figcaption>Teste</figcaption>
-                                <b>R$39,99</b>
-                            </div>
-                        </figure>
+                        <?php
+
+                        if (isset($data['produtos'])) {
+                            foreach ($data['produtos'] as $key => $value) {
+                                echo "<figure class=\"showcase__content\">";
+                                echo " <img src=\"" . IMG_PATH . $value['path'] . ".png" . "\" alt=\"\"class=\"showcase__img\">";
+                                echo " <div class=\"showcase__details\">";
+                                echo " <figcaption>{$value['nome']}</figcaption>";
+                                echo " <b>R$" . $value['valor'] . "</b>";
+                                echo " </div>";
+                                echo "</figure>";
+                            }
+                        } else {
+                            echo "<figure class=\"showcase__content\">";
+                            echo " <img src=\"" . IMG_PATH . "prod/cafe-preto.png" . "\" alt=\"\"class=\"showcase__img\">";
+                            echo " <div class=\"showcase__details\">";
+                            echo " <figcaption>Café Preto</figcaption>";
+                            echo " <b>R$5,00</b>";
+                            echo " </div>";
+                            echo "</figure>";
+                            // 
+                            echo "<figure class=\"showcase__content\">";
+                            echo " <img src=\"" . IMG_PATH . "prod/cafe-latte.png" . "\" alt=\"\"class=\"showcase__img\">";
+                            echo " <div class=\"showcase__details\">";
+                            echo " <figcaption>Café Latte</figcaption>";
+                            echo " <b>R$5,00</b>";
+                            echo " </div>";
+                            echo "</figure>";
+                            // 
+                            echo "<figure class=\"showcase__content\">";
+                            echo " <img src=\"" . IMG_PATH . "prod/cafe-espresso.png" . "\" alt=\"\"class=\"showcase__img\">";
+                            echo " <div class=\"showcase__details\">";
+                            echo " <figcaption>Café Espresso</figcaption>";
+                            echo " <b>R$5,00</b>";
+                            echo " </div>";
+                            echo "</figure>";
+                        }
+
+                        ?>
                     </div>
                 </div>
             </div>
