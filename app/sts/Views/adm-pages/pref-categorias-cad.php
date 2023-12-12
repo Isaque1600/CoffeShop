@@ -19,8 +19,8 @@ var_dump($data);
     include(HEADER);
     ?>
     <form action="" class="categories-container" method="post">
+    <h2>Categorias</h2>
         <ul class="wrapper">
-            <h2>Categorias</h2>
             <?php
 
             foreach ($data['categorias'] as $key => $value) {
