@@ -24,8 +24,8 @@ Detalhes:
 O sistema será utilizado para uma cafeteria adaptada a atender às necessidades do cliente através da web, podendo realizar reservas de pedidos ao mesmo tempo em que recebe detalhes do que comprou e molda a sua própria experiência pelos próximos usos.
 
 3.Descrição do produto:
-Em nosso serviço será possível consultar produtos e sua disponibilidade, bem como os preços e suas características mais diversas. No site será possível realizar seu cadastro e definir o seu perfil como cliente, enquanto, automaticamente delimita e traça todo o seu trajeto com a experiência de usuário. Enquanto usuário, é possível receber recomendações de produtos a partir de um caráter coletivo e consensual de qualidade, além é claro, do caráter singular de usuário.
-Uma vez logado, seus gostos e preferências serão processados pelo sistema e ele o retornará aqueles produtos que melhor lhe sirvam, ou seja, o sistema consegue reconhecer os seus gostos através das suas preferências definidas no cadastro e nas suas demais compras, montando um perfil único para cada usuário, e cada vez mais personalizado.
+Em nosso serviço será possível consultar produtos e sua disponibilidade, bem como os preços. No site será possível realizar seu cadastro e definir o seu perfil como cliente, enquanto, automaticamente delimita e traça todo o seu trajeto com a experiência de usuário. Enquanto usuário, é possível receber recomendações de produtos a partir de um caráter coletivo e consensual de qualidade, além é claro, do caráter singular de usuário.
+Uma vez logado, seus gostos e preferências serão processados pelo sistema e ele o retornará aqueles produtos que melhor lhe sirvam, ou seja, o sistema consegue reconhecer os seus gostos através das suas preferências definidas no cadastro, montando um perfil único para cada usuário, e cada vez mais personalizado.
 
 
 4.Interface:
@@ -36,19 +36,17 @@ Oferece um atendimento de cara nova, que ainda que tenha tudo que o cliente prec
 
 5.Funcionalidades:
 5.1 Geral:
-A princípio, como funcionalidade principal o site tem de atender da melhor forma às recomendações de acordo com o gosto do cliente e conseguir chegar cada vez mais perto do atendimento que o usuário deseja com suas pesquisas mais feitas na opção pesquisar e suas respostas ao formulário de preferências do cliente.
-No topo da página haverá uma barra de navegação com opções do tipo: “Cardápio”, “Meus Preferidos”, “Sobre” e a barra de pesquisa. O cliente ao entrar na página principal do site, poderá cadastrar-se, e então, estará livre para fazer sua primeira compra e/ou pesquisar produtos que goste de acordo com categorias chave, que visam a facilitação e diminuição da complexidade.
-Na opção “Acessar” da barra de opções o cliente poderá realizar o cadastro ou login da sua conta;
-Registrar cliente (nome do cliente, cpf, email, senha chave para a conta, telefone, data de nascimento;
+A princípio, como funcionalidade principal o site tem de atender da melhor forma às recomendações de acordo com o gosto do cliente e conseguir chegar cada vez mais perto do atendimento que o usuário deseja com suas respostas ao formulário de preferências do cliente.
+No topo da página haverá uma barra de navegação com opções do tipo: “Cardápio”, “Sobre”, “Login” ou “Pèrfil”, a barra de pesquisa e o carrinho. O cliente ao entrar na página principal do site, poderá cadastrar-se, e então, estará livre para fazer sua primeira compra e/ou pesquisar produtos que goste de acordo com categorias chave, que visam a facilitação e diminuição da complexidade.
+Na opção “Login” da barra de opções o cliente poderá realizar o cadastro ou login da sua conta;
+Registrar cliente (nome e sobrenome do cliente, cpf, email, senha chave para a conta);
 Opção de login (e-mail e senha);
-Opção de “Meus Preferidos” (Produtos já consumidos pelo cliente (Seguindo a ordem de mais comprado - > menos comprado);
-“Reservar” onde o cliente fará seu pedido, requerendo: (CPF do cliente, produto, quantidade do produto e a forma de pagamento);
-Os produtos que são mais procurados por outros usuários no site são promovidos ao cliente na página inicial.
-A barra de pesquisa serve para o sistema avaliar o que o cliente mais busca e recomendar produtos semelhantes que possam o agradar.
+Opção de “Meus Preferidos” (Produtos que o cliente poderá gostar  (Seguindo a ordem de mais próximo das preferências do cliente- > menos próximo);
+Os produtos que são mais próximos à preferência do usuário no site são promovidos inicialmente ao cliente na página inicial.
+A barra de pesquisa serve para buscar os produtos pelos nomes.
 5.2 Sistema de Recomendação:
-Fazendo uso da barra de busca e das marcações como “preferidos” da escolha do cliente;
-O sistema de recomendação advém do histórico de pesquisa de cada cliente, trabalhando com palavras-chave que sejam usadas pelo cliente ao pesquisar certo produto, no caso do nosso projeto, palavras como: “café”, “bolo”, “salgado”, “chocolate”, “torta”, “creme”;
-Outra forma usada para recomendar produtos específicos ao cliente serão os produtos nos quais se encontram na página de “preferidos”, marcados com uma estrela amarela a um clique.
+O sistema utiliza as opções marcadas pelo usuário no momento de cadastro para recomendar a ele os produtos que mais se encaixam nas preferências do mesmo.
+Sendo possível ver essas recomendações na parte de “Preferidos” no perfil, no menu inicial (os 3 mais próximos das preferências do cliente) e no cardápio onde os produtos vão estar sempre na ordem do mais próximo das recomendações do cliente até o menos próximo.
 
 6.Requisitos não funcionais:
 Utilização das linguagens: Java Script, CSS, Html, PHP, MySql, JQuery.
@@ -59,13 +57,10 @@ Colaboração e discussão estruturada da equipe.
 Equipe: Thiago, Dâmaris e Isaque.
 
 
-
-→ Sugestões em vermelho:
+→ Sugestões futuras(caso a gente ainda vá trabalhar no projeto):
 Criar um sistema de delivery;
-Formas de pagamento (ao longo do projeto especificar e detalhar mais       requisitos);
-	
-Paletta CSS
---platinum: #DDE3E3ff; --ash-gray: #A8BAB9ff; --kobicha: #61371Bff; --bistre: #2D271Dff; --cambridge-blue: #6D9891ff; 
 
-Cores complementares
-#836958; 
+Funcionário inicial:
+	Email: caixa@gmail.com
+	Senha: caixa
+
