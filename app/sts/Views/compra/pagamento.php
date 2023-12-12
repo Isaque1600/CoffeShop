@@ -1,3 +1,9 @@
+<?php
+
+// var_dump($data);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,26 +26,30 @@
     <main class="pay-form-wrapper">
         <form action="" method="post" class="pay-form">
             <select name="formaPagamento" id="formaPagamento">
-                <option value="pix">PIX</option>
-                <option value="debito">Cartão de Debito</option>
+                <?php
+                foreach ($data['formasPagamento'] as $key => $value) {
+                    echo "<option value=\"{$value['tipo']}\">" . ucwords($value['tipo']) . "</option> ";
+                }
+                ?>
+
             </select>
-            <div class="input-wrapper">
+            <div class="input-wrapper" hidden>
                 <label for="cpf_cnpj">Cpf ou Cnpj: </label>
                 <input type="text" name="cpf_cnpj" id="cpf_cnpj">
             </div>
-            <div class="input-wrapper">
+            <div class="input-wrapper" hidden>
                 <label for="numeroCartao">Numero do Cartão: </label>
                 <input type="text" name="numeroCartao" id="numeroCartao">
             </div>
-            <div class="input-wrapper">
+            <div class="input-wrapper" hidden>
                 <label for="cvv">Codigo de segurança: </label>
                 <input type="text" name="cvv" id="cvv">
             </div>
-            <div class="input-wrapper">
+            <div class="input-wrapper" hidden>
                 <label for="dataVencimento">Data de Vencimento do cartão: </label>
                 <input type="text" name="dataVencimento" id="dataVencimento">
             </div>
-            <div class="input-wrapper">
+            <div class="input-wrapper" hidden>
                 <label for="nomeNoCartao">Nome no Cartão: </label>
                 <input type="text" name="nomeNoCartao" id="nomeNoCartao">
             </div>
@@ -48,4 +58,5 @@
     </main>
 
 </body>
+
 </html>

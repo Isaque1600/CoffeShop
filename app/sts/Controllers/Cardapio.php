@@ -8,10 +8,12 @@ use PDOException;
 use Sts\Models\Helpers\Select;
 use Sts\Models\Helpers\Session;
 
-class Cardapio {
+class Cardapio
+{
     private ?array $data = [];
 
-    public function index(): void {
+    public function index(): void
+    {
         $session = new Session;
         $select = new Select();
 
@@ -29,14 +31,15 @@ class Cardapio {
         $loadView->renderView();
     }
 
-    public function pesquisar($urlParameters = []): void {
+    public function pesquisar($urlParameters = []): void
+    {
         $session = new Session;
         $select = new Select();
 
         $session->create();
 
         try {
-            if(!empty($urlParameters['search'])) {
+            if (!empty($urlParameters['search'])) {
                 $this->data['produtos'] = $select->selectName($urlParameters['search']);
                 $this->data['search'] = $urlParameters['search'];
             } else {
@@ -51,7 +54,8 @@ class Cardapio {
         $loadView->renderView();
     }
 
-    public function addcart($urlParameters = []) {
+    public function addcart($urlParameters = [])
+    {
         $session = new Session;
         $select = new Select();
 
@@ -62,26 +66,27 @@ class Cardapio {
         // var_dump($ob);
         // var_dump($_SESSION['user']['cart']);
 
-        if(isset($_SESSION['user']['cart']) && in_array($urlParameters['name'], array_keys($_SESSION['user']['cart']))) {
+        if (isset($_SESSION['user']['cart']) && in_array($urlParameters['name'], array_keys($_SESSION['user']['cart']))) {
             $_SESSION['user']['cart'][$urlParameters['name']][1] += 1;
         } else {
-            $_SESSION['user']['cart'][$ob['nome']] = [$ob['valor'], 1];
+            $_SESSION['user']['cart'][$ob['nome']] = [$ob['valor'], 1, $ob['produtoId']];
         }
 
-        header("location:".DEFAULT_URL."Cardapio/");
+        header("location:" . DEFAULT_URL . "Cardapio/");
 
     }
 
-    public function removecart($urlParameters = []) {
+    public function removecart($urlParameters = [])
+    {
         $session = new Session;
 
         $session->create();
 
-        if(isset($_SESSION['user']['cart']) && in_array($urlParameters['name'], array_keys($_SESSION['user']['cart']))) {
+        if (isset($_SESSION['user']['cart']) && in_array($urlParameters['name'], array_keys($_SESSION['user']['cart']))) {
             unset($_SESSION['user']['cart'][$urlParameters['name']]);
         }
 
-        header("location:".DEFAULT_URL."Cardapio/");
+        header("location:" . DEFAULT_URL . "Cardapio/");
 
     }
 

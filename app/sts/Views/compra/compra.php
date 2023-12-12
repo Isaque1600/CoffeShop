@@ -21,25 +21,25 @@
                 <h2><i class="fa-solid fa-bag-shopping"></i> Seu pedido</h2>
             </header>
             <ul class="items">
-                <li class="item">
-                    <img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt="">
-                    <p>Mocha</p>
-                    <p>3 x <b>R$99,99</b></p>
-                </li>
-                <li class="item">
-                    <img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt="">
-                    <p>Mocha</p>
-                    <p>3 x <b>R$99,99</b></p>
-                </li>
-                <li class="item">
-                    <img src="<?php echo IMG_PATH ?>pexels-mohammad-khorram-14704657.jpg" alt="">
-                    <p>Mocha</p>
-                    <p>3 x <b>R$99,99</b></p>
-                </li>
+                <?php
+
+                foreach ($data['prod'] as $key => $value) {
+                    echo "<li class=\"item\">";
+                    echo "<p>$key</p>";
+                    echo "<p>$value[1] x <b>R$$value[0]</b></p>";
+                    echo "</li>";
+                }
+
+                ?>
             </ul>
             <div class="general-info">
-                <p>Valor Total: <b>R$99,99</b></p>
-                <p>Token: <b>KFC123</b></p>
+                <p>Valor Total: <b>
+                        R$
+                        <?php echo $data['valor'] ?>
+                    </b></p>
+                <p>Token: <b>
+                        <?php echo $data['token'] ?>
+                    </b></p>
             </div>
             <a href="<?php echo DEFAULT_URL ?>">Retornar ao início</a>
         </section>

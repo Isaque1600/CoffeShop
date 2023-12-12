@@ -59,7 +59,7 @@ class Select
         $this->setConnect();
 
         try {
-            $query = $this->connect->prepare("SELECT * FROM vendas ORDER BY vendaId");
+            $query = $this->connect->prepare("SELECT vendaId, pessoaId, valor, dataVenda, token FROM vendas ORDER BY vendaId");
 
             if ($query->execute()) {
                 return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -84,25 +84,77 @@ class Select
         }
     }
 
+    public function selectId($table, $id)
+    {
+        $this->setConnect();
+
+        try {
+            if ($table == "produtos") {
+                $query = $this->connect->prepare("SELECT nome FROM produtos WHERE produtoId = :id");
+            } elseif ($table == "pessoas") {
+                $query = $this->connect->prepare("SELECT nome FROM pessoas WHERE pessoaId = :id");
+            }
+
+            $query->bindParam(":id", $id, PDO::PARAM_INT);
+
+            if ($query->execute()) {
+                return $query->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $err) {
+            throw $err;
+        }
+    }
+
+    public function selectCat($type, $id)
+    {
+        $this->setConnect();
+
+        try {
+            if ($type == "pessoa") {
+                $query = $this->connect->prepare("SELECT idCategoria FROM pessoas_categoria WHERE idPessoa = :id");
+
+                $query->bindParam(":id", $id, PDO::PARAM_INT);
+
+                if ($query->execute()) {
+                    return $query->fetchAll(PDO::FETCH_COLUMN);
+                }
+
+            } elseif ($type == "produto") {
+                $query = $this->connect->prepare("SELECT idCategoria FROM produtos_categoria WHERE idProduto = :id ORDER BY idProduto");
+
+                $query->bindParam(":id", $id, PDO::PARAM_INT);
+
+                if ($query->execute()) {
+                    return $query->fetchAll(PDO::FETCH_COLUMN);
+                }
+            }
+        } catch (PDOException $err) {
+            throw $err;
+        }
+
+
+
+    }
+
     private function getTableQuery($type = "all")
     {
 
         if ($type == "all") {
             switch ($this->table) {
                 case 'produtos':
-                    return $this->connect->prepare("SELECT * FROM produtos ");
+                    return $this->connect->prepare("SELECT * FROM produtos ORDER BY produtoId");
 
                 case 'produtos_categorias':
-                    return $this->connect->prepare("SELECT * FROM produtos_Categorias ");
+                    return $this->connect->prepare("SELECT * FROM produtos_categoria ");
 
                 case 'pessoas':
                     return $this->connect->prepare("SELECT * FROM pessoas ");
 
-                case 'pessoas_favoritos':
-                    return $this->connect->prepare("SELECT * FROM pessoas_Favoritos ");
+                case 'pessoas_categorias':
+                    return $this->connect->prepare("SELECT * FROM pessoas_categoria ");
 
                 case 'categorias':
-                    return $this->connect->prepare("SELECT * FROM categorias ");
+                    return $this->connect->prepare("SELECT * FROM categorias ORDER BY categoriaId");
 
                 case 'ocupacoes':
                     return $this->connect->prepare("SELECT * FROM ocupacoes ");

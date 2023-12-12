@@ -41,7 +41,13 @@
     <div class="cart-title">
         <h2>Carrinho <i class="fa-solid fa-cart-shopping" style="color: #6d9891ff;"></i></h2>
         <p class="close-cart"><i class="fa-solid fa-xmark"></i></p>
-        <a href="<?php echo DEFAULT_URL ?>user/pagamento" class="buy">Comprar</a>
+        <?php
+
+        if (isset($_SESSION['user']['cart']) && !empty($_SESSION['user']['cart'])) {
+            echo "<a href=\"" . DEFAULT_URL . "user/pagamento\" class=\"buy\">Comprar</a>";
+        }
+
+        ?>
     </div>
     <div class="cart-items">
         <?php

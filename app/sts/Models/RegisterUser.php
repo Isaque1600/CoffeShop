@@ -57,13 +57,15 @@ class RegisterUser extends Person
                 :pass
                 )");
 
+            $pass = $encryption->encrypt($userData['pass']);
+
             // seta os dados da statement
             $userInsert->bindParam(":cpf_cnpj", $userData['cpf']);
             $userInsert->bindParam(":name", $userData['name']);
             $userInsert->bindParam(":sobrenome", $userData['sobrenome']);
             $userInsert->bindParam(":type", $this->type);
             $userInsert->bindParam(":email", $userData['email']);
-            $userInsert->bindParam(":pass", $encryption->encrypt($userData['pass']));
+            $userInsert->bindParam(":pass", $pass);
 
             // verifica se foi possivel inserir e retorna sucesso
             if ($userInsert->execute()) {

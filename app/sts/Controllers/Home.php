@@ -4,11 +4,14 @@ namespace Sts\Controllers;
 
 use Core\ConfigView;
 use PDOException;
+use Sts\Models\Helpers\Insert;
+use Sts\Models\Helpers\Select;
 use Sts\Models\Helpers\Session;
 use Sts\Models\RegisterUser;
 use Sts\Models\VerifyUser;
 
-class Home {
+class Home
+{
     /**
      * Dados a ser passados para a view
      * @var array
@@ -30,11 +33,12 @@ class Home {
      * @param array|null $urlParametters Parametros da url
      * @return void
      */
-    public function index(?array $urlParametters = []) {
-        if(session_status() != PHP_SESSION_ACTIVE) {
+    public function index(?array $urlParametters = [])
+    {
+        if (session_status() != PHP_SESSION_ACTIVE) {
             session_start();
 
-            if(!empty($_SESSION) && $_SESSION['user']['status'] = "active") {
+            if (!empty($_SESSION) && $_SESSION['user']['status'] = "active") {
                 $this->data['user'] = $_SESSION['user'];
             }
         }
@@ -45,15 +49,16 @@ class Home {
 
     /**
      * Carrega a pagina de login de usuario
-     * @param array|null $urlParametters 
+     * @param array|null $urlParameters 
      * @return void
      */
-    public function login(array $urlParametters = []) {
+    public function login(array $urlParameters = [])
+    {
         // Pega os dados vindo por post do formulario
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         // Verifica se tem uma request
-        if(isset($this->dataForm['request'])) {
+        if (isset($this->dataForm['request'])) {
             // Exclui a request
             unset($this->dataForm['request']);
 
@@ -66,8 +71,8 @@ class Home {
                 // var_dump($_SESSION);
 
                 // Caso o usuario estiver cadastrado ele cria a sessão e loga o usuario
-                if(!empty($_SESSION) && $_SESSION['user']['status'] == "active") {
-                    header("location:".DEFAULT_URL);
+                if (!empty($_SESSION) && $_SESSION['user']['status'] == "active") {
+                    header("location:" . DEFAULT_URL);
                 }
 
                 // Caso não ele retorna o resultado como um erro
@@ -82,8 +87,8 @@ class Home {
 
         // Caso tenha alguma variavel no Get ele manda
         // mais usado para confirmar o cadastro do usuario quando for redirecionado
-        if(!empty($urlParametters)) {
-            $this->data['result'] = (!empty($urlParametters['result'])) ? $urlParametters['result'] : null;
+        if (!empty($urlParameters)) {
+            $this->data['result'] = (!empty($urlParameters['result'])) ? $urlParameters['result'] : null;
         }
 
         // var_dump($this->data);
@@ -98,13 +103,14 @@ class Home {
      * @param array|null $urlParametters
      * @return void
      */
-    public function cadastro(array $urlParametters = []) {
+    public function cadastro(array $urlParameters = [])
+    {
         // Pega os dados vindo por post do formulario
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         // var_dump($this->dataForm);
 
         // Verifica se tem um request
-        if(isset($this->dataForm['registerUser'])) {
+        if (isset($this->dataForm['registerUser'])) {
             // Deleta a request
             unset($this->dataForm['registerUser']);
 
@@ -121,7 +127,10 @@ class Home {
                 $this->data['result'] = $err->getCode();
                 $this->data['form'] = $this->dataForm;
             }
+        }
 
+        if (isset($this->data['result']) && $this->data['result'] == "succeed") {
+            header("location:" . DEFAULT_URL . "Home/categorias?nome=" . $this->dataForm['name']);
         }
 
         // Carrega a pagina/View
@@ -129,7 +138,40 @@ class Home {
         $loadView->renderView();
     }
 
-    public function sobre(): void {
+    public function categorias(array $urlParameters = [])
+    {
+        $select = new Select();
+        $insert = new Insert();
+
+        $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+        if (isset($this->dataForm['submit'])) {
+            unset($this->dataForm['submit']);
+
+            try {
+                $this->data['result'] = $insert->insertCategories('pessoas', $this->dataForm['categorias'], $urlParameters['nome']);
+            } catch (PDOException $err) {
+                $this->data['result'] = $err->getCode();
+                $this->data['err'] = $err->getMessage();
+            }
+        }
+
+        if (isset($this->data['result']) && $this->data['result'] == "success") {
+            header("location:" . DEFAULT_URL . "Home/login?result=success");
+        }
+
+        try {
+            $this->data['categorias'] = $select->selectAll('categorias');
+        } catch (PDOException $err) {
+            $this->data['err'] = $err->getMessage();
+        }
+
+        $loadView = new ConfigView("sts/Views/preferidos/pref-categorias", $this->data);
+        $loadView->renderView();
+    }
+
+    public function sobre(): void
+    {
         $session = new Session;
         $session->create();
 
@@ -139,21 +181,22 @@ class Home {
 
     /**
      * Desloga o usuario
-     * @param array $urlParametters
+     * @param array $urlParameters
      * @return void
      */
-    public function sair(array $urlParametters = []) {
+    public function sair(array $urlParameters = [])
+    {
         // Verifica se tem alguma sessão ativa
         // Se não tiver ele seta uma para apagar os dados da variavel de sessão
         // e destruir ela
-        if(session_status() != PHP_SESSION_ACTIVE) {
+        if (session_status() != PHP_SESSION_ACTIVE) {
             session_start();
             // echo "hello";
 
             unset($_SESSION['user']);
             session_destroy();
         }
-        header("location:".DEFAULT_URL);
+        header("location:" . DEFAULT_URL);
     }
 
 }
