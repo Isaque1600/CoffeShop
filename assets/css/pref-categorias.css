@@ -32,9 +32,17 @@
     background-color: var(--ui-layout);
 }
 
+.cafes h2 {
+    color: var(--ui-layout);
+}
+
 .massas {
     grid-column: 2;
     background-color: var(--cmplt-brown);
+}
+
+.massas h2 {
+    color: var(--cmplt-brown);
 }
 
 .sobremesas {
@@ -42,9 +50,18 @@
     background-color: var(--ui-details);
 }
 
+.sobremesas h2 {
+    color: var(--ui-details);
+}
+
 .category {
     align-self: flex-start;
     list-style: none;
+}
+
+h2 {
+    padding: 1rem .5rem;
+    background-color: var(--chr-color);
 }
 
 input[type="checkbox"] {

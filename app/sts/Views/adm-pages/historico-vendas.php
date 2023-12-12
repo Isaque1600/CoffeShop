@@ -55,7 +55,7 @@ echo "</pre>";
                     <td>R$2,00</td>
                     <td>R$4,00</td>
                     <td>123jqz</td>
-                    <td rowspan="2">R$6,00</td>
+                    <td >R$6,00</td>
                 </tr>
                 <tr>
                     <th>9 de janeiro</th>
@@ -145,7 +145,7 @@ echo "</pre>";
             <tfoot>
                 <tr>
                     <th>Faturamento</th>
-                    <td colspan="4">R$999,999</td>
+                    <td colspan="8">R$999,999</td>
                 </tr>
             </tfoot>
         </table>
