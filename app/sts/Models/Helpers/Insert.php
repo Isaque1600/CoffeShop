@@ -76,6 +76,48 @@ class Insert
         }
     }
 
+    public function insertCategories(string $table, array $data, string $name)
+    {
+        $this->setConnect();
+        $this->data = $data;
+        $this->table = $table;
+
+        try {
+            if ($this->table == "produtos") {
+                $idProduto = $this->connect->query("SELECT produtoId FROM produtos where nome = '$name'");
+                $idProduto = $idProduto->fetch(PDO::FETCH_ASSOC)['produtoId'];
+                var_dump($idProduto);
+
+                foreach ($this->data as $key => $value) {
+                    $query = $this->connect->prepare("INSERT INTO produtos_categoria VALUES (:produtoId, :categoriaId)");
+
+                    $query->bindParam(":produtoId", $idProduto, PDO::PARAM_INT);
+                    $query->bindParam(":categoriaId", $value, PDO::PARAM_INT);
+
+                    $query->execute();
+                }
+            } elseif ($this->table == "pessoas") {
+                $idPessoa = $this->connect->query("SELECT pessoaId FROM pessoas where nome = '$name'");
+                $idPessoa = $idPessoa->fetch(PDO::FETCH_ASSOC)['pessoaId'];
+                // var_dump($idPessoa);
+
+                foreach ($this->data as $key => $value) {
+                    $query = $this->connect->prepare("INSERT INTO pessoas_categoria VALUES (:pessoaId, :categoriaId)");
+
+                    $query->bindParam(":pessoaId", $idPessoa, PDO::PARAM_INT);
+                    $query->bindParam(":categoriaId", $value, PDO::PARAM_INT);
+
+                    $query->execute();
+                }
+            }
+
+            return "success";
+        } catch (PDOException $err) {
+            throw $err;
+        }
+
+    }
+
     private function setTable(): ?object
     {
 

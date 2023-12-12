@@ -44,6 +44,40 @@ class User
 
     public function favoritos(?array $urlParameters = null): void
     {
+        $session = new Session;
+
+        $session->create();
+
+        $select = new Select();
+
+        try {
+            $pessoaCategorias = $select->selectCat('pessoa', $_SESSION['user']['pessoaId']);
+
+            $produtos = $select->selectAll('produtos');
+
+            foreach ($produtos as $key => $value) {
+                $prodCategorias = $select->selectCat('produto', $value['produtoId']);
+                $produtos[$key]['categorias'] = $prodCategorias;
+            }
+
+            foreach ($produtos as $key => $value) {
+                if (!array_diff($value['categorias'], $pessoaCategorias)) {
+                    unset($produtos[$key]);
+                }
+            }
+
+            // foreach ($produtos as $key => $value) {
+            //     if (count($value['categoria'])) {
+            //         # code...
+            //     }
+            // }
+
+
+
+        } catch (PDOException $err) {
+            $this->data['err'] = $err->getMessage();
+        }
+
         $loadView = new ConfigView('sts/Views/preferidos/preferidos', $this->data);
         $loadView->renderView();
     }
@@ -66,6 +100,7 @@ class User
 
         // var_dump($_SESSION);
 
+        $select = new Select();
         $insert = new Insert();
         $date = new DateTime();
 
@@ -93,6 +128,12 @@ class User
             } catch (PDOException $err) {
                 $this->data['err'] = $err->getMessage();
             }
+        }
+
+        try {
+            $this->data['formasPagamento'] = $select->selectAll('forma_pag');
+        } catch (PDOException $err) {
+            $this->data['err'] = $err->getMessage();
         }
 
         $loadView = new ConfigView('sts/Views/compra/pagamento', $this->data);
@@ -124,7 +165,7 @@ class User
         $loadView->renderView();
     }
 
-    public function cadastrarProdutos(?array $urlParameters = null): void
+    public function cadastrarProdutos(array $urlParameters = []): void
     {
         $session = new Session;
         $session->create();
@@ -141,8 +182,6 @@ class User
 
             $fileSystem = new FileHandler($fileName, "png", $originalFileName, $tmp_path);
 
-            $this->data['dataForm'] = true;
-
             $insert = new Insert();
 
             try {
@@ -154,12 +193,56 @@ class User
                 $this->data['err'] = $err->getMessage();
             }
 
+            if (isset($this->data['stats']) && in_array('success', $this->data['stats'])) {
+                header("location:" . DEFAULT_URL . "User/produtoCategorias?nome=" . $this->dataForm['nome']);
+            }
+
+        }
+
+        if (isset($urlParameters['result'])) {
+            $this->data['stats'][] = "success";
+            $this->data['stats'][] = "success";
         }
 
         if (isset($_SESSION) && $_SESSION['user']['tipo'] != "usuario") {
             $loadView = new ConfigView("sts/Views/adm-pages/cad-produto", $this->data);
             $loadView->renderView();
         }
+    }
+
+    public function produtoCategorias(?array $urlParameters = null)
+    {
+        $session = new Session();
+        $session->create();
+
+        $select = new Select();
+        $insert = new Insert();
+
+        $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+        if (isset($this->dataForm['submit'])) {
+            unset($this->dataForm['submit']);
+
+            try {
+                $this->data['result'] = $insert->insertCategories('produtos', $this->dataForm['categorias'], $urlParameters['nome']);
+            } catch (PDOException $err) {
+                $this->data['result'] = $err->getCode();
+                $this->data['err'] = $err->getMessage();
+            }
+        }
+
+        try {
+            $this->data['categorias'] = $select->selectAll('categorias');
+        } catch (PDOException $err) {
+            $this->data['err'] = $err->getMessage();
+        }
+
+        if (isset($this->data['result']) && $this->data['result'] == "success") {
+            header("location:" . DEFAULT_URL . "User/cadastrarProdutos?result=success");
+        }
+
+        $loadView = new ConfigView("sts/Views/adm-pages/pref-categorias-cad", $this->data);
+        $loadView->renderView();
     }
 
     public function vendas(?array $urlParameters = null): void

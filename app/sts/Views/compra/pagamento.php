@@ -26,8 +26,12 @@
     <main class="pay-form-wrapper">
         <form action="" method="post" class="pay-form">
             <select name="formaPagamento" id="formaPagamento">
-                <option value="pix">PIX</option>
-                <option value="debito">Cartão de Debito</option>
+                <?php
+                foreach ($data['formasPagamento'] as $key => $value) {
+                    echo "<option value=\"{$value['tipo']}\">" . ucwords($value['tipo']) . "</option> ";
+                }
+                ?>
+
             </select>
             <div class="input-wrapper" hidden>
                 <label for="cpf_cnpj">Cpf ou Cnpj: </label>

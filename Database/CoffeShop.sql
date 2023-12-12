@@ -139,8 +139,8 @@ CREATE TABLE IF NOT EXISTS pessoas (
     FOREIGN KEY (ocupacao) REFERENCES ocupacoes (ocupacaoId)
 );
 
-INSERT INTO pessoas (nome, tipo, email, senha) VALUES ('teste', 'usuario', 'teste@gmail.com', 'teste');
-INSERT INTO pessoas (nome, tipo, email, senha) VALUES ('caixa', 'func', 'caixa@gmail.com', 'caixa');
+                                                                                            -- senha: caixa 
+INSERT INTO pessoas (nome, tipo, email, senha) VALUES ('caixa', 'func', 'caixa@gmail.com', '5MSJswgScdZJN25+KebAlhKyv91q4cKos2csR6oEaUPTRweYLi/zheK8Jm5zGWH7WegycoBs/PdBlzg75P1363uRC7CxAIZ1MiCKM6l1tBtYsgCtssiXarptFTvuCgG4Dm0FLT06Euw1cx8RitfOwhNpnnZexHY6W+iqDku5cic=');
 
 
 CREATE TABLE IF NOT EXISTS pessoas_categoria (
@@ -156,6 +156,9 @@ CREATE TABLE IF NOT EXISTS formaPagamento (
     formaPagamentoId int PRIMARY KEY AUTO_INCREMENT,
     tipo varchar(20) NULL
 );
+
+INSERT INTO formaPagamento (tipo) VALUES('pix');
+INSERT INTO formaPagamento (tipo) VALUES('debito');
 
 CREATE TABLE IF NOT EXISTS vendas (
     vendaId int PRIMARY KEY AUTO_INCREMENT,

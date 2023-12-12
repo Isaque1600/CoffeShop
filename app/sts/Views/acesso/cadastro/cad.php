@@ -4,9 +4,7 @@
 $dataForm = (isset($data['form'])) ? $data['form'] : null;
 
 if (isset($data['result'])) {
-    if ($data['result'] == "succeed") {
-        header("location:" . DEFAULT_URL . "Home/login?result=success");
-    } elseif ($data['result'] == "23000") {
+    if ($data['result'] == "23000") {
         $result['title'] = "Usuário já cadastrado no sistema!";
         $result['text'] = "O usuário {$dataForm['name']} já está cadastrado no sistema </br>Tente cadastrar outro usuário";
     } else {

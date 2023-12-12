@@ -1,6 +1,6 @@
 <?php
 
-if (isset($data['dataForm']) && isset($data['stats'])) {
+if (isset($data['stats'])) {
     if ($data['stats'][0] == "success" && $data['stats'][1] == "success") {
         $result['title'] = "Cadastro sucedido!";
         $result['text'] = "O cadastro do produto foi feito com exito!";
@@ -13,6 +13,8 @@ if (isset($data['dataForm']) && isset($data['stats'])) {
         }
     }
 }
+
+// var_dump($data);
 
 ?>
 

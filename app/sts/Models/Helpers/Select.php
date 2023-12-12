@@ -100,13 +100,39 @@ class Select
             if ($query->execute()) {
                 return $query->fetch(PDO::FETCH_ASSOC);
             }
-        } catch (\Throwable $th) {
-            //throw $th;
+        } catch (PDOException $err) {
+            throw $err;
         }
     }
 
-    public function selectCat($table, $id)
+    public function selectCat($type, $id)
     {
+        $this->setConnect();
+
+        try {
+            if ($type == "pessoa") {
+                $query = $this->connect->prepare("SELECT idCategoria FROM pessoas_categoria WHERE idPessoa = :id");
+
+                $query->bindParam(":id", $id, PDO::PARAM_INT);
+
+                if ($query->execute()) {
+                    return $query->fetchAll(PDO::FETCH_COLUMN);
+                }
+
+            } elseif ($type == "produto") {
+                $query = $this->connect->prepare("SELECT idCategoria FROM produtos_categoria WHERE idProduto = :id ORDER BY idProduto");
+
+                $query->bindParam(":id", $id, PDO::PARAM_INT);
+
+                if ($query->execute()) {
+                    return $query->fetchAll(PDO::FETCH_COLUMN);
+                }
+            }
+        } catch (PDOException $err) {
+            throw $err;
+        }
+
+
 
     }
 
@@ -116,19 +142,19 @@ class Select
         if ($type == "all") {
             switch ($this->table) {
                 case 'produtos':
-                    return $this->connect->prepare("SELECT * FROM produtos ");
+                    return $this->connect->prepare("SELECT * FROM produtos ORDER BY produtoId");
 
                 case 'produtos_categorias':
-                    return $this->connect->prepare("SELECT * FROM produtos_Categorias ");
+                    return $this->connect->prepare("SELECT * FROM produtos_categoria ");
 
                 case 'pessoas':
                     return $this->connect->prepare("SELECT * FROM pessoas ");
 
-                case 'pessoas_favoritos':
-                    return $this->connect->prepare("SELECT * FROM pessoas_Favoritos ");
+                case 'pessoas_categorias':
+                    return $this->connect->prepare("SELECT * FROM pessoas_categoria ");
 
                 case 'categorias':
-                    return $this->connect->prepare("SELECT * FROM categorias ");
+                    return $this->connect->prepare("SELECT * FROM categorias ORDER BY categoriaId");
 
                 case 'ocupacoes':
                     return $this->connect->prepare("SELECT * FROM ocupacoes ");

@@ -58,8 +58,9 @@ class VerifyUser extends Person
             }
 
             if ($userData !== false) {
-                $verifyPass = $encryption->decrypt($userData['senha']);
-                if (!empty($userData) && $verifyPass = $senha) {
+                $userData['senha'] = $encryption->decrypt($userData['senha']);
+                $verifyPass = $userData['senha'];
+                if (!empty($userData) && $verifyPass == $senha) {
                     if (session_status() != PHP_SESSION_ACTIVE) {
                         session_start();
                         // var_dump($userData);
