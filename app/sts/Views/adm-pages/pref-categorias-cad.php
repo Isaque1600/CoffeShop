@@ -19,7 +19,7 @@ var_dump($data);
     include(HEADER);
     ?>
     <form action="" class="categories-container" method="post">
-    <h2>Categorias</h2>
+    <h2>Selecione suas categorias favoritas</h2>
         <ul class="wrapper">
             <?php
 

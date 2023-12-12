@@ -12,9 +12,14 @@
     --cmplt-brown: #2b0000;
   }
 
+  .qr-code-body {
+    position: static;
+  }
+
   .pay-form-wrapper {
     padding-block: 2rem;
     background: radial-gradient(circle at 10% 10%, var(--bg-color) 18%, var(--ui-details) 18%); 
+    height: 100vh;
   }
 
 .pay-form {
@@ -92,6 +97,10 @@ select, select > * {
     padding: .5rem;
     background-color: var(--ui-details);
     border-radius: .25rem;
+    font-size: clamp(0.9375rem, 0.4375rem + 2vw, 1.5625rem);
+}
+
+.continue-btn {
     font-size: clamp(0.9375rem, 0.4375rem + 2vw, 1.5625rem);
 }
 
