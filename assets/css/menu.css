@@ -6,6 +6,7 @@
   --ui-details: #6d9891ff;
 
   --bg-color: #262A56;
+  --bg-orange: #B8621B;
 
   /*Cores Complementares*/
   --cmplt-green: #a8bab9ff;
@@ -13,7 +14,7 @@
 }
 
 body {
-  background-color: #B8621B;
+  background-color: var(--bg-orange);
 }
 
 .title {
